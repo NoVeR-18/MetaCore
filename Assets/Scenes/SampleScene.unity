@@ -135,14 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: raft
       objectReference: {fileID: 0}
-    - target: {fileID: 5610527798924380548, guid: 558bef8869ad9e74ab84949f547b7dc2, type: 3}
-      propertyPath: m_Time
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5610527798924380548, guid: 558bef8869ad9e74ab84949f547b7dc2, type: 3}
-      propertyPath: m_Autodestruct
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6386163939792365252, guid: 558bef8869ad9e74ab84949f547b7dc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8
@@ -153,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6386163939792365252, guid: 558bef8869ad9e74ab84949f547b7dc2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.95
+      value: 15.1
       objectReference: {fileID: 0}
     - target: {fileID: 6386163939792365252, guid: 558bef8869ad9e74ab84949f547b7dc2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -183,13 +175,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6554237400785523959, guid: 558bef8869ad9e74ab84949f547b7dc2, type: 3}
-      propertyPath: m_Autodestruct
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1446572008776953758, guid: 558bef8869ad9e74ab84949f547b7dc2, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 558bef8869ad9e74ab84949f547b7dc2, type: 3}
