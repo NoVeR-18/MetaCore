@@ -26,10 +26,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isMoving && playerAlive)
         {
-            // Обработка ввода с телефона (свайпы)
             DetectSwipe();
 
-            // Обработка ввода с ПК (клавиатура)
             DetectKeyboardInput();
         }
     }
@@ -78,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
 
             if (Mathf.Abs(swipeVector.x) > Mathf.Abs(swipeVector.y))
             {
-                // Горизонтальный свайп
                 if (swipeVector.x > 0)
                 {
                     moveDirection = Vector2.right;
@@ -100,7 +97,6 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                // Вертикальный свайп
                 if (swipeVector.y > 0)
                 {
                     moveDirection = Vector2.up;

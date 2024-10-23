@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1141425216824629071}
   - component: {fileID: 6921027004843037956}
   - component: {fileID: 9092444849175904719}
+  - component: {fileID: -7726372758812516658}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -54,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,3 +145,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GoldStar: {fileID: 21300000, guid: 1717efb141d54ef43a1df0d7d5c4d908, type: 3}
+--- !u!114 &-7726372758812516658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5757335978282673607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d12769a248ebbf40ac4d56bd9c208dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeObject: 1

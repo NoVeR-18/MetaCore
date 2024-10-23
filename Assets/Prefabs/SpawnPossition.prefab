@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 1158544911638385124}
   - component: {fileID: 1634762882364033878}
   - component: {fileID: 5350779869880321908}
-  - component: {fileID: 6537220057524900456}
+  - component: {fileID: 3394799178240706293}
+  - component: {fileID: 5642185030006200325}
   m_Layer: 0
-  m_Name: Finish
-  m_TagString: Untagged
+  m_Name: SpawnPossition
+  m_TagString: SpawnPossition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6537220057524900456
+--- !u!114 &3394799178240706293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,6 +141,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5996525126571377367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f418f45fc9ad744ab1cc3067a9577fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 0547cb816c517e54b8a83066866485d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5642185030006200325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5996525126571377367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d12769a248ebbf40ac4d56bd9c208dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeObject: 0
