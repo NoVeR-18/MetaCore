@@ -103,3 +103,9 @@ MonoBehaviour:
   - name: 
     prefabType: 0
     position: {x: -3, y: 0.5, z: -1.5}
+  - name: 
+    prefabType: 1
+    position: {x: -1, y: 0.5, z: -1.5}
+  - name: 
+    prefabType: 1
+    position: {x: -4, y: 0.5, z: -0.5}
