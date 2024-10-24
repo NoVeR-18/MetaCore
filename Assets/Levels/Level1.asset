@@ -12,69 +12,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b420c95ecb9ed534199417a071a8d566, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  tiles: []
   Wallprefabs:
-  - name: grass_corner
+  - name: Free Tile
     prefabType: 0
-    possition: {x: 0, y: 0, z: 0}
-  - name: grass_corner
+    position: {x: -4.0376525, y: 0.5, z: -2.5716348}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -4.0376525, y: 0.42836535, z: -2.4623473}
-  - name: grass_corner
+    position: {x: -3.0376525, y: 0.5, z: -2.5716348}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -4.0376525, y: 0.42836535, z: -1.4623473}
-  - name: grass_corner
+    position: {x: -2.0376525, y: 0.5, z: -2.5716348}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -4.0376525, y: 0.42836535, z: -0.46234727}
-  - name: grass_corner
+    position: {x: -1.0376526, y: 0.5, z: -2.5716348}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -4.0376525, y: 0.42836535, z: 0.53765273}
-  - name: grass_corner
+    position: {x: -0.03765261, y: 0.5, z: -2.5716348}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -3.0376525, y: 0.42836535, z: 0.53765273}
-  - name: grass_corner
+    position: {x: -0.03765261, y: 0.5, z: -1.5716347}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -2.0376525, y: 0.42836535, z: 0.53765273}
-  - name: grass_corner
+    position: {x: -4.0376525, y: 0.5, z: -1.5716347}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -1.0376525, y: 0.42836535, z: 0.53765273}
-  - name: grass_corner
+    position: {x: -4.0376525, y: 0.5, z: -0.57163465}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -0.037652493, y: 0.42836535, z: 0.53765273}
-  - name: grass_corner
+    position: {x: -4.0376525, y: 0.5, z: 0.42836535}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -0.037652493, y: 0.42836535, z: -0.46234727}
-  - name: grass_corner
+    position: {x: -4.0376525, y: 0.5, z: 1.4283653}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -0.037652493, y: 0.42836535, z: -1.4623473}
-  - name: grass_corner
+    position: {x: -3.0376525, y: 0.5, z: 1.4283653}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -0.037652493, y: 0.42836535, z: -2.4623473}
-  - name: grass_corner
+    position: {x: -2.0376525, y: 0.5, z: 1.4283653}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -1.0376525, y: 0.42836535, z: -2.4623473}
-  - name: grass_corner
+    position: {x: -1.0376526, y: 0.5, z: 1.4283653}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -2.0376525, y: 0.42836535, z: -2.4623473}
-  - name: grass_corner
+    position: {x: -0.03765261, y: 0.5, z: 1.4283653}
+  - name: Free Tile
     prefabType: 0
-    possition: {x: -3.0376525, y: 0.42836535, z: -2.4623473}
+    position: {x: -0.03765261, y: 0.5, z: 0.42836535}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -0.03765261, y: 0.5, z: -0.57163465}
+  - name: sand_single
+    prefabType: 0
+    position: {x: -1.9990191, y: 0.43906185, z: -0.49869132}
   tilesToPaint:
   - position: {x: -4, y: -2, z: 0}
     tileName: frame1
   - position: {x: -4, y: -1, z: 0}
     tileName: frame1
+  - position: {x: -4, y: 0, z: 0}
+    tileName: frame1
   - position: {x: -3, y: -2, z: 0}
     tileName: frame1
-  - position: {x: -3, y: -1, z: 0}
+  - position: {x: -3, y: 0, z: 0}
     tileName: frame1
   - position: {x: -2, y: -2, z: 0}
     tileName: frame1
   - position: {x: -2, y: -1, z: 0}
     tileName: frame1
+  - position: {x: -2, y: 0, z: 0}
+    tileName: frame1
   tilesPaliter:
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 0}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
@@ -83,14 +96,5 @@ MonoBehaviour:
   - {fileID: 0}
   prefabs:
   - name: 
-    prefabType: 1
-    possition: {x: -2, y: 3, z: 0}
-  - name: 
-    prefabType: 1
-    possition: {x: -5, y: 9, z: 0}
-  - name: 
-    prefabType: 1
-    possition: {x: -7, y: 20, z: 0}
-  - name: 
     prefabType: 0
-    possition: {x: -6, y: -3, z: 0}
+    position: {x: -3, y: 0.5, z: -1.5}
