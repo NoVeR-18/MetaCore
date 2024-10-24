@@ -1,42 +1,105 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class TilemapLoader : MonoBehaviour
 {
     public TilemapData tilemapData;
-    public Tilemap tilemap;
+    public WallTilemap objectsContainer;
     public Tilemap tilemapToPaint;
-    public GameObject prefabContainer;
-    public GameObject[] allPrefabs;
+    public Transform itemsPrefabContainer;
+    public List<GameObject> allPrefabs;
+    public List<GameObject> itemsPrefabs = new List<GameObject>();
 
     void Start()
     {
         LoadTilemap();
     }
 
-    void LoadTilemap()
+    //void LoadTilemap()
+    //{
+    //    if (tilemapData == null || tilemap == null)
+    //    {
+    //        Debug.LogError("TilemapData или Tilemap не указаны!");
+    //        return;
+    //    }
+
+    //    tilemap.ClearAllTiles();
+
+    //    foreach (TileData tileData in tilemapData.tiles)
+    //    {
+    //        TileBase tileToPlace = GetTileFromPalette(tileData.tileName);
+
+    //        if (tileToPlace != null)
+    //        {
+    //            tilemap.SetTile(tileData.position, tileToPlace);
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError($"Tile '{tileData.tileName}' не найден в палитре.");
+    //        }
+    //    }
+    //    foreach (TileData tileData in tilemapData.tilesToPaint)
+    //    {
+    //        TileBase tileToPlace = GetTileFromPalette(tileData.tileName);
+
+    //        if (tileToPlace != null)
+    //        {
+    //            tilemapToPaint.SetTile(tileData.position, tileToPlace);
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError($"Tile '{tileData.tileName}' не найден в палитре дл€ окрашивани€.");
+    //        }
+    //    }
+    //    foreach (Transform child in itemsPrefabContainer.transform)
+    //        Destroy(child.gameObject);
+    //    foreach (PrefabData prefabData in tilemapData.prefabs)
+    //    {
+    //        GameObject prefabToInstantiate = System.Array.Find(allPrefabs, prefab => prefab.GetComponent<InteractableObject>().typeObject == prefabData.prefabType);
+    //        if (prefabToInstantiate != null)
+    //        {
+    //            Instantiate(prefabToInstantiate, prefabData.position, Quaternion.identity, itemsPrefabContainer.transform);
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError($"ѕрефаб типа '{prefabData.prefabType}' не найден!");
+    //        }
+    //    }
+    //}
+
+    public void LoadTilemap()
     {
-        if (tilemapData == null || tilemap == null)
+        if (tilemapData == null || objectsContainer == null)
         {
             Debug.LogError("TilemapData или Tilemap не указаны!");
             return;
         }
 
-        tilemap.ClearAllTiles();
-
-        foreach (TileData tileData in tilemapData.tiles)
+        objectsContainer = tilemapToPaint.GetComponent<WallTilemap>();
+        var walls = objectsContainer.items;
+        walls.Clear();
+        for (int i = objectsContainer.transform.childCount - 1; i >= 0; i--)
         {
-            TileBase tileToPlace = GetTileFromPalette(tileData.tileName);
+            Transform child = objectsContainer.transform.GetChild(i);
+            DestroyImmediate(child.gameObject);
+        }
 
-            if (tileToPlace != null)
+        foreach (PrefabData prefabData in tilemapData.Wallprefabs)
+        {
+            GameObject prefabToInstantiate = allPrefabs.Find(prefab => prefab.name == prefabData.name);
+            if (prefabToInstantiate != null)
             {
-                tilemap.SetTile(tileData.position, tileToPlace);
+                var item = Instantiate(prefabToInstantiate, prefabData.position, Quaternion.identity, objectsContainer.transform);
+                item.name = prefabData.name;
             }
             else
             {
-                Debug.LogError($"Tile '{tileData.tileName}' не найден в палитре.");
+                Debug.LogError($"ѕрефаб типа '{prefabData.prefabType}' не найден!");
             }
         }
+
+
         foreach (TileData tileData in tilemapData.tilesToPaint)
         {
             TileBase tileToPlace = GetTileFromPalette(tileData.tileName);
@@ -50,14 +113,17 @@ public class TilemapLoader : MonoBehaviour
                 Debug.LogError($"Tile '{tileData.tileName}' не найден в палитре дл€ окрашивани€.");
             }
         }
-        foreach (Transform child in prefabContainer.transform)
+
+        foreach (Transform child in itemsPrefabContainer)
             Destroy(child.gameObject);
         foreach (PrefabData prefabData in tilemapData.prefabs)
         {
-            GameObject prefabToInstantiate = System.Array.Find(allPrefabs, prefab => prefab.GetComponent<InteractableObject>().typeObject == prefabData.prefabType);
+            GameObject prefabToInstantiate = itemsPrefabs.Find(prefab => prefab.GetComponent<InteractableObject>().typeObject == prefabData.prefabType);
             if (prefabToInstantiate != null)
             {
-                Instantiate(prefabToInstantiate, prefabData.position, Quaternion.identity, prefabContainer.transform);
+                var item = Instantiate(prefabToInstantiate, prefabData.position, Quaternion.identity, itemsPrefabContainer);
+                if (prefabData.prefabType != TypeObject.People)
+                    item.transform.rotation = Quaternion.Euler(90, 0, 0);
             }
             else
             {
@@ -65,7 +131,6 @@ public class TilemapLoader : MonoBehaviour
             }
         }
     }
-
     TileBase GetTileFromPalette(string tileName)
     {
         foreach (TileBase tile in tilemapData.tilesPaliter)

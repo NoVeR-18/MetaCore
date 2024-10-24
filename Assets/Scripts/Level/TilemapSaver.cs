@@ -5,47 +5,30 @@ using UnityEngine.Tilemaps;
 
 public class TilemapSaver : MonoBehaviour
 {
-    public Tilemap targetTilemap;
+    public WallTilemap objectsContainer;
     public Tilemap targetTilemapToPaint;
-    public GameObject prefabToSaveConteiner;
+    public Transform prefabToSaveConteiner;
+    public List<GameObject> allPrefabs = new List<GameObject>();
+    public List<GameObject> itemsPrefabs = new List<GameObject>();
 
     [MenuItem("Tools/Save Tilemap")]
     public static void SaveTilemap()
     {
         TilemapSaver saver = FindObjectOfType<TilemapSaver>();
-        if (saver == null || saver.targetTilemap == null || saver.targetTilemapToPaint == null || saver.prefabToSaveConteiner == null)
+        if (saver == null || saver.targetTilemapToPaint == null || saver.prefabToSaveConteiner == null)
         {
             Debug.LogError("TilemapSaver не найден или Tilemap/ObjectParent не указаны!");
             return;
         }
-        Tilemap tilemap = saver.targetTilemap;
+        saver.objectsContainer = saver.targetTilemapToPaint.GetComponent<WallTilemap>();
+        var walls = saver.objectsContainer.items;
         Tilemap tilemapToPaint = saver.targetTilemapToPaint;
 
         TilemapData tilemapData = ScriptableObject.CreateInstance<TilemapData>();
 
         List<TileData> tileDataList = new List<TileData>();
 
-        BoundsInt bounds = tilemap.cellBounds;
-        TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
-
-        for (int x = bounds.xMin; x < bounds.xMax; x++)
-        {
-            for (int y = bounds.yMin; y < bounds.yMax; y++)
-            {
-                Vector3Int position = new Vector3Int(x, y, 0);
-                TileBase tile = tilemap.GetTile(position);
-
-                if (tile != null)
-                {
-                    TileData tileData = new TileData
-                    {
-                        position = position,
-                        tileName = tile.name
-                    };
-                    tileDataList.Add(tileData);
-                }
-            }
-        }
+        tilemapData.Wallprefabs = new List<PrefabData>(walls);
 
         List<TileData> tileDataListToPaint = new List<TileData>();
 
@@ -73,7 +56,7 @@ public class TilemapSaver : MonoBehaviour
 
         List<TileBase> paletteTiles = new List<TileBase>();
 
-        paletteTiles.AddRange(tilemap.GetTilesBlock(tilemap.cellBounds));
+        paletteTiles.AddRange(tilemapToPaint.GetTilesBlock(tilemapToPaint.cellBounds));
 
         TileBase[] paintTiles = tilemapToPaint.GetTilesBlock(tilemapToPaint.cellBounds);
         foreach (TileBase tile in paintTiles)
@@ -86,7 +69,6 @@ public class TilemapSaver : MonoBehaviour
 
         tilemapData.tilesPaliter = paletteTiles.ToArray();
 
-        tilemapData.tiles = tileDataList.ToArray();
         tilemapData.tilesToPaint = tileDataListToPaint.ToArray();
 
 
@@ -121,15 +103,26 @@ public class TilemapSaver : MonoBehaviour
     public static void ClearTileMap()
     {
         TilemapSaver saver = FindObjectOfType<TilemapSaver>();
-        if (saver == null || saver.targetTilemap == null || saver.targetTilemapToPaint == null)
+        if (saver == null || saver.targetTilemapToPaint == null)
         {
             Debug.LogError("TilemapSaver не найден или Tilemap/ObjectParent не указаны!");
             return;
         }
-        Tilemap tilemap = saver.targetTilemap;
+
+        saver.objectsContainer = saver.targetTilemapToPaint.GetComponent<WallTilemap>();
+        var walls = saver.objectsContainer.items;
+        walls.Clear();
+        for (int i = saver.objectsContainer.transform.childCount - 1; i >= 0; i--)
+        {
+            Transform child = saver.objectsContainer.transform.GetChild(i);
+            DestroyImmediate(child.gameObject);
+        }
         Tilemap tilemapToPaint = saver.targetTilemapToPaint;
-        tilemap.ClearAllTiles();
         tilemapToPaint.ClearAllTiles();
+
+
+        foreach (Transform child in saver.prefabToSaveConteiner)
+            DestroyImmediate(child.gameObject);
 
     }
     public TilemapData tilemapData;
@@ -137,33 +130,42 @@ public class TilemapSaver : MonoBehaviour
     public static void LoadTilemap()
     {
         TilemapSaver saver = FindObjectOfType<TilemapSaver>();
-        if (saver == null || saver.targetTilemap == null || saver.targetTilemapToPaint == null)
+        if (saver == null || saver.targetTilemapToPaint == null)
         {
             Debug.LogError("TilemapSaver не найден или Tilemap/ObjectParent не указаны!");
             return;
         }
 
-        if (saver.tilemapData == null || saver.targetTilemap == null)
+        if (saver.tilemapData == null)
         {
             Debug.LogError("TilemapData или Tilemap не указаны!");
             return;
         }
 
-        saver.targetTilemap.ClearAllTiles();
-
-        foreach (TileData tileData in saver.tilemapData.tiles)
+        saver.objectsContainer = saver.targetTilemapToPaint.GetComponent<WallTilemap>();
+        var walls = saver.objectsContainer.items;
+        walls.Clear();
+        for (int i = saver.objectsContainer.transform.childCount - 1; i >= 0; i--)
         {
-            TileBase tileToPlace = GetTileFromPalette(tileData.tileName);
+            Transform child = saver.objectsContainer.transform.GetChild(i);
+            DestroyImmediate(child.gameObject);
+        }
 
-            if (tileToPlace != null)
+        foreach (PrefabData prefabData in saver.tilemapData.Wallprefabs)
+        {
+            GameObject prefabToInstantiate = saver.allPrefabs.Find(prefab => prefab.name == prefabData.name);
+            if (prefabToInstantiate != null)
             {
-                saver.targetTilemap.SetTile(tileData.position, tileToPlace);
+                var item = Instantiate(prefabToInstantiate, prefabData.position, Quaternion.identity, saver.objectsContainer.transform);
+                item.name = prefabData.name;
             }
             else
             {
-                Debug.LogError($"Tile '{tileData.tileName}' не найден в палитре.");
+                Debug.LogError($"ѕрефаб типа '{prefabData.prefabType}' не найден!");
             }
         }
+
+
         foreach (TileData tileData in saver.tilemapData.tilesToPaint)
         {
             TileBase tileToPlace = GetTileFromPalette(tileData.tileName);
@@ -177,6 +179,26 @@ public class TilemapSaver : MonoBehaviour
                 Debug.LogError($"Tile '{tileData.tileName}' не найден в палитре дл€ окрашивани€.");
             }
         }
+
+        foreach (Transform child in saver.prefabToSaveConteiner)
+            DestroyImmediate(child.gameObject);
+        foreach (PrefabData prefabData in saver.tilemapData.prefabs)
+        {
+            GameObject prefabToInstantiate = saver.itemsPrefabs.Find
+                (prefab => prefab.GetComponent<InteractableObject>().typeObject
+                == prefabData.prefabType);
+            if (prefabToInstantiate != null)
+            {
+                var item = Instantiate(prefabToInstantiate, prefabData.position, Quaternion.identity, saver.prefabToSaveConteiner);
+                if (prefabData.prefabType != TypeObject.People)
+                    item.transform.rotation = Quaternion.Euler(90, 0, 0);
+            }
+            else
+            {
+                Debug.LogError($"ѕрефаб типа '{prefabData.prefabType}' не найден!");
+            }
+        }
+
         TileBase GetTileFromPalette(string tileName)
         {
             foreach (TileBase tile in saver.tilemapData.tilesPaliter)
@@ -188,7 +210,6 @@ public class TilemapSaver : MonoBehaviour
             }
             return null;
         }
-
 
     }
 }

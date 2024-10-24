@@ -12,481 +12,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b420c95ecb9ed534199417a071a8d566, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  tiles:
-  - position: {x: -8, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: -8, y: -4, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -8, y: -3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -7, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: -7, y: -3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -7, y: 0, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -7, y: 1, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -7, y: 2, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -7, y: 3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -7, y: 4, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -7, y: 5, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -7, y: 6, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -7, y: 7, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -7, y: 8, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -7, y: 9, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -6, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: -6, y: -3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -6, y: 0, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -6, y: 9, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -5, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: -5, y: -3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -5, y: 0, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -5, y: 2, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -5, y: 3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -5, y: 4, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -5, y: 5, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -5, y: 6, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -5, y: 7, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -5, y: 9, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -4, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: -4, y: -3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -4, y: 0, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -4, y: 2, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -4, y: 3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -4, y: 7, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -4, y: 9, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -3, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: -3, y: -3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -3, y: 0, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -3, y: 3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -3, y: 7, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -3, y: 9, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -2, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: -2, y: -3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -2, y: 0, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -2, y: 1, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -2, y: 2, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -2, y: 3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -2, y: 7, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -2, y: 9, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -1, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: -1, y: -3, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: -1, y: 7, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: -1, y: 9, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 0, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: 0, y: -3, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: 0, y: 7, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 0, y: 9, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 1, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: 1, y: -3, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: 1, y: 7, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 1, y: 9, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 2, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: 2, y: -3, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: 2, y: -2, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 2, y: -1, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 2, y: 0, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 2, y: 1, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 2, y: 2, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 2, y: 3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 2, y: 4, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 2, y: 5, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 2, y: 6, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 2, y: 7, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 2, y: 9, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 3, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: 3, y: 9, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: -5, z: 0}
-    tileName: Dungeon Tile Set_1
-  - position: {x: 4, y: -4, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: -3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: -2, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: -1, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: 0, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: 1, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: 2, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: 3, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: 4, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: 5, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: 6, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: 7, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: 8, z: 0}
-    tileName: Dungeon Tile Set_11
-  - position: {x: 4, y: 9, z: 0}
-    tileName: Dungeon Tile Set_11
+  tiles: []
+  Wallprefabs:
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: 0, y: 0, z: 0}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -4.0376525, y: 0.42836535, z: -2.4623473}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -4.0376525, y: 0.42836535, z: -1.4623473}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -4.0376525, y: 0.42836535, z: -0.46234727}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -4.0376525, y: 0.42836535, z: 0.53765273}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -3.0376525, y: 0.42836535, z: 0.53765273}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -2.0376525, y: 0.42836535, z: 0.53765273}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -1.0376525, y: 0.42836535, z: 0.53765273}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -0.037652493, y: 0.42836535, z: 0.53765273}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -0.037652493, y: 0.42836535, z: -0.46234727}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -0.037652493, y: 0.42836535, z: -1.4623473}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -0.037652493, y: 0.42836535, z: -2.4623473}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -1.0376525, y: 0.42836535, z: -2.4623473}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -2.0376525, y: 0.42836535, z: -2.4623473}
+  - name: grass_corner
+    prefabType: 0
+    possition: {x: -3.0376525, y: 0.42836535, z: -2.4623473}
   tilesToPaint:
-  - position: {x: -7, y: -4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -6, y: -4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -6, y: 1, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -6, y: 2, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -6, y: 3, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -6, y: 4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -6, y: 5, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -6, y: 6, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -6, y: 7, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -6, y: 8, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -5, y: -4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -5, y: 1, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -5, y: 8, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -4, y: -4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -4, y: 1, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -4, y: 8, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -3, y: -4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -3, y: 1, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -3, y: 2, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -3, y: 8, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -2, y: -4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -2, y: 8, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -1, y: -4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: -1, y: 8, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 0, y: -4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 0, y: 8, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 1, y: -4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 1, y: 8, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 2, y: -4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 2, y: 8, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: -4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: -3, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: -2, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: -1, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: 0, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: 1, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: 2, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: 3, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: 4, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: 5, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: 6, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: 7, z: 0}
-    tileName: Dungeon Tile Set_63
-  - position: {x: 3, y: 8, z: 0}
-    tileName: Dungeon Tile Set_63
+  - position: {x: -4, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: -4, y: -1, z: 0}
+    tileName: frame1
+  - position: {x: -3, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: -3, y: -1, z: 0}
+    tileName: frame1
+  - position: {x: -2, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: -2, y: -1, z: 0}
+    tileName: frame1
   tilesPaliter:
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 11400000, guid: 8f3af690c8ef43b40985f034c4145c0f, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: e5d9a1cf7b80b084b857b2feb4832b77, type: 2}
-  - {fileID: 11400000, guid: 9ac1b503a0e70ca4184af18053fb9cc0, type: 2}
   prefabs:
-  - prefabType: 1
-    position: {x: -2, y: 3, z: 0}
-  - prefabType: 1
-    position: {x: -5, y: 9, z: 0}
-  - prefabType: 1
-    position: {x: -7, y: 20, z: 0}
-  - prefabType: 0
-    position: {x: -6, y: -3, z: 0}
+  - name: 
+    prefabType: 1
+    possition: {x: -2, y: 3, z: 0}
+  - name: 
+    prefabType: 1
+    possition: {x: -5, y: 9, z: 0}
+  - name: 
+    prefabType: 1
+    possition: {x: -7, y: 20, z: 0}
+  - name: 
+    prefabType: 0
+    possition: {x: -6, y: -3, z: 0}

@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName = "TilemapData", menuName = "Levels/New Tilemap")]
 public class TilemapData : ScriptableObject
 {
-    public TileData[] tiles;
+    public List<PrefabData> Wallprefabs;
     public TileData[] tilesToPaint;
     public TileBase[] tilesPaliter;
     public List<PrefabData> prefabs;
@@ -13,6 +13,7 @@ public class TilemapData : ScriptableObject
 [System.Serializable]
 public class PrefabData
 {
+    public string name;
     public TypeObject prefabType;
     public Vector3 position;
 }

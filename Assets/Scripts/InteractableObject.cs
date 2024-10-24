@@ -8,5 +8,7 @@ public class InteractableObject : MonoBehaviour
 public enum TypeObject
 {
     SpawnPossiton,
-    Star
+    Coin,
+    Crystal,
+    People
 }
