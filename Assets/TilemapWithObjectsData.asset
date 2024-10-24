@@ -67,6 +67,24 @@ MonoBehaviour:
   - name: grass_corner
     prefabType: 0
     position: {x: -4.0376525, y: 0.42836535, z: -1.4623473}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 0.9623474, y: 0.5, z: 0.42836535}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 1.9623474, y: 0.5, z: 0.42836535}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 2.9623475, y: 0.5, z: 0.42836535}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 2.9623475, y: 0.5, z: -0.57163465}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 2.9623475, y: 0.5, z: -1.5716347}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 2.9623475, y: 0.5, z: -2.5716348}
   tilesToPaint:
   - position: {x: -4, y: -2, z: 0}
     tileName: frame1
