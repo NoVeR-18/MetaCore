@@ -10,33 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b420c95ecb9ed534199417a071a8d566, type: 3}
-  m_Name: Level2
+  m_Name: Level3
   m_EditorClassIdentifier: 
   Wallprefabs:
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -5.0376525, y: 0.5, z: -2.5716348}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -5.0376525, y: 0.5, z: -1.5716347}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -5.0376525, y: 0.5, z: -0.57163465}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -5.0376525, y: 0.5, z: 0.42836535}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -5.0376525, y: 0.5, z: 1.4283653}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: 1.4283653}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -3.0376525, y: 0.5, z: 1.4283653}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -2.0376525, y: 0.5, z: 1.4283653}
   - name: Free Tile
     prefabType: 0
     position: {x: -4.0376525, y: 0.5, z: -2.5716348}
@@ -48,58 +24,77 @@ MonoBehaviour:
     position: {x: -2.0376525, y: 0.5, z: -2.5716348}
   - name: Free Tile
     prefabType: 0
+    position: {x: -4.0376525, y: 0.5, z: -1.5716347}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -4.0376525, y: 0.5, z: -0.57163465}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -4.0376525, y: 0.5, z: 0.42836535}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -3.0376525, y: 0.5, z: 1.4283653}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -4.0376525, y: 0.5, z: 1.4283653}
+  - name: Free Tile
+    prefabType: 0
     position: {x: -1.0376526, y: 0.5, z: -2.5716348}
   - name: Free Tile
     prefabType: 0
     position: {x: -0.03765261, y: 0.5, z: -2.5716348}
   - name: Free Tile
     prefabType: 0
-    position: {x: -0.03765261, y: 0.5, z: -1.5716347}
+    position: {x: 0.9623474, y: 0.5, z: -1.5716347}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 0.9623474, y: 0.5, z: -0.57163465}
   - name: grass_single
     prefabType: 0
-    position: {x: -2.9990191, y: 0.43906188, z: -0.49869132}
+    position: {x: -1.9990191, y: 0.43906188, z: -0.49869132}
   - name: grass_single
     prefabType: 0
-    position: {x: -0.99901927, y: 0.43906188, z: -0.49869132}
+    position: {x: -1.9990191, y: 0.43906188, z: 0.5013087}
   - name: grass_single
     prefabType: 0
     position: {x: -0.99901927, y: 0.43906188, z: 0.5013087}
+  - name: grass_single
+    prefabType: 0
+    position: {x: 0.0009807348, y: 0.43906188, z: 0.5013087}
   tilesToPaint:
-  - position: {x: -5, y: -2, z: 0}
-    tileName: frame1
-  - position: {x: -5, y: -1, z: 0}
-    tileName: frame1
-  - position: {x: -5, y: 0, z: 0}
-    tileName: frame1
   - position: {x: -4, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: -4, y: -1, z: 0}
     tileName: frame1
   - position: {x: -4, y: 0, z: 0}
     tileName: frame1
   - position: {x: -3, y: -2, z: 0}
     tileName: frame1
-  - position: {x: -3, y: -1, z: 0}
-    tileName: frame1
-  - position: {x: -3, y: 0, z: 0}
-    tileName: frame1
   - position: {x: -2, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: -2, y: -1, z: 0}
+    tileName: frame1
+  - position: {x: -1, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: -1, y: -1, z: 0}
     tileName: frame1
   tilesPaliter:
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 0}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 0}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   prefabs:
   - name: 
-    prefabType: 0
-    position: {x: -3, y: 0.5, z: -1.5}
+    prefabType: 1
+    position: {x: -1, y: 0.5, z: -0.5}
+  - name: 
+    prefabType: 1
+    position: {x: -3, y: 0.5, z: 0.5}
