@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            moveDirection = Vector2.left;
+            moveDirection = Vector3.left;
             isMoving = true;
             if (facingRight)
             {
@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            moveDirection = Vector2.right;
+            moveDirection = Vector3.right;
             isMoving = true;
             if (!facingRight)
             {
@@ -146,31 +146,31 @@ public class PlayerMovement : MonoBehaviour
 
     void FlipCharacter()
     {
-        Vector2 theScale = transform.localScale;
+        Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
     }
 
     void RotatePlayerToWall(Vector3 moveDirection)
     {
-        float angle = 0f;
-        if (moveDirection == Vector3.forward)
-        {
-            angle = 180f;
-        }
-        else if (moveDirection == Vector3.back)
-        {
-            angle = 0f;
-        }
-        else if (moveDirection == Vector3.left)
-        {
-            angle = -90f;
-        }
-        else if (moveDirection == Vector3.right)
-        {
-            angle = 90f;
-        }
-        transform.rotation = Quaternion.Euler(90, 0, angle);
+        //float angle = 0f;
+        //if (moveDirection == Vector3.forward)
+        //{
+        //    angle = 180f;
+        //}
+        //else if (moveDirection == Vector3.back)
+        //{
+        //    angle = 0f;
+        //}
+        //else if (moveDirection == Vector3.left)
+        //{
+        //    angle = -90f;
+        //}
+        //else if (moveDirection == Vector3.right)
+        //{
+        //    angle = 90f;
+        //}
+        //transform.rotation = Quaternion.Euler(90, 0, angle);
     }
 
     public void PlayerDeath()

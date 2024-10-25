@@ -16,7 +16,7 @@ public class PlayerTileInteraction : MonoBehaviour
 
     void Update()
     {
-        Vector3Int tilePosition = tilemap.WorldToCell(transform.position);
+        Vector3Int tilePosition = tilemap.WorldToCell(new Vector3(transform.position.x, 0.5f, transform.position.z));
         TileBase currentTile = tilemap.GetTile(tilePosition);
 
         if (currentTile != null && currentTile != newTile)
