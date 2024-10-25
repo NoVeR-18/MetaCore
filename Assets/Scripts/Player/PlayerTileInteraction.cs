@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -6,7 +7,8 @@ public class PlayerTileInteraction : MonoBehaviour
 {
     public Tilemap tilemap;
     public TileBase newTile;
-    [SerializeField] private int tilesToPaint;
+    public int tilesToPaint;
+    public List<GameObject> ColectedPeople;
     private int paintedTiles = 0;
 
     void Start()
@@ -33,12 +35,15 @@ public class PlayerTileInteraction : MonoBehaviour
         }
     }
 
-
     void OnLevelCompleted()
     {
         paintedTiles = 0;
         Debug.Log("Уровень пройден!");
-
+        foreach (GameObject people in ColectedPeople)
+        {
+            Destroy(people);
+        }
+        ColectedPeople.Clear();
         StartCoroutine(timeToNextLevel());
     }
     private IEnumerator timeToNextLevel()
