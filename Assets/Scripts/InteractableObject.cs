@@ -30,9 +30,11 @@ public class InteractableObject : MonoBehaviour
     }
     private void ColectPeople(Collider collision)
     {
-        LevelManager.Instance.ColectePeople++;
+        LevelManager.Instance.ColectedPeople++;
         gameObject.transform.parent = collision.transform;
         transform.localPosition = Vector3.zero;
+        var colectedPeople = GetComponentInParent<PlayerTileInteraction>().ColectedPeople;
+        colectedPeople.Add(gameObject);
         Destroy(this);
     }
 
