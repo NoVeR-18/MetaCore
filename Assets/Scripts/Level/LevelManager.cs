@@ -55,9 +55,19 @@ public class LevelManager : MonoBehaviour
         TakeButton.onClick.AddListener(() =>
         {
             VictoryPopUp.gameObject.SetActive(false);
+            PlayerMovement.CanMoving = true;
+            LevelComplete();
         });
-        GoToIslandButton.onClick.AddListener(() => { SceneManager.LoadScene("MetaSceneTest"); });
-        ResetButton.onClick.AddListener(() => { ResetLevels(); });
+        GoToIslandButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("MetaSceneTest");
+            PlayerMovement.CanMoving = true;
+        });
+        ResetButton.onClick.AddListener(() =>
+        {
+            ResetLevels();
+            PlayerMovement.CanMoving = true;
+        });
         ColectedCoins = 0;
         ColectedCrystal = 0;
         ColectedPeople = 0;
@@ -71,10 +81,12 @@ public class LevelManager : MonoBehaviour
         {
             SetVictory();
         }
+        else
         {
             CurrentLevel.text = currentLevel.ToString();
             Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
             Loader.LoadTilemap();
+            tileInteraction.tilesToPaint = Loader.tilemapData.tilesToPaint.Length;
             var centerOfMap = Loader.FindPaintedTilesCenter();
             cameraTransform.position = new Vector3(centerOfMap.x, cameraTransform.position.y, cameraTransform.position.z);
             playerMovement.DisableMove();
@@ -86,6 +98,8 @@ public class LevelManager : MonoBehaviour
         CurrentCrystal.text = ColectedCrystal.ToString();
         CurrentPeople.text = ColectedPeople.ToString();
         VictoryPopUp.gameObject.SetActive(true);
+
+        PlayerMovement.CanMoving = false;
 
         PlayerPrefs.SetInt("TotalCoins", ColectedCoins);
         PlayerPrefs.SetInt("TotalCrystal", ColectedCrystal);

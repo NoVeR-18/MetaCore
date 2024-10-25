@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private Rigidbody rb;
     int layerMask;
-    public bool playerAlive = true;
+    public static bool CanMoving = true;
 
     private Vector3 startTouchPosition, endTouchPosition;
     private bool isSwiping = false;
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!isMoving && playerAlive)
+        if (!isMoving && CanMoving)
         {
             DetectSwipe();
 
@@ -78,20 +78,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (swipeVector.x > 0)
                 {
-                    moveDirection = Vector2.right;
+                    moveDirection = Vector3.right;
                     if (!facingRight)
                     {
                         facingRight = !facingRight;
-                        FlipCharacter();
+                        //FlipCharacter();
                     }
                 }
                 else
                 {
-                    moveDirection = Vector2.left;
+                    moveDirection = Vector3.left;
                     if (facingRight)
                     {
                         facingRight = !facingRight;
-                        FlipCharacter();
+                        //FlipCharacter();
                     }
                 }
             }
@@ -99,11 +99,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (swipeVector.y > 0)
                 {
-                    moveDirection = Vector2.up;
+                    moveDirection = Vector3.forward;
                 }
                 else
                 {
-                    moveDirection = Vector2.down;
+                    moveDirection = Vector3.back;
                 }
             }
             isMoving = true;
@@ -178,7 +178,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("Explode");
         isMoving = false;
         rb.velocity *= 0f;
-        playerAlive = false;
+        CanMoving = false;
     }
 
     public void DisableMove()
