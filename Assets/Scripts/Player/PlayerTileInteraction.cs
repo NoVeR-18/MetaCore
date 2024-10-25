@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,7 +11,8 @@ public class PlayerTileInteraction : MonoBehaviour
 
     void Start()
     {
-        tilesToPaint = CountTilesToPaint();
+        tilesToPaint = LevelManager.Instance.Loader.tilemapData.tilesToPaint.Length;
+        //CountTilesToPaint();
         Debug.Log("Количество тайлов для закраски: " + tilesToPaint);
     }
 
@@ -31,26 +33,18 @@ public class PlayerTileInteraction : MonoBehaviour
         }
     }
 
-    int CountTilesToPaint()
-    {
-        TileBase[] allTiles = new TileBase[tilemap.GetUsedTilesCount()];
-        tilemap.GetUsedTilesNonAlloc(allTiles);
-
-        int count = 0;
-
-        foreach (TileBase tile in allTiles)
-        {
-            if (tile != null && tile != newTile)
-            {
-                count++;
-            }
-        }
-
-        return count;
-    }
 
     void OnLevelCompleted()
     {
+        paintedTiles = 0;
         Debug.Log("Уровень пройден!");
+
+        StartCoroutine(timeToNextLevel());
+    }
+    private IEnumerator timeToNextLevel()
+    {
+        yield return new WaitForSeconds(0.5f);
+        LevelManager.Instance.LevelComplete();
+        tilesToPaint = LevelManager.Instance.Loader.tilemapData.tilesToPaint.Length;
     }
 }

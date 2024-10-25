@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isMoving)
         {
-            rb.velocity = moveDirection * moveSpeed * Time.fixedDeltaTime;
+            rb.velocity = new Vector3(moveDirection.x, 0, moveDirection.z) * moveSpeed * Time.fixedDeltaTime;
             Physics.Raycast(transform.position, moveDirection, out RaycastHit hit, 0.6f, layerMask);
             if (hit.collider != null)
             {
@@ -129,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
             if (facingRight)
             {
                 facingRight = !facingRight;
-                FlipCharacter();
+                //FlipCharacter();
             }
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -139,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
             if (!facingRight)
             {
                 facingRight = !facingRight;
-                FlipCharacter();
+                //FlipCharacter();
             }
         }
     }
@@ -179,5 +179,11 @@ public class PlayerMovement : MonoBehaviour
         isMoving = false;
         rb.velocity *= 0f;
         playerAlive = false;
+    }
+
+    public void DisableMove()
+    {
+        isMoving = false;
+        rb.velocity = Vector3.zero;
     }
 }

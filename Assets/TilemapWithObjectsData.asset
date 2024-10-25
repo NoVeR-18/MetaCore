@@ -13,98 +13,88 @@ MonoBehaviour:
   m_Name: TilemapWithObjectsData
   m_EditorClassIdentifier: 
   Wallprefabs:
-  - name: grass_corner
+  - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.42836535, z: -0.46234727}
-  - name: grass_corner
+    position: {x: -5.0376525, y: 0.5, z: 0.42836535}
+  - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.42836535, z: 0.53765273}
-  - name: grass_corner
+    position: {x: -4.0376525, y: 0.5, z: 1.4283653}
+  - name: Free Tile
     prefabType: 0
-    position: {x: -3.0376525, y: 0.42836535, z: 0.53765273}
-  - name: grass_corner
+    position: {x: -3.0376525, y: 0.5, z: 1.4283653}
+  - name: Free Tile
     prefabType: 0
-    position: {x: -2.0376525, y: 0.42836535, z: 0.53765273}
-  - name: grass_corner
+    position: {x: -5.0376525, y: 0.5, z: -0.57163465}
+  - name: Free Tile
     prefabType: 0
-    position: {x: -1.0376525, y: 0.42836535, z: 0.53765273}
-  - name: grass_corner
+    position: {x: -5.0376525, y: 0.5, z: -1.5716347}
+  - name: Free Tile
     prefabType: 0
-    position: {x: -0.037652493, y: 0.42836535, z: 0.53765273}
-  - name: grass_corner
+    position: {x: -4.0376525, y: 0.5, z: -2.5716348}
+  - name: Free Tile
     prefabType: 0
-    position: {x: -0.037652493, y: 0.42836535, z: -0.46234727}
-  - name: grass_corner
+    position: {x: -3.0376525, y: 0.5, z: -2.5716348}
+  - name: Free Tile
     prefabType: 0
-    position: {x: 0.9623475, y: 0.42836535, z: -0.46234727}
-  - name: grass_corner
+    position: {x: -0.03765261, y: 0.5, z: -2.5716348}
+  - name: Free Tile
     prefabType: 0
-    position: {x: 1.9623475, y: 0.42836535, z: -0.46234727}
-  - name: grass_corner
+    position: {x: 0.9623474, y: 0.5, z: -1.5716347}
+  - name: Free Tile
     prefabType: 0
-    position: {x: 1.9623475, y: 0.42836535, z: -1.4623473}
-  - name: grass_corner
-    prefabType: 0
-    position: {x: 1.9623475, y: 0.42836535, z: -2.4623473}
-  - name: grass_corner
-    prefabType: 0
-    position: {x: 0.9623475, y: 0.42836535, z: -2.4623473}
-  - name: grass_corner
-    prefabType: 0
-    position: {x: -0.037652493, y: 0.42836535, z: -2.4623473}
-  - name: grass_corner
-    prefabType: 0
-    position: {x: -1.0376525, y: 0.42836535, z: -2.4623473}
-  - name: grass_corner
-    prefabType: 0
-    position: {x: -2.0376525, y: 0.42836535, z: -2.4623473}
-  - name: grass_corner
-    prefabType: 0
-    position: {x: -4.0376525, y: 0.42836535, z: -2.4623473}
-  - name: grass_corner
-    prefabType: 0
-    position: {x: -3.0376525, y: 0.42836535, z: -2.4623473}
-  - name: grass_corner
-    prefabType: 0
-    position: {x: -4.0376525, y: 0.42836535, z: -1.4623473}
+    position: {x: 0.9623474, y: 0.5, z: -0.57163465}
   - name: Free Tile
     prefabType: 0
     position: {x: 0.9623474, y: 0.5, z: 0.42836535}
   - name: Free Tile
     prefabType: 0
-    position: {x: 1.9623474, y: 0.5, z: 0.42836535}
+    position: {x: -0.03765261, y: 0.5, z: 1.4283653}
   - name: Free Tile
     prefabType: 0
-    position: {x: 2.9623475, y: 0.5, z: 0.42836535}
-  - name: Free Tile
+    position: {x: -2.0376525, y: 0.5, z: 1.4283653}
+  - name: sand_single
     prefabType: 0
-    position: {x: 2.9623475, y: 0.5, z: -0.57163465}
-  - name: Free Tile
+    position: {x: -2.9990191, y: 0.43906185, z: -0.49869132}
+  - name: sand_single
     prefabType: 0
-    position: {x: 2.9623475, y: 0.5, z: -1.5716347}
-  - name: Free Tile
+    position: {x: -1.9990191, y: 0.43906185, z: -1.4986913}
+  - name: sand_single
     prefabType: 0
-    position: {x: 2.9623475, y: 0.5, z: -2.5716348}
+    position: {x: -0.99901915, y: 0.43906185, z: -1.4986913}
+  - name: sand_single
+    prefabType: 0
+    position: {x: -0.99901927, y: 0.43906188, z: 0.501309}
   tilesToPaint:
+  - position: {x: -5, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: -5, y: -1, z: 0}
+    tileName: frame1
+  - position: {x: -5, y: 0, z: 0}
+    tileName: frame1
   - position: {x: -4, y: -2, z: 0}
     tileName: frame1
-  - position: {x: -4, y: -1, z: 0}
-    tileName: frame1
-  - position: {x: -3, y: -2, z: 0}
+  - position: {x: -4, y: 0, z: 0}
     tileName: frame1
   - position: {x: -3, y: -1, z: 0}
     tileName: frame1
-  - position: {x: -2, y: -2, z: 0}
+  - position: {x: -3, y: 0, z: 0}
     tileName: frame1
   - position: {x: -2, y: -1, z: 0}
     tileName: frame1
   - position: {x: -1, y: -2, z: 0}
     tileName: frame1
-  - position: {x: 0, y: -2, z: 0}
+  - position: {x: -1, y: -1, z: 0}
+    tileName: frame1
+  - position: {x: -1, y: 0, z: 0}
     tileName: frame1
   tilesPaliter:
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
@@ -112,17 +102,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   prefabs:
   - name: 
-    prefabType: 3
-    position: {x: -1.0098515, y: 0.38484168, z: -0.4551236}
-  - name: 
-    prefabType: 2
-    position: {x: 1, y: 0.53389865, z: -1.5}
-  - name: 
     prefabType: 1
-    position: {x: -2, y: 0.5, z: -0.5}
-  - name: 
-    prefabType: 0
-    position: {x: -3, y: 0.9, z: -1.5}
+    position: {x: -1, y: 0.5, z: -0.5}

@@ -25,7 +25,7 @@ public class TilemapToXZ : MonoBehaviour
         //objectsContainer = transform.parent.GetComponent<WallTilemap>();
         prefabData.position = gameObject.transform.position;
         prefabData.name = gameObject.name;
-
+        objectsContainer.itemsTransform.Add(gameObject.transform);
         TogglePrefabInList(prefabData);
     }
 
@@ -37,7 +37,12 @@ public class TilemapToXZ : MonoBehaviour
         {
             if (!Application.isPlaying) // Убедимся, что мы не в режиме игры
             {
-                DestroyImmediate(gameObject); // Удаляем объект в редакторе
+
+                objectsContainer.items.Remove(existingPrefab);
+                objectsContainer.items.Add(newPrefabData);
+                var item = objectsContainer.itemsTransform.Find(prefab => prefab.position == existingPrefab.position);
+                DestroyImmediate(item.gameObject); // Удаляем объект в редакторе
+                Debug.Log($"Replased {existingPrefab.name} on {newPrefabData.name}");
             }
         }
         else

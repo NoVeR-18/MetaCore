@@ -4,4 +4,5 @@ using UnityEngine;
 public class WallTilemap : MonoBehaviour
 {
     public List<PrefabData> items;
+    public List<Transform> itemsTransform;
 }
