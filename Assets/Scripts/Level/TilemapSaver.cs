@@ -99,6 +99,33 @@ public class TilemapSaver : MonoBehaviour
             Debug.Log("Данные Tilemap и объектов успешно сохранены!");
         }
     }
+
+    [MenuItem("Tools/SaveObjects")]
+    public static void SaveObjects()
+    {
+        TilemapSaver saver = FindObjectOfType<TilemapSaver>();
+        if (saver == null || saver.targetTilemapToPaint == null || saver.prefabToSaveConteiner == null)
+        {
+            Debug.LogError("TilemapSaver не найден или Tilemap/ObjectParent не указаны!");
+            return;
+        }
+        List<PrefabData> prefabDataList = new List<PrefabData>();
+        foreach (Transform child in saver.prefabToSaveConteiner.transform)
+        {
+            GameObject prefab = child.gameObject;
+            if (prefab != null)
+            {
+                PrefabData prefabData = new PrefabData
+                {
+                    prefabType = prefab.GetComponent<InteractableObject>().typeObject,
+                    position = prefab.transform.position
+                };
+                prefabDataList.Add(prefabData);
+            }
+        }
+        saver.tilemapData.prefabs = prefabDataList;
+
+    }
     [MenuItem("Tools/Clear Tilemap")]
     public static void ClearTileMap()
     {
