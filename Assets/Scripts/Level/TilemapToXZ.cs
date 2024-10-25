@@ -21,7 +21,8 @@ public class TilemapToXZ : MonoBehaviour
     void Initialize()
     {
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        objectsContainer = transform.parent.GetComponent<WallTilemap>();
+        objectsContainer = FindObjectOfType<WallTilemap>();
+        //objectsContainer = transform.parent.GetComponent<WallTilemap>();
         prefabData.position = gameObject.transform.position;
         prefabData.name = gameObject.name;
 
