@@ -168,3 +168,6 @@ MonoBehaviour:
   - name: 
     prefabType: 1
     position: {x: -2, y: 0.5, z: -2.5}
+  - name: 
+    prefabType: 0
+    position: {x: -3, y: 0.5, z: -1.5}
