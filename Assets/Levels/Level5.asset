@@ -15,10 +15,10 @@ MonoBehaviour:
   Wallprefabs:
   - name: grass_single
     prefabType: 0
-    position: {x: -1.9990191, y: 0.43906188, z: -0.49869132}
+    position: {x: -1.9990191, y: 0.43906188, z: -1.4986913}
   - name: grass_single
     prefabType: 0
-    position: {x: -1.9990191, y: 0.43906188, z: -1.4986913}
+    position: {x: -1.9990191, y: 0.43906188, z: -0.49869132}
   - name: sand_single
     prefabType: 0
     position: {x: 0.000980854, y: 0.43906185, z: -0.49869132}
@@ -27,7 +27,22 @@ MonoBehaviour:
     position: {x: 0.000980854, y: 0.43906185, z: 0.5013087}
   - name: Free Tile
     prefabType: 0
-    position: {x: -1.0376526, y: 0.5, z: 1.4283653}
+    position: {x: -3.0376525, y: 0.5, z: -2.5716348}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -4.0376525, y: 0.5, z: -2.5716348}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -4.0376525, y: 0.5, z: -1.5716347}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -4.0376525, y: 0.5, z: -0.57163465}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -4.0376525, y: 0.5, z: 0.42836535}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -4.0376525, y: 0.5, z: 1.4283653}
   - name: Free Tile
     prefabType: 0
     position: {x: -3.0376525, y: 0.5, z: 1.4283653}
@@ -36,13 +51,7 @@ MonoBehaviour:
     position: {x: -2.0376525, y: 0.5, z: 1.4283653}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: -0.57163465}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: -1.5716347}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -3.0376525, y: 0.5, z: -2.5716348}
+    position: {x: -1.0376526, y: 0.5, z: 1.4283653}
   - name: Free Tile
     prefabType: 0
     position: {x: -1.0376526, y: 0.5, z: -2.5716348}
@@ -60,10 +69,10 @@ MonoBehaviour:
     position: {x: 1.9623474, y: 0.5, z: -0.57163465}
   - name: Free Tile
     prefabType: 0
-    position: {x: 0.9623474, y: 0.5, z: 0.42836535}
+    position: {x: 1.9623474, y: 0.5, z: 0.42836535}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: 0.42836535}
+    position: {x: 0.9623474, y: 0.5, z: 1.4283653}
   tilesToPaint:
   - position: {x: -4, y: -2, z: 0}
     tileName: frame1
@@ -85,6 +94,8 @@ MonoBehaviour:
     tileName: frame1
   - position: {x: 0, y: -1, z: 0}
     tileName: frame1
+  - position: {x: 0, y: 0, z: 0}
+    tileName: frame1
   tilesPaliter:
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 0}
@@ -100,11 +111,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   prefabs:
   - name: 
     prefabType: 1
-    position: {x: -1, y: 0.5, z: -0.5}
+    position: {x: -3, y: 0.5, z: 0.5}
   - name: 
     prefabType: 1
-    position: {x: -3, y: 0.5, z: 0.5}
+    position: {x: -1, y: 0.5, z: -1.5}
+  - name: 
+    prefabType: 3
+    position: {x: 0.99014854, y: 0.38484168, z: 0.2948764}
