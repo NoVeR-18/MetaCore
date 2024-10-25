@@ -4,20 +4,20 @@ public class PlayerMovement : MonoBehaviour
 {
     private Animator animator;
     public float moveSpeed;
-    private Vector2 moveDirection;
+    private Vector3 moveDirection;
     private bool isMoving;
     private bool facingRight = true;
-    private Rigidbody2D rb;
+    private Rigidbody rb;
     int layerMask;
     public bool playerAlive = true;
 
-    private Vector2 startTouchPosition, endTouchPosition;
+    private Vector3 startTouchPosition, endTouchPosition;
     private bool isSwiping = false;
     public float minSwipeDistance = 50f;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
         layerMask = LayerMask.GetMask("WallLayer");
         animator = GetComponent<Animator>();
     }
@@ -26,10 +26,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isMoving && playerAlive)
         {
-            // Обработка ввода с телефона (свайпы)
             DetectSwipe();
 
-            // Обработка ввода с ПК (клавиатура)
             DetectKeyboardInput();
         }
     }
@@ -39,11 +37,11 @@ public class PlayerMovement : MonoBehaviour
         if (isMoving)
         {
             rb.velocity = moveDirection * moveSpeed * Time.fixedDeltaTime;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, moveDirection, 0.6f, layerMask);
+            Physics.Raycast(transform.position, moveDirection, out RaycastHit hit, 0.6f, layerMask);
             if (hit.collider != null)
             {
-                rb.velocity = Vector2.zero;
-                transform.position = hit.point - (Vector2)moveDirection * 0.5f;
+                rb.velocity = Vector3.zero;
+                transform.position = hit.point - moveDirection * 0.5f;
                 isMoving = false;
                 RotatePlayerToWall(moveDirection);
             }
@@ -78,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
 
             if (Mathf.Abs(swipeVector.x) > Mathf.Abs(swipeVector.y))
             {
-                // Горизонтальный свайп
                 if (swipeVector.x > 0)
                 {
                     moveDirection = Vector2.right;
@@ -100,7 +97,6 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                // Вертикальный свайп
                 if (swipeVector.y > 0)
                 {
                     moveDirection = Vector2.up;
@@ -118,17 +114,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            moveDirection = Vector2.up;
+            moveDirection = Vector3.forward;
             isMoving = true;
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            moveDirection = Vector2.down;
+            moveDirection = Vector3.back;
             isMoving = true;
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            moveDirection = Vector2.left;
+            moveDirection = Vector3.left;
             isMoving = true;
             if (facingRight)
             {
@@ -138,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            moveDirection = Vector2.right;
+            moveDirection = Vector3.right;
             isMoving = true;
             if (!facingRight)
             {
@@ -150,31 +146,31 @@ public class PlayerMovement : MonoBehaviour
 
     void FlipCharacter()
     {
-        Vector2 theScale = transform.localScale;
+        Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
     }
 
-    void RotatePlayerToWall(Vector2 moveDirection)
+    void RotatePlayerToWall(Vector3 moveDirection)
     {
-        float angle = 0f;
-        if (moveDirection == Vector2.up)
-        {
-            angle = 180f;
-        }
-        else if (moveDirection == Vector2.down)
-        {
-            angle = 0f;
-        }
-        else if (moveDirection == Vector2.left)
-        {
-            angle = -90f;
-        }
-        else if (moveDirection == Vector2.right)
-        {
-            angle = 90f;
-        }
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        //float angle = 0f;
+        //if (moveDirection == Vector3.forward)
+        //{
+        //    angle = 180f;
+        //}
+        //else if (moveDirection == Vector3.back)
+        //{
+        //    angle = 0f;
+        //}
+        //else if (moveDirection == Vector3.left)
+        //{
+        //    angle = -90f;
+        //}
+        //else if (moveDirection == Vector3.right)
+        //{
+        //    angle = 90f;
+        //}
+        //transform.rotation = Quaternion.Euler(90, 0, angle);
     }
 
     public void PlayerDeath()
