@@ -755,7 +755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4115d943fafdc4a4caf913185b89c5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemapData: {fileID: 11400000, guid: fe7da82a2f9fe3548a9228860a7ed587, type: 2}
+  tilemapData: {fileID: 11400000, guid: eee0640c6b190e742bdb7c90023d2cc3, type: 2}
   objectsContainer: {fileID: 594100490}
   tilemapToPaint: {fileID: 594100489}
   itemsPrefabContainer: {fileID: 1578714898}
@@ -1973,7 +1973,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &2147184193
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2246,6 +2246,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 5717118010615267642, guid: a7a58f68dec702a468e1b4abffba8268, type: 3}
+      propertyPath: m_PreviewTimeScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6497541426440187514, guid: a7a58f68dec702a468e1b4abffba8268, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0
