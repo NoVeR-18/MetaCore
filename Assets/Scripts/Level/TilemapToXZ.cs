@@ -20,7 +20,10 @@ public class TilemapToXZ : MonoBehaviour
     }
     void Initialize()
     {
-        transform.rotation = Quaternion.Euler(0, 0, 0);
+        Vector3 eulerRotation = transform.rotation.eulerAngles;
+
+        transform.rotation = Quaternion.Euler(0, eulerRotation.y, 0);
+        //transform.rotation = Quaternion.Euler(0, transform.rotation.y, transform.rotation.z);
         objectsContainer = FindObjectOfType<WallTilemap>();
         //objectsContainer = transform.parent.GetComponent<WallTilemap>();
         prefabData.position = gameObject.transform.position;
