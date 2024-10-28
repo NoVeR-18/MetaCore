@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 342610122621462797}
   - component: {fileID: 349018081241578259}
   m_Layer: 6
-  m_Name: Particle System
+  m_Name: foam_single
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

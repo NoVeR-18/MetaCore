@@ -1264,7 +1264,14 @@ MonoBehaviour:
   - name: grass_single
     prefabType: 0
     position: {x: -3, y: 0, z: -4.5}
+  - name: sand_corner (1)
+    prefabType: 0
+    position: {x: -1.6909412, y: 1.15, z: 1.1908686}
   itemsTransform:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &766875167 stripped
@@ -1942,13 +1949,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142940687}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20079227, y: -0.89265317, z: 0.2992685, w: 0.27072337}
+  m_LocalRotation: {x: 0.13180396, y: -0.92997235, z: 0.33542046, w: 0.07261082}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 40.016, y: -151.695, z: -14.862}
+  m_LocalEulerAnglesHint: {x: 40.016, y: -176.509, z: -14.862}
 --- !u!1 &2147184192
 GameObject:
   m_ObjectHideFlags: 0
