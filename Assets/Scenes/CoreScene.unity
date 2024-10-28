@@ -149,7 +149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &150314361
 Transform:
   m_ObjectHideFlags: 0
@@ -201,9 +201,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 150314365}
-    m_ColliderPaths: []
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths: []
   m_VertexDistance: 0.0005
@@ -508,6 +506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items: []
   itemsTransform:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1942,13 +1942,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142940687}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3544017, y: -0.10609282, z: -0.06541077, w: 0.9267499}
+  m_LocalRotation: {x: 0.20079227, y: -0.89265317, z: 0.2992685, w: 0.27072337}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 40.016, y: -18.5, z: -14.862}
+  m_LocalEulerAnglesHint: {x: 40.016, y: -151.695, z: -14.862}
 --- !u!1 &2147184192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,7 +2318,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5717118010615267642, guid: a7a58f68dec702a468e1b4abffba8268, type: 3}
+      propertyPath: m_Autodestruct
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717118010615267642, guid: a7a58f68dec702a468e1b4abffba8268, type: 3}
       propertyPath: m_PreviewTimeScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6376681406621752393, guid: a7a58f68dec702a468e1b4abffba8268, type: 3}
+      propertyPath: m_Autodestruct
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6497541426440187514, guid: a7a58f68dec702a468e1b4abffba8268, type: 3}
