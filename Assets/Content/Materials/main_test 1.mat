@@ -83,7 +83,7 @@ Material:
     - _OtlWidth: 0.03
     - _Parallax: 0.02
     - _Segmented: 1
-    - _ShnIntense: 0.248
+    - _ShnIntense: 0
     - _ShnOverlap: 0
     - _ShnRange: 0.118
     - _ShnSmooth: 0
