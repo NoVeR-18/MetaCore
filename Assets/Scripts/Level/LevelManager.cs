@@ -1,3 +1,4 @@
+using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,7 @@ public class LevelManager : MonoBehaviour
     public Transform Player;
     public TilemapLoader Loader;
     public PlayerMovement playerMovement;
-    public Transform cameraTransform;
+    public Camera cameraTransform;
 
     public PlayerTileInteraction tileInteraction;
 
@@ -47,26 +48,38 @@ public class LevelManager : MonoBehaviour
     {
         currentLevel = PlayerPrefs.GetInt(LevelName, 1);
         Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
+
+        if (Loader.tilemapData == null)
+        {
+            currentLevel = 1;
+            Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
+        }
         CurrentLevel.text = $"LEVEL {currentLevel}";
 
         Loader.LoadTilemap();
         var centerOfMap = Loader.FindPaintedTilesCenter();
-        cameraTransform.position = new Vector3(centerOfMap.x, cameraTransform.position.y, cameraTransform.position.z);
+        var sizeField = Loader.SizeOfField();
+        //cameraTransform.position = new Vector3(centerOfMap.x, cameraTransform.position.y, cameraTransform.position.z);
+        PositionCamera(centerOfMap, sizeField.x, sizeField.y);
         TakeButton.onClick.AddListener(() =>
         {
             VictoryPopUp.gameObject.SetActive(false);
             PlayerMovement.CanMoving = true;
-            LevelComplete();
+            GameManager.Instance.Vibrate();
+            currentLevel++;
+            CreateLevel();
         });
         GoToIslandButton.onClick.AddListener(() =>
         {
             SceneManager.LoadScene("MetaSceneTest");
             PlayerMovement.CanMoving = true;
+            GameManager.Instance.Vibrate();
         });
         ResetButton.onClick.AddListener(() =>
         {
             ResetLevels();
             PlayerMovement.CanMoving = true;
+            GameManager.Instance.Vibrate();
         });
         ColectedCoins = 0;
         ColectedCrystal = 0;
@@ -75,23 +88,39 @@ public class LevelManager : MonoBehaviour
 
     public void LevelComplete()
     {
-        currentLevel++;
         PlayerPrefs.SetInt(LevelName, currentLevel);
         if (currentLevel % 5 == 0)
         {
             SetVictory();
+
         }
         else
         {
-            CurrentLevel.text = currentLevel.ToString();
-            Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
-            Loader.LoadTilemap();
-            tileInteraction.tilesToPaint = Loader.tilemapData.tilesToPaint.Length;
-            var centerOfMap = Loader.FindPaintedTilesCenter();
-            cameraTransform.position = new Vector3(centerOfMap.x, cameraTransform.position.y, cameraTransform.position.z);
-            playerMovement.DisableMove();
+            currentLevel++;
+            CreateLevel();
         }
     }
+    private void CreateLevel()
+    {
+
+        CurrentLevel.text = currentLevel.ToString();
+        Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
+
+        if (Loader.tilemapData == null)
+        {
+            currentLevel = 1;
+            Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
+        }
+        CurrentLevel.text = $"LEVEL {currentLevel}";
+        Loader.LoadTilemap();
+        tileInteraction.tilesToPaint = Loader.tilemapData.tilesToPaint.Length;
+        var centerOfMap = Loader.FindPaintedTilesCenter();
+        var sizeField = Loader.SizeOfField();
+        //cameraTransform.position = new Vector3(centerOfMap.x, cameraTransform.position.y, cameraTransform.position.z);
+        PositionCamera(centerOfMap, sizeField.x, sizeField.y);
+        playerMovement.DisableMove();
+    }
+
     private void SetVictory()
     {
         CurrentCoins.text = ColectedCoins.ToString();
@@ -113,10 +142,39 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt(LevelName, currentLevel);
         CurrentLevel.text = currentLevel.ToString();
         Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
+
+        if (Loader.tilemapData == null)
+        {
+            currentLevel = 1;
+            Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
+        }
+        CurrentLevel.text = $"LEVEL {currentLevel}";
         Loader.LoadTilemap();
         tileInteraction.tilesToPaint = Loader.tilemapData.tilesToPaint.Length;
         var centerOfMap = Loader.FindPaintedTilesCenter();
-        cameraTransform.position = new Vector3(centerOfMap.x, cameraTransform.position.y, cameraTransform.position.z);
+        var sizeField = Loader.SizeOfField();
+        //cameraTransform.position = new Vector3(centerOfMap.x, cameraTransform.position.y, cameraTransform.position.z);
+        PositionCamera(centerOfMap, sizeField.x, sizeField.y);
         playerMovement.DisableMove();
+    }
+    public float padding = 1.2f;
+    public void PositionCamera(Vector3 center, float width, float height)
+    {
+        // Проверка на то, что у камеры включена ортографическая проекция
+        if (!cameraTransform.orthographic)
+        {
+            Debug.LogWarning("Камера должна быть ортографической для этого метода.");
+            return;
+        }
+
+        // Устанавливаем положение камеры на центр поля
+        cameraTransform.transform.position = new Vector3(center.x, center.y + 10f, cameraTransform.transform.position.z);
+
+        // Вычисляем необходимый ортографический размер
+        float sizeX = width / cameraTransform.aspect / 2;
+        float sizeY = height / 2;
+
+        // Увеличиваем размер, чтобы добавить отступ
+        cameraTransform.orthographicSize = Mathf.Max(sizeX, sizeY) * padding;
     }
 }

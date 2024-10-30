@@ -3,53 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PlayerTileInteraction : MonoBehaviour
+namespace Player
 {
-    public Tilemap tilemap;
-    public TileBase newTile;
-    public int tilesToPaint;
-    public List<GameObject> ColectedPeople;
-    private int paintedTiles = 0;
-
-    void Start()
+    public class PlayerTileInteraction : MonoBehaviour
     {
-        tilesToPaint = LevelManager.Instance.Loader.tilemapData.tilesToPaint.Length;
-        //CountTilesToPaint();
-        Debug.Log("Количество тайлов для закраски: " + tilesToPaint);
-    }
+        public Tilemap tilemap;
+        public TileBase newTile;
+        public PlayerWallet Wallet;
+        public int tilesToPaint;
+        public List<GameObject> ColectedPeople;
+        private int paintedTiles = 0;
 
-    void Update()
-    {
-        Vector3Int tilePosition = tilemap.WorldToCell(new Vector3(transform.position.x, 0.5f, transform.position.z));
-        TileBase currentTile = tilemap.GetTile(tilePosition);
-
-        if (currentTile != null && currentTile != newTile)
+        void Start()
         {
-            tilemap.SetTile(tilePosition, newTile);
-            paintedTiles++;
+            tilesToPaint = LevelManager.Instance.Loader.tilemapData.tilesToPaint.Length;
+            //CountTilesToPaint();
+            Debug.Log("Количество тайлов для закраски: " + tilesToPaint);
+        }
 
-            if (paintedTiles >= tilesToPaint)
+        void Update()
+        {
+            Vector3Int tilePosition = tilemap.WorldToCell(new Vector3(transform.position.x, 0.5f, transform.position.z));
+            TileBase currentTile = tilemap.GetTile(tilePosition);
+
+            if (currentTile != null && currentTile != newTile)
             {
-                OnLevelCompleted();
+                tilemap.SetTile(tilePosition, newTile);
+                paintedTiles++;
+
+                if (paintedTiles >= tilesToPaint)
+                {
+                    OnLevelCompleted();
+                }
             }
         }
-    }
 
-    void OnLevelCompleted()
-    {
-        paintedTiles = 0;
-        Debug.Log("Уровень пройден!");
-        foreach (GameObject people in ColectedPeople)
+        void OnLevelCompleted()
         {
-            Destroy(people);
+            paintedTiles = 0;
+            Debug.Log("Уровень пройден!");
+            foreach (GameObject people in ColectedPeople)
+            {
+                Destroy(people);
+            }
+            ColectedPeople.Clear();
+            StartCoroutine(timeToNextLevel());
         }
-        ColectedPeople.Clear();
-        StartCoroutine(timeToNextLevel());
-    }
-    private IEnumerator timeToNextLevel()
-    {
-        yield return new WaitForSeconds(0.5f);
-        LevelManager.Instance.LevelComplete();
-        tilesToPaint = LevelManager.Instance.Loader.tilemapData.tilesToPaint.Length;
+        private IEnumerator timeToNextLevel()
+        {
+            yield return new WaitForSeconds(0.5f);
+            LevelManager.Instance.LevelComplete();
+            tilesToPaint = LevelManager.Instance.Loader.tilemapData.tilesToPaint.Length;
+        }
     }
 }

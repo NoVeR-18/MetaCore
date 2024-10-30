@@ -112,4 +112,31 @@ public class TilemapLoader : MonoBehaviour
 
         return center;
     }
+
+    public Vector2 SizeOfField()
+    {
+        BoundsInt bounds = tilemapToPaint.cellBounds;
+
+        Vector3Int min = new Vector3Int(int.MaxValue, int.MaxValue, 0);
+        Vector3Int max = new Vector3Int(int.MinValue, int.MinValue, 0);
+
+        foreach (Vector3Int pos in bounds.allPositionsWithin)
+        {
+            if (tilemapToPaint.HasTile(pos))
+            {
+                min = Vector3Int.Min(min, pos);
+                max = Vector3Int.Max(max, pos);
+            }
+        }
+
+        if (min == new Vector3Int(int.MaxValue, int.MaxValue, 0) || max == new Vector3Int(int.MinValue, int.MinValue, 0))
+        {
+            return Vector2.zero;
+        }
+
+        float width = (max.x - min.x + 1) * tilemapToPaint.cellSize.x;
+        float height = (max.y - min.y + 1) * tilemapToPaint.cellSize.y;
+
+        return new Vector2(width, height);
+    }
 }

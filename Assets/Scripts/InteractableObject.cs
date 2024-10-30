@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
@@ -10,22 +11,28 @@ public class InteractableObject : MonoBehaviour
         {
             switch (typeObject)
             {
-                case TypeObject.Coin: { ColectCoin(); break; }
+                case TypeObject.Coin:
+                    {
+                        ColectCoin(collision.GetComponent<PlayerTileInteraction>().Wallet);
+                        break;
+                    }
                 case TypeObject.People: { ColectPeople(collision); break; }
-                case TypeObject.Crystal: { ColectCrystal(); break; }
+                case TypeObject.Crystal: { ColectCrystal(collision.GetComponent<PlayerTileInteraction>().Wallet); break; }
             }
         }
     }
 
 
-    private void ColectCoin()
+    private void ColectCoin(PlayerWallet playerWallet)
     {
         LevelManager.Instance.ColectedCoins++;
+        playerWallet.AddMoney(1);
         Destroy(gameObject);
     }
-    private void ColectCrystal()
+    private void ColectCrystal(PlayerWallet playerWallet)
     {
         LevelManager.Instance.ColectedCrystal++;
+        playerWallet.AddCrystal(1);
         Destroy(gameObject);
     }
     private void ColectPeople(Collider collision)

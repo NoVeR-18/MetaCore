@@ -7,6 +7,10 @@ public class IslandManager : MonoBehaviour
     public Button GoToLevelButton;
     private void Start()
     {
-        GoToLevelButton.onClick.AddListener(() => { SceneManager.LoadScene("CoreScene"); });
+        GoToLevelButton.onClick.AddListener(() =>
+        {
+            GameManager.Instance.Vibrate();
+            SceneManager.LoadScene("CoreScene");
+        });
     }
 }

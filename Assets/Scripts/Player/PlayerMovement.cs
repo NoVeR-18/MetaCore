@@ -1,55 +1,78 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+namespace Player
 {
-    private Animator animator;
-    public float moveSpeed;
-    private Vector3 moveDirection;
-    private bool isMoving;
-    private bool facingRight = true;
-    private Rigidbody rb;
-    int layerMask;
-    public static bool CanMoving = true;
-
-    private Vector3 startTouchPosition, endTouchPosition;
-    private bool isSwiping = false;
-    public float minSwipeDistance = 50f;
-
-    void Start()
+    public class PlayerMovement : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody>();
-        layerMask = LayerMask.GetMask("WallLayer");
-        animator = GetComponent<Animator>();
-    }
+        private Animator animator;
+        public float moveSpeed;
+        private Vector3 moveDirection;
+        private bool isMoving;
+        private bool facingRight = true;
+        private Rigidbody rb;
+        int layerMask;
+        public static bool CanMoving = true;
 
-    void Update()
-    {
-        if (!isMoving && CanMoving)
+        private Vector3 startTouchPosition;
+        private bool isSwiping = false;
+        public float minSwipeDistance = 50f;
+
+        void Start()
         {
-            DetectSwipe();
-
-            DetectKeyboardInput();
+            rb = GetComponent<Rigidbody>();
+            layerMask = LayerMask.GetMask("WallLayer");
+            animator = GetComponent<Animator>();
         }
-    }
 
-    void FixedUpdate()
-    {
-        if (isMoving)
+        void Update()
         {
-            rb.velocity = new Vector3(moveDirection.x, 0, moveDirection.z) * moveSpeed * Time.fixedDeltaTime;
-            Physics.Raycast(transform.position, moveDirection, out RaycastHit hit, 0.6f, layerMask);
-            if (hit.collider != null)
+            if (!isMoving && CanMoving)
             {
-                rb.velocity = Vector3.zero;
-                transform.position = hit.point - moveDirection * 0.5f;
-                isMoving = false;
-                RotatePlayerToWall(moveDirection);
+                DetectSwipe();
+                DetectKeyboardInput();
             }
         }
-    }
 
-    void DetectSwipe()
-    {
+        void FixedUpdate()
+        {
+            if (isMoving)
+            {
+                rb.velocity = new Vector3(moveDirection.x, 0, moveDirection.z) * moveSpeed * Time.fixedDeltaTime;
+                Physics.Raycast(transform.position, moveDirection, out RaycastHit hit, 0.6f, layerMask);
+                if (hit.collider != null)
+                {
+                    rb.velocity = Vector3.zero;
+                    transform.position = hit.point - moveDirection * 0.5f;
+                    isMoving = false;
+                    RotatePlayerToWall(moveDirection);
+                }
+            }
+        }
+
+        void DetectSwipe()
+        {
+#if UNITY_EDITOR
+            if (Input.GetMouseButtonDown(0))
+            {
+                startTouchPosition = Input.mousePosition;
+                isSwiping = true;
+            }
+            else if (Input.GetMouseButton(0) && isSwiping)
+            {
+                Vector3 currentTouchPosition = Input.mousePosition;
+                Vector2 swipeVector = (Vector2)(currentTouchPosition - startTouchPosition);
+
+                if (swipeVector.magnitude > minSwipeDistance)
+                {
+                    CheckSwipeDirection(swipeVector);
+                    startTouchPosition = currentTouchPosition;
+                }
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                isSwiping = false;
+            }
+#else
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -58,22 +81,29 @@ public class PlayerMovement : MonoBehaviour
                 startTouchPosition = touch.position;
                 isSwiping = true;
             }
-            else if (touch.phase == TouchPhase.Ended && isSwiping)
+            else if (touch.phase == TouchPhase.Moved && isSwiping)
             {
-                endTouchPosition = touch.position;
+                Vector3 currentTouchPosition = touch.position;
+                Vector2 swipeVector = (Vector2)(currentTouchPosition - startTouchPosition);
+
+                if (swipeVector.magnitude > minSwipeDistance)
+                {
+                    CheckSwipeDirection(swipeVector);
+                    startTouchPosition = currentTouchPosition;
+                }
+            }
+            else if (touch.phase == TouchPhase.Ended)
+            {
                 isSwiping = false;
-                CheckSwipeDirection();
             }
         }
-    }
+#endif
+        }
 
-    void CheckSwipeDirection()
-    {
-        Vector2 swipeVector = endTouchPosition - startTouchPosition;
-        if (swipeVector.magnitude > minSwipeDistance)
+        void CheckSwipeDirection(Vector2 swipeVector)
         {
             swipeVector.Normalize();
-
+            GameManager.Instance.Vibrate();
             if (Mathf.Abs(swipeVector.x) > Mathf.Abs(swipeVector.y))
             {
                 if (swipeVector.x > 0)
@@ -82,7 +112,6 @@ public class PlayerMovement : MonoBehaviour
                     if (!facingRight)
                     {
                         facingRight = !facingRight;
-                        //FlipCharacter();
                     }
                 }
                 else
@@ -91,7 +120,6 @@ public class PlayerMovement : MonoBehaviour
                     if (facingRight)
                     {
                         facingRight = !facingRight;
-                        //FlipCharacter();
                     }
                 }
             }
@@ -108,82 +136,56 @@ public class PlayerMovement : MonoBehaviour
             }
             isMoving = true;
         }
-    }
 
-    void DetectKeyboardInput()
-    {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        void DetectKeyboardInput()
         {
-            moveDirection = Vector3.forward;
-            isMoving = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            moveDirection = Vector3.back;
-            isMoving = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            moveDirection = Vector3.left;
-            isMoving = true;
-            if (facingRight)
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                facingRight = !facingRight;
-                //FlipCharacter();
+                moveDirection = Vector3.forward;
+                isMoving = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                moveDirection = Vector3.back;
+                isMoving = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                moveDirection = Vector3.left;
+                isMoving = true;
+                if (facingRight)
+                {
+                    facingRight = !facingRight;
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                moveDirection = Vector3.right;
+                isMoving = true;
+                if (!facingRight)
+                {
+                    facingRight = !facingRight;
+                }
             }
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+
+        void RotatePlayerToWall(Vector3 moveDirection)
         {
-            moveDirection = Vector3.right;
-            isMoving = true;
-            if (!facingRight)
-            {
-                facingRight = !facingRight;
-                //FlipCharacter();
-            }
+            // Оставим пустым, если нужен поворот, можно раскомментировать и настроить.
         }
-    }
 
-    void FlipCharacter()
-    {
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
-    }
+        public void PlayerDeath()
+        {
+            animator.SetTrigger("Explode");
+            isMoving = false;
+            rb.velocity = Vector3.zero;
+            CanMoving = false;
+        }
 
-    void RotatePlayerToWall(Vector3 moveDirection)
-    {
-        //float angle = 0f;
-        //if (moveDirection == Vector3.forward)
-        //{
-        //    angle = 180f;
-        //}
-        //else if (moveDirection == Vector3.back)
-        //{
-        //    angle = 0f;
-        //}
-        //else if (moveDirection == Vector3.left)
-        //{
-        //    angle = -90f;
-        //}
-        //else if (moveDirection == Vector3.right)
-        //{
-        //    angle = 90f;
-        //}
-        //transform.rotation = Quaternion.Euler(90, 0, angle);
-    }
-
-    public void PlayerDeath()
-    {
-        animator.SetTrigger("Explode");
-        isMoving = false;
-        rb.velocity *= 0f;
-        CanMoving = false;
-    }
-
-    public void DisableMove()
-    {
-        isMoving = false;
-        rb.velocity = Vector3.zero;
+        public void DisableMove()
+        {
+            isMoving = false;
+            rb.velocity = Vector3.zero;
+        }
     }
 }
