@@ -13,87 +13,114 @@ MonoBehaviour:
   m_Name: Level20
   m_EditorClassIdentifier: 
   Wallprefabs:
+  - name: sand_end
+    prefabType: 0
+    position: {x: 0, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  - name: sand_end
+    prefabType: 0
+    position: {x: 0, y: 0.5, z: 2.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  - name: sand_end
+    prefabType: 0
+    position: {x: 0, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: 1, z: -0, w: -0.00000075896713}
+  - name: sand_end
+    prefabType: 0
+    position: {x: 1, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: sand_single
     prefabType: 0
-    position: {x: -1.9990191, y: 0.43906185, z: -1.4986913}
-  - name: sand_single
+    position: {x: 2, y: 0.5, z: 2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: sand_end
     prefabType: 0
-    position: {x: -1.9990191, y: 0.43906185, z: -0.49869132}
-  - name: sand_single
+    position: {x: -2, y: 0.5, z: -1.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  - name: sand_end
     prefabType: 0
-    position: {x: -1.9990191, y: 0.43906185, z: 0.5013087}
-  - name: sand_single
+    position: {x: -2, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  - name: sand_end
     prefabType: 0
-    position: {x: -1.9990191, y: 0.43906185, z: 1.5013087}
-  - name: sand_single
+    position: {x: -2, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  - name: sand_end
     prefabType: 0
-    position: {x: 0.000980854, y: 0.43906185, z: -0.49869132}
-  - name: sand_single
-    prefabType: 0
-    position: {x: 1.0009809, y: 0.43906185, z: -0.49869132}
-  - name: sand_single
-    prefabType: 0
-    position: {x: 2.0009809, y: 0.43906185, z: 2.5013087}
-  - name: sand_single
-    prefabType: 0
-    position: {x: 0.000980854, y: 0.43906185, z: 1.5013087}
-  - name: sand_single
-    prefabType: 0
-    position: {x: 0.000980854, y: 0.43906185, z: 2.5013087}
+    position: {x: -2, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
   - name: Free Tile
     prefabType: 0
-    position: {x: -3.0376525, y: 0.5, z: -2.5716348}
+    position: {x: -1, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: -1.5716347}
+    position: {x: 0, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: -0.57163465}
+    position: {x: 1, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: 0.42836535}
+    position: {x: 2, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: 1.4283653}
+    position: {x: 3, y: 0.5, z: -1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: 2.4283652}
+    position: {x: 3, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -3.0376525, y: 0.5, z: 3.4283652}
+    position: {x: 3, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -2.0376525, y: 0.5, z: 3.4283652}
+    position: {x: 3, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -1.0376526, y: 0.5, z: 3.4283652}
+    position: {x: 1, y: 0.5, z: 3.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -1.0376526, y: 0.5, z: -2.5716348}
+    position: {x: -1, y: 0.5, z: 3.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -0.03765261, y: 0.5, z: -2.5716348}
+    position: {x: -2, y: 0.5, z: 3.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: 0.9623474, y: 0.5, z: -2.5716348}
+    position: {x: -3, y: 0.5, z: 3.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: 1.9623474, y: 0.5, z: -2.5716348}
+    position: {x: -4, y: 0.5, z: 2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: 2.9623475, y: 0.5, z: -1.5716347}
+    position: {x: -4, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: 2.9623475, y: 0.5, z: -0.57163465}
+    position: {x: -4, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: 2.9623475, y: 0.5, z: 1.4283653}
+    position: {x: -4, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: 2.9623475, y: 0.5, z: 0.42836535}
+    position: {x: -4, y: 0.5, z: -1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: 0.9623474, y: 0.5, z: 3.4283652}
+    position: {x: -3, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   tilesToPaint:
   - position: {x: -4, y: -2, z: 0}
     tileName: frame1
@@ -171,64 +198,85 @@ MonoBehaviour:
   prefabs:
   - name: 
     prefabType: 1
-    position: {x: -3, y: 0.5, z: 0.5}
-  - name: 
-    prefabType: 1
-    position: {x: -3, y: 0.5, z: -0.5}
+    position: {x: -2, y: 0.5, z: 2.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 1
     position: {x: -3, y: 0.5, z: 1.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 1
-    position: {x: -3, y: 0.5, z: 2.5}
-  - name: 
-    prefabType: 1
-    position: {x: -2, y: 0.5, z: 2.5}
-  - name: 
-    prefabType: 1
-    position: {x: -1, y: 0.5, z: 2.5}
+    position: {x: -3, y: 0.5, z: -0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 1
     position: {x: -1, y: 0.5, z: 1.5}
-  - name: 
-    prefabType: 1
-    position: {x: -1, y: 0.5, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 1
     position: {x: -1, y: 0.5, z: -0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 1
-    position: {x: -1, y: 0.5, z: -1.5}
-  - name: 
-    prefabType: 1
-    position: {x: 0, y: 0.5, z: -1.5}
-  - name: 
-    prefabType: 1
-    position: {x: 1, y: 0.5, z: -1.5}
-  - name: 
-    prefabType: 1
-    position: {x: 2, y: 0.5, z: -0.5}
-  - name: 
-    prefabType: 1
-    position: {x: 2, y: 0.5, z: 0.5}
-  - name: 
-    prefabType: 1
-    position: {x: 1, y: 0.5, z: 0.5}
-  - name: 
-    prefabType: 1
-    position: {x: 1, y: 0.5, z: 2.5}
+    position: {x: 0, y: 0.5, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 1
     position: {x: 1, y: 0.5, z: 1.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 1
+    position: {x: 0, y: 0.5, z: -1.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 1
+    position: {x: 2, y: 0.5, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 1
+    position: {x: 2, y: 0.5, z: -1.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 1
+    position: {x: 1, y: 0.5, z: -1.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 1
+    position: {x: -1, y: 0.5, z: -1.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 1
+    position: {x: 2, y: 0.5, z: -0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 1
     position: {x: 2, y: 0.5, z: 1.5}
-  - name: 
-    prefabType: 2
-    position: {x: 2, y: 0.53389865, z: -1.5}
-  - name: 
-    prefabType: 2
-    position: {x: 0, y: 0.5338987, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 0
     position: {x: -3, y: 0.5, z: -1.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 2
+    position: {x: -3, y: 0.5338987, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 2
+    position: {x: -3, y: 0.53389865, z: 2.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 2
+    position: {x: -1, y: 0.5338987, z: 2.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 2
+    position: {x: -1, y: 0.53389865, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 2
+    position: {x: 1, y: 0.53389865, z: 2.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 2
+    position: {x: 1, y: 0.5338987, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
