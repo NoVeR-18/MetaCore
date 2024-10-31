@@ -4,10 +4,12 @@ public class GameManager : MonoBehaviour
 {
     private const string VibrationPrefKey = "VibrationEnabled";
     private const string SoundsPrefKey = "SoundsEnabled";
+    private const string MusicsPrefKey = "MusicEnabled";
     public string currentScene;
-    public bool vibrations;
     public AudioMixer audioMixer;
+    public bool vibrations;
     public bool sounds;
+    public bool musics;
     public static GameManager Instance
     {
         get; set;
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     {
         LoadVibrationSettings();
         LoadSoundSettings();
+        LoadMusicSettings();
     }
     private void LoadVibrationSettings()
     {
@@ -46,7 +49,12 @@ public class GameManager : MonoBehaviour
         if (vibrations)
             Vibrate(20, 15);
     }
-
+    public void SetVibration(bool enabled)
+    {
+        vibrations = enabled;
+        PlayerPrefs.SetInt(VibrationPrefKey, vibrations ? 1 : 0);
+        PlayerPrefs.Save();
+    }
     private void Vibrate(long milliseconds, int amplitude)
     {
         Debug.Log("Vibration");
@@ -113,5 +121,35 @@ public class GameManager : MonoBehaviour
         }
 
         SetSound(sounds);
+    }
+    public void SetMusic(bool enabled)
+    {
+        musics = enabled;
+
+        if (sounds)
+        {
+            audioMixer.SetFloat("MusicGroup", 0f);
+        }
+        else
+        {
+            audioMixer.SetFloat("MusicGroup", -80f);
+        }
+
+        PlayerPrefs.SetInt(MusicsPrefKey, musics ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadMusicSettings()
+    {
+        if (PlayerPrefs.HasKey(MusicsPrefKey))
+        {
+            musics = PlayerPrefs.GetInt(MusicsPrefKey) == 1;
+        }
+        else
+        {
+            musics = true;
+        }
+
+        SetMusic(musics);
     }
 }
