@@ -15,7 +15,7 @@ MonoBehaviour:
   Wallprefabs:
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: -2.5716348}
+    position: {x: -4.037652, y: 0.5, z: -2.5716348}
   - name: Free Tile
     prefabType: 0
     position: {x: -3.0376525, y: 0.5, z: -2.5716348}
