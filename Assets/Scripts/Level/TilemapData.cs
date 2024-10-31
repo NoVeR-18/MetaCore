@@ -16,6 +16,7 @@ public class PrefabData
     public string name;
     public TypeObject prefabType;
     public Vector3 position;
+    public Quaternion rotations;
 }
 
 [System.Serializable]

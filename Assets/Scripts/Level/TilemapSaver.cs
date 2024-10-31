@@ -184,7 +184,7 @@ public class TilemapSaver : MonoBehaviour
             GameObject prefabToInstantiate = saver.allPrefabs.Find(prefab => prefab.name == prefabData.name);
             if (prefabToInstantiate != null)
             {
-                var item = Instantiate(prefabToInstantiate, prefabData.position, Quaternion.identity, saver.objectsContainer.transform);
+                var item = Instantiate(prefabToInstantiate, prefabData.position, prefabData.rotations, saver.objectsContainer.transform);
                 item.name = prefabData.name;
             }
             else

@@ -13,97 +13,50 @@ MonoBehaviour:
   m_Name: TilemapWithObjectsData
   m_EditorClassIdentifier: 
   Wallprefabs:
-  - name: Free Tile
+  - name: wreck1
     prefabType: 0
-    position: {x: -5.0376525, y: 0.5, z: 0.42836535}
-  - name: Free Tile
+    position: {x: -2, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  - name: wreck2
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: 1.4283653}
-  - name: Free Tile
+    position: {x: -2, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  - name: grass_t
     prefabType: 0
-    position: {x: -3.0376525, y: 0.5, z: 1.4283653}
-  - name: Free Tile
+    position: {x: -2, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: grass_row
     prefabType: 0
-    position: {x: -5.0376525, y: 0.5, z: -0.57163465}
-  - name: Free Tile
+    position: {x: -1, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: grass_end
     prefabType: 0
-    position: {x: -5.0376525, y: 0.5, z: -1.5716347}
-  - name: Free Tile
+    position: {x: 0, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: grass_corner
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: -2.5716348}
-  - name: Free Tile
+    position: {x: -2, y: 0.5, z: -3.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: grass_end
     prefabType: 0
-    position: {x: -3.0376525, y: 0.5, z: -2.5716348}
-  - name: Free Tile
+    position: {x: -1, y: 0.5, z: -3.5}
+    rotations: {x: -0, y: 1, z: -0, w: 0.00000031391647}
+  - name: grass_corner
     prefabType: 0
-    position: {x: -0.03765261, y: 0.5, z: -2.5716348}
-  - name: Free Tile
+    position: {x: 0, y: 0.5, z: -3.5}
+    rotations: {x: -0, y: 1, z: -0, w: -0.00000063975784}
+  - name: grass_corner
     prefabType: 0
-    position: {x: 0.9623474, y: 0.5, z: -1.5716347}
-  - name: Free Tile
+    position: {x: 0, y: 0.5, z: -4.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  - name: grass_end
     prefabType: 0
-    position: {x: 0.9623474, y: 0.5, z: -0.57163465}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: 0.9623474, y: 0.5, z: 0.42836535}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -0.03765261, y: 0.5, z: 1.4283653}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -2.0376525, y: 0.5, z: 1.4283653}
-  - name: sand_single
-    prefabType: 0
-    position: {x: -2.9990191, y: 0.43906185, z: -0.49869132}
-  - name: sand_single
-    prefabType: 0
-    position: {x: -1.9990191, y: 0.43906185, z: -1.4986913}
-  - name: sand_single
-    prefabType: 0
-    position: {x: -0.99901915, y: 0.43906185, z: -1.4986913}
-  - name: sand_single
-    prefabType: 0
-    position: {x: -0.99901927, y: 0.43906188, z: 0.501309}
-  tilesToPaint:
-  - position: {x: -5, y: -2, z: 0}
-    tileName: frame1
-  - position: {x: -5, y: -1, z: 0}
-    tileName: frame1
-  - position: {x: -5, y: 0, z: 0}
-    tileName: frame1
-  - position: {x: -4, y: -2, z: 0}
-    tileName: frame1
-  - position: {x: -4, y: 0, z: 0}
-    tileName: frame1
-  - position: {x: -3, y: -1, z: 0}
-    tileName: frame1
-  - position: {x: -3, y: 0, z: 0}
-    tileName: frame1
-  - position: {x: -2, y: -1, z: 0}
-    tileName: frame1
-  - position: {x: -1, y: -2, z: 0}
-    tileName: frame1
-  - position: {x: -1, y: -1, z: 0}
-    tileName: frame1
-  - position: {x: -1, y: 0, z: 0}
-    tileName: frame1
-  tilesPaliter:
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+    position: {x: -1, y: 0.5, z: -4.5}
+    rotations: {x: -0, y: 1, z: -0, w: 0.00000031391647}
+  tilesToPaint: []
+  tilesPaliter: []
   prefabs:
   - name: 
     prefabType: 1
     position: {x: -1, y: 0.5, z: -0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
