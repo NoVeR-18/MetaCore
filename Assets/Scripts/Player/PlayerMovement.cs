@@ -1,4 +1,4 @@
-using UnityEngine;
+п»їusing UnityEngine;
 
 namespace Player
 {
@@ -16,6 +16,8 @@ namespace Player
         private Vector3 startTouchPosition;
         private bool isSwiping = false;
         public float minSwipeDistance = 50f;
+
+        public AudioSource audioSource;
 
         void Start()
         {
@@ -104,6 +106,7 @@ namespace Player
         {
             swipeVector.Normalize();
             GameManager.Instance.Vibrate();
+            audioSource.PlayOneShot(audioSource.clip);
             if (Mathf.Abs(swipeVector.x) > Mathf.Abs(swipeVector.y))
             {
                 if (swipeVector.x > 0)
@@ -171,7 +174,7 @@ namespace Player
 
         void RotatePlayerToWall(Vector3 moveDirection)
         {
-            // Оставим пустым, если нужен поворот, можно раскомментировать и настроить.
+            // РћСЃС‚Р°РІРёРј РїСѓСЃС‚С‹Рј, РµСЃР»Рё РЅСѓР¶РµРЅ РїРѕРІРѕСЂРѕС‚, РјРѕР¶РЅРѕ СЂР°СЃРєРѕРјРјРµРЅС‚РёСЂРѕРІР°С‚СЊ Рё РЅР°СЃС‚СЂРѕРёС‚СЊ.
         }
 
         public void PlayerDeath()

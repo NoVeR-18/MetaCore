@@ -4936,6 +4936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeObject: 1
+  audioSource: {fileID: 0}
 --- !u!65 &5640805360341084952
 BoxCollider:
   m_ObjectHideFlags: 0

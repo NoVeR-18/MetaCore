@@ -3,17 +3,17 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("Pan Settings")]
-    public float panSpeed = 5f; // Скорость перемещения камеры
-    public Vector2 panLimitX = new Vector2(-15, 0); // Ограничение по X
-    public Vector2 panLimitZ = new Vector2(0, 25); // Ограничение по Z
+    public float panSpeed = 5f;
+    public Vector2 panLimitX = new Vector2(-15, 0);
+    public Vector2 panLimitZ = new Vector2(0, 25);
 
     [Header("Zoom Settings")]
-    public float zoomSpeed = 5f; // Скорость зума
-    public float minZoom = 7f; // Минимальная дистанция до камеры
-    public float maxZoom = 25f; // Максимальная дистанция до камеры
+    public float zoomSpeed = 5f;
+    public float minZoom = 7f;
+    public float maxZoom = 25f;
 
     private Camera cam;
-    private Vector2 lastTouchPosition; // Позиция последнего касания для отслеживания движения
+    private Vector2 lastTouchPosition;
 
     void Start()
     {
@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
         Vector3 pos = transform.position;
 
 #if UNITY_EDITOR || UNITY_STANDALONE
-        // Перемещение на ПК с использованием WASD или стрелок
+
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             pos += Vector3.forward * panSpeed * Time.deltaTime;
 
@@ -45,7 +45,6 @@ public class CameraController : MonoBehaviour
             pos += Vector3.right * panSpeed * Time.deltaTime;
 #endif
 
-        // Панорамирование на смартфонах с помощью жеста drag
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -62,7 +61,6 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        // Ограничиваем по X и Z
         pos.x = Mathf.Clamp(pos.x, panLimitX.x, panLimitX.y);
         pos.z = Mathf.Clamp(pos.z, panLimitZ.x, panLimitZ.y);
 
@@ -71,7 +69,6 @@ public class CameraController : MonoBehaviour
 
     void HandleZoom()
     {
-        // Зум на ПК с колесиком мыши
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0f)
         {
@@ -79,7 +76,7 @@ public class CameraController : MonoBehaviour
             cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
         }
 
-        // Зум на мобильных устройствах с помощью pinch-zoom
+
         if (Input.touchCount == 2)
         {
             Touch touchZero = Input.GetTouch(0);

@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.Audio;
 public class GameManager : MonoBehaviour
 {
     private const string VibrationPrefKey = "VibrationEnabled";
+    private const string SoundsPrefKey = "SoundsEnabled";
     public string currentScene;
     public bool vibrations;
+    public AudioMixer audioMixer;
+    public bool sounds;
     public static GameManager Instance
     {
         get; set;
@@ -23,6 +27,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         LoadVibrationSettings();
+        LoadSoundSettings();
     }
     private void LoadVibrationSettings()
     {
@@ -76,5 +81,37 @@ public class GameManager : MonoBehaviour
     {
         AndroidJavaClass versionClass = new AndroidJavaClass("android.os.Build$VERSION");
         return versionClass.GetStatic<int>("SDK_INT");
+    }
+
+
+    public void SetSound(bool enabled)
+    {
+        sounds = enabled;
+
+        if (sounds)
+        {
+            audioMixer.SetFloat("SoundGroup", 0f);
+        }
+        else
+        {
+            audioMixer.SetFloat("SoundGroup", -80f);
+        }
+
+        PlayerPrefs.SetInt(SoundsPrefKey, sounds ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadSoundSettings()
+    {
+        if (PlayerPrefs.HasKey(SoundsPrefKey))
+        {
+            sounds = PlayerPrefs.GetInt(SoundsPrefKey) == 1;
+        }
+        else
+        {
+            sounds = true;
+        }
+
+        SetSound(sounds);
     }
 }

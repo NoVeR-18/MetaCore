@@ -1,4 +1,5 @@
 using Player;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,6 +33,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int currentLevel = 1;
     private const string LevelName = "CurrentLevel";
 
+    public AudioSource audioSource;
+    public List<AudioClip> audioClips = new List<AudioClip>();
+
     public void Awake()
     {
         if (Instance == null)
@@ -63,20 +67,24 @@ public class LevelManager : MonoBehaviour
         PositionCamera(centerOfMap, sizeField.x, sizeField.y);
         TakeButton.onClick.AddListener(() =>
         {
+            audioSource.PlayOneShot(audioClips[0]);
             VictoryPopUp.gameObject.SetActive(false);
             PlayerMovement.CanMoving = true;
             GameManager.Instance.Vibrate();
             currentLevel++;
             CreateLevel();
+            audioSource.PlayOneShot(audioClips[3]);
         });
         GoToIslandButton.onClick.AddListener(() =>
         {
+            audioSource.PlayOneShot(audioClips[1]);
             SceneManager.LoadScene("MetaSceneTest");
             PlayerMovement.CanMoving = true;
             GameManager.Instance.Vibrate();
         });
         ResetButton.onClick.AddListener(() =>
         {
+            audioSource.PlayOneShot(audioClips[1]);
             ResetLevels();
             PlayerMovement.CanMoving = true;
             GameManager.Instance.Vibrate();
@@ -92,7 +100,6 @@ public class LevelManager : MonoBehaviour
         if (currentLevel % 5 == 0)
         {
             SetVictory();
-
         }
         else
         {
@@ -123,6 +130,7 @@ public class LevelManager : MonoBehaviour
 
     private void SetVictory()
     {
+        audioSource.PlayOneShot(audioClips[2]);
         CurrentCoins.text = ColectedCoins.ToString();
         CurrentCrystal.text = ColectedCrystal.ToString();
         CurrentPeople.text = ColectedPeople.ToString();

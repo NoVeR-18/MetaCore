@@ -4,7 +4,13 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour
 {
     public TypeObject typeObject;
+    [SerializeField] private AudioSource audioSource;
 
+    private void Start()
+    {
+        if (audioSource == null)
+            audioSource = GetComponentInParent<AudioSource>();
+    }
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == "Player")
@@ -25,6 +31,7 @@ public class InteractableObject : MonoBehaviour
 
     private void ColectCoin(PlayerWallet playerWallet)
     {
+        audioSource?.Play();
         LevelManager.Instance.ColectedCoins++;
         playerWallet.AddMoney(1);
         Destroy(gameObject);
@@ -33,10 +40,12 @@ public class InteractableObject : MonoBehaviour
     {
         LevelManager.Instance.ColectedCrystal++;
         playerWallet.AddCrystal(1);
+        audioSource?.Play();
         Destroy(gameObject);
     }
     private void ColectPeople(Collider collision)
     {
+        audioSource?.Play();
         LevelManager.Instance.ColectedPeople++;
         gameObject.transform.parent = collision.transform;
         transform.localPosition = Vector3.zero;
