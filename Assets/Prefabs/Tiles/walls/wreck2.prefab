@@ -4898,7 +4898,8 @@ GameObject:
   - component: {fileID: 3112960613656638433}
   - component: {fileID: 8904582781299059450}
   - component: {fileID: 5036593857165050107}
-  m_Layer: 0
+  - component: {fileID: 2200523472719735286}
+  m_Layer: 6
   m_Name: wreck2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4913,7 +4914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5104422953074481762}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
@@ -4984,3 +4985,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsContainer: {fileID: 0}
+--- !u!65 &2200523472719735286
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5104422953074481762}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}

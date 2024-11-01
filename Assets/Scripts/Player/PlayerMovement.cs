@@ -106,7 +106,7 @@ namespace Player
         {
             swipeVector.Normalize();
             GameManager.Instance.Vibrate();
-            audioSource.PlayOneShot(audioSource.clip);
+            //audioSource.PlayOneShot(audioSource.clip);
             if (Mathf.Abs(swipeVector.x) > Mathf.Abs(swipeVector.y))
             {
                 if (swipeVector.x > 0)

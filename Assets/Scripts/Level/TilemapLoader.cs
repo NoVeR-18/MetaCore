@@ -34,7 +34,7 @@ public class TilemapLoader : MonoBehaviour
             GameObject prefabToInstantiate = allPrefabs.Find(prefab => prefab.name == prefabData.name);
             if (prefabToInstantiate != null)
             {
-                var item = Instantiate(prefabToInstantiate, prefabData.position, Quaternion.identity, objectsContainer.transform);
+                var item = Instantiate(prefabToInstantiate, prefabData.position, prefabData.rotations, objectsContainer.transform);
                 item.name = prefabData.name;
             }
             else

@@ -14,7 +14,7 @@ public class IslandController : MonoBehaviour
     {
         InitializeExpansionTiles();
         UpdateTileVisibility();
-        playerWallet.AddMoney(100);
+        playerWallet.AddMoney(2000);
     }
 
     private void InitializeExpansionTiles()
