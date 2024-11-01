@@ -13,66 +13,78 @@ MonoBehaviour:
   m_Name: Level5
   m_EditorClassIdentifier: 
   Wallprefabs:
-  - name: grass_single
+  - name: sand_end
     prefabType: 0
-    position: {x: -1.9990191, y: 0.43906188, z: -1.4986913}
-  - name: grass_single
+    position: {x: -2, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  - name: sand_end
     prefabType: 0
-    position: {x: -1.9990191, y: 0.43906188, z: -0.49869132}
-  - name: sand_single
+    position: {x: -2, y: 0.5, z: -1.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  - name: grass_end
     prefabType: 0
-    position: {x: 0.000980854, y: 0.43906185, z: -0.49869132}
-  - name: sand_single
+    position: {x: 0, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  - name: grass_end
     prefabType: 0
-    position: {x: 0.000980854, y: 0.43906185, z: 0.5013087}
+    position: {x: 0, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071067}
   - name: Free Tile
     prefabType: 0
-    position: {x: -3.0376525, y: 0.5, z: -2.5716348}
+    position: {x: -1, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: -2.5716348}
+    position: {x: 0, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: -1.5716347}
+    position: {x: 1, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: -0.57163465}
+    position: {x: 2, y: 0.5, z: -1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: 0.42836535}
+    position: {x: 2, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4.0376525, y: 0.5, z: 1.4283653}
+    position: {x: 2, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -3.0376525, y: 0.5, z: 1.4283653}
+    position: {x: 1, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -2.0376525, y: 0.5, z: 1.4283653}
+    position: {x: -1, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -1.0376526, y: 0.5, z: 1.4283653}
+    position: {x: -2, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -1.0376526, y: 0.5, z: -2.5716348}
+    position: {x: -3, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -0.03765261, y: 0.5, z: -2.5716348}
+    position: {x: -4, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: 0.9623474, y: 0.5, z: -2.5716348}
+    position: {x: -4, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: 1.9623474, y: 0.5, z: -1.5716347}
+    position: {x: -4, y: 0.5, z: -1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: 1.9623474, y: 0.5, z: -0.57163465}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: 1.9623474, y: 0.5, z: 0.42836535}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: 0.9623474, y: 0.5, z: 1.4283653}
+    position: {x: -3, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   tilesToPaint:
   - position: {x: -4, y: -2, z: 0}
     tileName: frame1
@@ -114,14 +126,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   prefabs:
   - name: 
-    prefabType: 1
-    position: {x: -3, y: 0.5, z: 0.5}
-  - name: 
-    prefabType: 1
-    position: {x: -1, y: 0.5, z: -1.5}
-  - name: 
-    prefabType: 3
-    position: {x: 1, y: 0.60511935, z: 0.54821134}
-  - name: 
     prefabType: 0
     position: {x: -3, y: 0.5, z: -1.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 3
+    position: {x: -1, y: 0.3988693, z: -1.4244887}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 2
+    position: {x: -3, y: 0.5338987, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 2
+    position: {x: 1, y: 0.5338987, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2751165914614516249}
   - component: {fileID: 3609702226889965743}
   - component: {fileID: 3790041464116770857}
+  - component: {fileID: -7736088330937112822}
   m_Layer: 0
   m_Name: wreck1
   m_TagString: Untagged
@@ -84,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-7736088330937112822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901154742847405493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7bdbc502a223cd4db0a00020402bb85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsContainer: {fileID: 0}
 --- !u!1 &4509988928650118641
 GameObject:
   m_ObjectHideFlags: 0

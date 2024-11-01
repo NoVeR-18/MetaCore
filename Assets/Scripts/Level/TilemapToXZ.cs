@@ -27,6 +27,7 @@ public class TilemapToXZ : MonoBehaviour
         objectsContainer = FindObjectOfType<WallTilemap>();
         //objectsContainer = transform.parent.GetComponent<WallTilemap>();
         prefabData.position = gameObject.transform.position;
+        prefabData.rotations = gameObject.transform.rotation;
         prefabData.name = gameObject.name;
         objectsContainer.itemsTransform.Add(gameObject.transform);
         TogglePrefabInList(prefabData);

@@ -16,54 +16,71 @@ MonoBehaviour:
   - name: Free Tile
     prefabType: 0
     position: {x: -5.0376525, y: 0.5, z: -2.5716348}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -5.0376525, y: 0.5, z: -1.5716347}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -5.0376525, y: 0.5, z: -0.57163465}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -5.0376525, y: 0.5, z: 0.42836535}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -5.0376525, y: 0.5, z: 1.4283653}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -4.0376525, y: 0.5, z: 1.4283653}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -3.0376525, y: 0.5, z: 1.4283653}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -2.0376525, y: 0.5, z: 1.4283653}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -4.0376525, y: 0.5, z: -2.5716348}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -3.0376525, y: 0.5, z: -2.5716348}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -2.0376525, y: 0.5, z: -2.5716348}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -1.0376526, y: 0.5, z: -2.5716348}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -0.03765261, y: 0.5, z: -2.5716348}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
     position: {x: -0.03765261, y: 0.5, z: -1.5716347}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: grass_single
     prefabType: 0
     position: {x: -2.9990191, y: 0.43906188, z: -0.49869132}
-  - name: grass_single
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: grass_end
     prefabType: 0
-    position: {x: -0.99901927, y: 0.43906188, z: -0.49869132}
-  - name: grass_single
+    position: {x: -1, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  - name: grass_end
     prefabType: 0
-    position: {x: -0.99901927, y: 0.43906188, z: 0.5013087}
+    position: {x: -1, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071067}
   tilesToPaint:
   - position: {x: -5, y: -2, z: 0}
     tileName: frame1
@@ -103,9 +120,12 @@ MonoBehaviour:
   - name: 
     prefabType: 0
     position: {x: -3, y: 0.5, z: -1.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 1
     position: {x: -1, y: 0.5, z: -1.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 1
     position: {x: -4, y: 0.5, z: -0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
