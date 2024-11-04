@@ -51,6 +51,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         currentLevel = PlayerPrefs.GetInt(LevelName, 1);
+        Debug.Log("Loaded level:" + currentLevel);
         Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
 
         if (Loader.tilemapData == null)
