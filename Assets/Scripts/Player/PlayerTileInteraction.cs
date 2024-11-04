@@ -23,23 +23,27 @@ namespace Player
 
         void Update()
         {
-            Vector3Int tilePosition = tilemap.WorldToCell(new Vector3(transform.position.x, 0.5f, transform.position.z));
-            TileBase currentTile = tilemap.GetTile(tilePosition);
-
-            if (currentTile != null && currentTile != newTile)
+            if (PlayerMovement.CanMoving)
             {
-                tilemap.SetTile(tilePosition, newTile);
-                paintedTiles++;
+                Vector3Int tilePosition = tilemap.WorldToCell(new Vector3(transform.position.x, 0.5f, transform.position.z));
+                TileBase currentTile = tilemap.GetTile(tilePosition);
 
-                if (paintedTiles >= tilesToPaint)
+                if (currentTile != null && currentTile != newTile)
                 {
-                    OnLevelCompleted();
+                    tilemap.SetTile(tilePosition, newTile);
+                    paintedTiles++;
+
+                    if (paintedTiles >= tilesToPaint)
+                    {
+                        OnLevelCompleted();
+                    }
                 }
             }
         }
 
         void OnLevelCompleted()
         {
+            PlayerMovement.CanMoving = false;
             paintedTiles = 0;
             Debug.Log("Уровень пройден!");
             foreach (GameObject people in ColectedPeople)

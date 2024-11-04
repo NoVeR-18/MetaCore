@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 public class SpawnPossition : MonoBehaviour
@@ -7,6 +8,7 @@ public class SpawnPossition : MonoBehaviour
     {
         LevelManager.Instance.Player.position = transform.position;
         spriteRenderer.enabled = false;
+        PlayerMovement.CanMoving = true;
     }
 
 }

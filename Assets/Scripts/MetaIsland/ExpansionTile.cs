@@ -15,11 +15,11 @@ public class ExpansionTile : MonoBehaviour
     public ExpansionTile leftNeighbor;
     public ExpansionTile rightNeighbor;
 
-    [SerializeField] private bool canBuildHouse = false; // возможность строить домик
+    public bool canBuildHouse = false; // возможность строить домик
     [SerializeField] private int crystalCost = 50; // стоимость домика
     [SerializeField] private GameObject buildableIndicator; // Индикатор возможности построить домик
     [SerializeField] private List<GameObject> housePrefabs; // Список префабов для домиков
-    private GameObject currentHouse; // Текущий построенный домик
+    public GameObject currentHouse; // Текущий построенный домик
 
     public List<RoadTile> roadTiles;
     [SerializeField] private Dictionary<RoadType, GameObject> roadPrefabs = new Dictionary<RoadType, GameObject>();
@@ -44,7 +44,7 @@ public class ExpansionTile : MonoBehaviour
             buyableIndicator.SetActive(false);
             buildableIndicator.SetActive(false);
             currentRoad.SetActive(false);
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
         else if (currentIslandLevel == RequiredLevel && !IsUnlocked)
         {
@@ -163,11 +163,18 @@ public class ExpansionTile : MonoBehaviour
 
         if (currentHouse == null)
         {
-            int randomIndex = Random.Range(0, housePrefabs.Count);
-            GameObject selectedPrefab = housePrefabs[randomIndex];
-            currentHouse = Instantiate(selectedPrefab, transform.position, Quaternion.identity, transform);
-            Debug.Log($"Домик построен на {transform.position}.");
-            buildableIndicator.SetActive(false);
+            if (islandController.playerWallet.WithdrawCrystal(crystalCost)) // Снимаем кристаллы
+            {
+                int randomIndex = Random.Range(0, housePrefabs.Count);
+                GameObject selectedPrefab = housePrefabs[randomIndex];
+                currentHouse = Instantiate(selectedPrefab, transform.position, Quaternion.identity, transform);
+                Debug.Log($"Домик построен на {transform.position}.");
+                buildableIndicator.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("Недостаточно кристаллов для постройки домика.");
+            }
         }
     }
 
@@ -186,6 +193,7 @@ public class ExpansionTile : MonoBehaviour
             Debug.Log("Ячейка недоступна для покупки или строительства.");
         }
     }
+
 }
 
 
