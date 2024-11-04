@@ -78,7 +78,7 @@ public class LevelManager : MonoBehaviour
         GoToIslandButton.onClick.AddListener(() =>
         {
             audioSource.PlayOneShot(audioClips[1]);
-            SceneManager.LoadScene("MetaSceneTest");
+            SceneManager.LoadScene(0);
             PlayerMovement.CanMoving = true;
             GameManager.Instance.Vibrate();
         });

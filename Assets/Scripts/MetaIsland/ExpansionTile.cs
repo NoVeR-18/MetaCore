@@ -8,19 +8,18 @@ public class ExpansionTile : MonoBehaviour
     [SerializeField] public bool IsUnlocked = false;
 
     [SerializeField] private GameObject buyableIndicator;
-    [SerializeField] private GameObject road;
+    [SerializeField] private GameObject currentRoad;
 
     public ExpansionTile topNeighbor;
     public ExpansionTile bottomNeighbor;
     public ExpansionTile leftNeighbor;
     public ExpansionTile rightNeighbor;
 
-    private GameObject currentRoad;
-
-
-    public ExpansionTile(ExpansionTile tile)
-    {
-    }
+    [SerializeField] private bool canBuildHouse = false; // возможность строить домик
+    [SerializeField] private int crystalCost = 50; // стоимость домика
+    [SerializeField] private GameObject buildableIndicator; // Индикатор возможности построить домик
+    [SerializeField] private List<GameObject> housePrefabs; // Список префабов для домиков
+    private GameObject currentHouse; // Текущий построенный домик
 
     public List<RoadTile> roadTiles;
     [SerializeField] private Dictionary<RoadType, GameObject> roadPrefabs = new Dictionary<RoadType, GameObject>();
@@ -43,19 +42,22 @@ public class ExpansionTile : MonoBehaviour
         if (currentIslandLevel < RequiredLevel)
         {
             buyableIndicator.SetActive(false);
-            road.SetActive(false);
+            buildableIndicator.SetActive(false);
+            currentRoad.SetActive(false);
             gameObject.SetActive(false);
         }
         else if (currentIslandLevel == RequiredLevel && !IsUnlocked)
         {
             buyableIndicator.SetActive(true);
-            road.SetActive(false);
+            buildableIndicator.SetActive(false);
+            currentRoad.SetActive(false);
             gameObject.SetActive(true);
         }
         else
         {
-            road.SetActive(true);
+            currentRoad.SetActive(true);
             buyableIndicator.SetActive(false);
+            buildableIndicator.SetActive(canBuildHouse && currentHouse == null); // Показываем индикатор для домика, если ячейка разблокирована и домик еще не построен
             IsUnlocked = true;
         }
     }
@@ -84,10 +86,10 @@ public class ExpansionTile : MonoBehaviour
 
     public void UpdateRoadPrefab()
     {
-        //if (currentRoad != null)
-        //{
-        //    Destroy(currentRoad);
-        //}
+        if (currentRoad != null)
+        {
+            Destroy(currentRoad);
+        }
 
         bool top = topNeighbor != null && topNeighbor.IsUnlocked;
         bool bottom = bottomNeighbor != null && bottomNeighbor.IsUnlocked;
@@ -124,48 +126,48 @@ public class ExpansionTile : MonoBehaviour
 
             // Поворачиваем префаб в зависимости от конфигурации соседей
             if (selectedRoadType == RoadType.Straight && (left && right))
-                currentRoad.transform.rotation = Quaternion.Euler(0, 90, 0);
+                currentRoad.transform.rotation = Quaternion.Euler(0, 0, 0);
+            else if (selectedRoadType == RoadType.Straight && (top && bottom)) currentRoad.transform.rotation = Quaternion.Euler(0, 90, 0);
             else if (selectedRoadType == RoadType.Corner)
             {
-                if (bottom && right) currentRoad.transform.rotation = Quaternion.Euler(0, 180, 0);
-                else if (top && right) currentRoad.transform.rotation = Quaternion.Euler(0, 90, 0);
-                else if (bottom && left) currentRoad.transform.rotation = Quaternion.Euler(0, -90, 0);
+                if (bottom && right) currentRoad.transform.rotation = Quaternion.Euler(0, -90, 0);
+                else if (top && right) currentRoad.transform.rotation = Quaternion.Euler(0, 180, 0);//
+                else if (bottom && left) currentRoad.transform.rotation = Quaternion.Euler(0, 0, 0);
+                else if (top && left) currentRoad.transform.rotation = Quaternion.Euler(0, 90, 0);
             }
             else if (selectedRoadType == RoadType.TJunction)
             {
                 if (bottom && right && top) currentRoad.transform.rotation = Quaternion.Euler(0, 180, 0);
                 else if (top && right && left) currentRoad.transform.rotation = Quaternion.Euler(0, 90, 0);
                 else if (bottom && left && right) currentRoad.transform.rotation = Quaternion.Euler(0, -90, 0);
-                else currentRoad.transform.rotation = Quaternion.identity;
+                else currentRoad.transform.rotation = Quaternion.Euler(0, 0, 0);
 
             }
             else if (selectedRoadType == RoadType.End)
             {
-                if (bottom) currentRoad.transform.rotation = Quaternion.Euler(0, 180, 0);
-                else if (top) currentRoad.transform.rotation = Quaternion.identity;
-                else if (right) currentRoad.transform.rotation = Quaternion.Euler(0, 90, 0);
-                else if (left) currentRoad.transform.rotation = Quaternion.Euler(0, -90, 0);
+                if (bottom) currentRoad.transform.rotation = Quaternion.Euler(0, 90, 0);
+                else if (top) currentRoad.transform.rotation = Quaternion.Euler(0, -90, 0);
+                else if (right) currentRoad.transform.rotation = Quaternion.Euler(0, 0, 0);
+                else if (left) currentRoad.transform.rotation = Quaternion.Euler(0, 180, 0);
             }
-            var tile = currentRoad.GetComponent<ExpansionTile>();
-            tile.topNeighbor = topNeighbor;
-            tile.leftNeighbor = leftNeighbor;
-            tile.rightNeighbor = rightNeighbor;
-            tile.bottomNeighbor = bottomNeighbor;
-            if (tile.topNeighbor != null) tile.topNeighbor.bottomNeighbor = tile;
-            if (tile.bottomNeighbor != null) tile.bottomNeighbor.topNeighbor = tile;
-            if (tile.leftNeighbor != null) tile.leftNeighbor.rightNeighbor = tile;
-            if (tile.rightNeighbor != null) tile.rightNeighbor.leftNeighbor = tile;
+        }
+    }
 
+    public void BuildHouse()
+    {
+        if (!canBuildHouse || housePrefabs.Count == 0)
+        {
+            Debug.Log("На этой ячейке нельзя строить домик.");
+            return;
+        }
 
-            tile.RequiredLevel = RequiredLevel - 1;
-
-            tile.SetIslandController(islandController);
-            tile.UpdateVisibility(islandController.islandLevel);
-            islandController.expansionTiles.Remove(this);
-            islandController.expansionTiles.Add(tile);
-            currentRoad.transform.parent = gameObject.transform.parent;
-            Destroy(gameObject);
-            //gameObject.SetActive(false);
+        if (currentHouse == null)
+        {
+            int randomIndex = Random.Range(0, housePrefabs.Count);
+            GameObject selectedPrefab = housePrefabs[randomIndex];
+            currentHouse = Instantiate(selectedPrefab, transform.position, Quaternion.identity, transform);
+            Debug.Log($"Домик построен на {transform.position}.");
+            buildableIndicator.SetActive(false);
         }
     }
 
@@ -175,12 +177,17 @@ public class ExpansionTile : MonoBehaviour
         {
             islandController.UnlockTile(this);
         }
+        else if (IsUnlocked && canBuildHouse && buildableIndicator.activeSelf)
+        {
+            islandController.UnlockBuilding(this);
+        }
         else
         {
-            Debug.Log("Ячейка недоступна для покупки.");
+            Debug.Log("Ячейка недоступна для покупки или строительства.");
         }
     }
 }
+
 
 [System.Serializable]
 public class RoadTile
@@ -192,6 +199,7 @@ public class RoadTile
 [System.Serializable]
 public enum RoadType
 {
+    Free,
     End,
     Straight,
     Corner,
