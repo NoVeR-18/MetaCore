@@ -7097,6 +7097,11 @@ MonoBehaviour:
   bottomNeighbor: {fileID: 0}
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
+  canBuildHouse: 0
+  crystalCost: 50
+  buildableIndicator: {fileID: 0}
+  housePrefabs: []
+  currentHouse: {fileID: 0}
   roadTiles: []
 --- !u!1001 &9020649771915894777
 PrefabInstance:

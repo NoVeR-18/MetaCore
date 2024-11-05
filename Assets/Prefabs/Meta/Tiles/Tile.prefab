@@ -63,6 +63,7 @@ MonoBehaviour:
   - {fileID: 6852559280107357504, guid: c86b42094d9037a408cf094190dce49d, type: 3}
   - {fileID: 2976622140671652947, guid: 3da936461fa58f74592daad6c42bc466, type: 3}
   - {fileID: 3066593959525663057, guid: 67bccc6af5e357044b2c40869feedb47, type: 3}
+  currentHouse: {fileID: 0}
   roadTiles:
   - key: 1
     prefab: {fileID: 9052843523953560183, guid: 3a21c7dfd4f4619439d0972e8c6e4c26, type: 3}
