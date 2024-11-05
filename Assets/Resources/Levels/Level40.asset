@@ -13,145 +13,9 @@ MonoBehaviour:
   m_Name: Level40
   m_EditorClassIdentifier: 
   Wallprefabs:
-  - name: grass_t
-    prefabType: 0
-    position: {x: -3, y: 0.5, z: 3.5}
-    rotations: {x: -0, y: 1, z: -0, w: 0.00000019470718}
-  - name: grass_end
-    prefabType: 0
-    position: {x: -3, y: 0.5, z: 2.5}
-    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071067}
   - name: Free Tile
     prefabType: 0
-    position: {x: 1, y: 0.5, z: 5.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: 2, y: 0.5, z: 4.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: 2, y: 0.5, z: 3.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: 0, y: 0.5, z: 2.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: cliff_single
-    prefabType: 0
-    position: {x: 0, y: 0.5, z: -1.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: cliff_single
-    prefabType: 0
-    position: {x: -2, y: 0.5, z: -0.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: cliff_single
-    prefabType: 0
-    position: {x: -1, y: 0.5, z: 0.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: cliff_single
-    prefabType: 0
-    position: {x: -2, y: 0.5, z: 1.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: grass_end
-    prefabType: 0
-    position: {x: -1, y: 0.5, z: 1.5}
-    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071067}
-  - name: grass_end
-    prefabType: 0
-    position: {x: -1, y: 0.5, z: 2.5}
-    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  - name: grass_end
-    prefabType: 0
-    position: {x: 1, y: 0.5, z: 4.5}
-    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  - name: grass_end
-    prefabType: 0
-    position: {x: 1, y: 0.5, z: 2.5}
-    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071067}
-  - name: grass_row
-    prefabType: 0
-    position: {x: 1, y: 0.5, z: 3.5}
-    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  - name: grass_end
-    prefabType: 0
-    position: {x: -4, y: 0.5, z: 4.5}
-    rotations: {x: -0, y: 1, z: -0, w: 0.00000031391647}
-  - name: grass_end
-    prefabType: 0
-    position: {x: -3, y: 0.5, z: 4.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: cliff_single
-    prefabType: 0
-    position: {x: -4, y: 0.5, z: 3.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: grass_end
-    prefabType: 0
-    position: {x: -3, y: 0.5, z: 0.5}
-    rotations: {x: -0, y: 1, z: -0, w: 0.00000031391647}
-  - name: grass_end
-    prefabType: 0
-    position: {x: -2, y: 0.5, z: 0.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: cliff_single
-    prefabType: 0
-    position: {x: -4, y: 0.5, z: 0.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -3, y: 0.5, z: -2.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -2, y: 0.5, z: -2.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -1, y: 0.5, z: -2.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: 1, y: 0.5, z: -2.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: 2, y: 0.5, z: -1.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: 2, y: 0.5, z: -0.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: 2, y: 0.5, z: 0.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: 2, y: 0.5, z: 1.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: 0, y: 0.5, z: 5.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -1, y: 0.5, z: 5.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -2, y: 0.5, z: 5.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -5, y: 0.5, z: 2.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -5, y: 0.5, z: 1.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
-    position: {x: -5, y: 0.5, z: -0.5}
+    position: {x: -4, y: 0.5, z: -2.5}
     rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
@@ -159,7 +23,131 @@ MonoBehaviour:
     rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -4, y: 0.5, z: -2.5}
+    position: {x: -5, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -5, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -5, y: 0.5, z: 2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -2, y: 0.5, z: 5.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -1, y: 0.5, z: 5.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 0, y: 0.5, z: 5.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 2, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 2, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 2, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 2, y: 0.5, z: -1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 1, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -1, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -2, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -3, y: 0.5, z: -2.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: cliff_single
+    prefabType: 0
+    position: {x: -4, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: grass_end
+    prefabType: 0
+    position: {x: -2, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: grass_end
+    prefabType: 0
+    position: {x: -3, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: 1, z: -0, w: 0.00000031391647}
+  - name: cliff_single
+    prefabType: 0
+    position: {x: -4, y: 0.5, z: 3.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: grass_end
+    prefabType: 0
+    position: {x: -3, y: 0.5, z: 4.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: grass_end
+    prefabType: 0
+    position: {x: -4, y: 0.5, z: 4.5}
+    rotations: {x: -0, y: 1, z: -0, w: 0.00000031391647}
+  - name: grass_row
+    prefabType: 0
+    position: {x: 1, y: 0.5, z: 3.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  - name: grass_end
+    prefabType: 0
+    position: {x: 1, y: 0.5, z: 2.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071067}
+  - name: grass_end
+    prefabType: 0
+    position: {x: 1, y: 0.5, z: 4.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  - name: grass_end
+    prefabType: 0
+    position: {x: -1, y: 0.5, z: 2.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  - name: grass_end
+    prefabType: 0
+    position: {x: -1, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071067}
+  - name: cliff_single
+    prefabType: 0
+    position: {x: -2, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: cliff_single
+    prefabType: 0
+    position: {x: -1, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: cliff_single
+    prefabType: 0
+    position: {x: -2, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: cliff_single
+    prefabType: 0
+    position: {x: 0, y: 0.5, z: -1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 2, y: 0.5, z: 3.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 2, y: 0.5, z: 4.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: 1, y: 0.5, z: 5.5}
     rotations: {x: -0, y: -0, z: -0, w: 1}
   tilesToPaint:
   - position: {x: -5, y: -2, z: 0}

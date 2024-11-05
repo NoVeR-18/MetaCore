@@ -130,14 +130,14 @@ MonoBehaviour:
     position: {x: -3, y: 0.5, z: -1.5}
     rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
-    prefabType: 3
-    position: {x: -1, y: 0.3988693, z: -1.4244887}
-    rotations: {x: 0, y: 0, z: 0, w: 0}
-  - name: 
     prefabType: 2
     position: {x: -3, y: 0.5338987, z: 0.5}
     rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 2
     position: {x: 1, y: 0.5338987, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 3
+    position: {x: -1, y: 0.39859754, z: -1.4255029}
     rotations: {x: 0, y: 0, z: 0, w: 0}
