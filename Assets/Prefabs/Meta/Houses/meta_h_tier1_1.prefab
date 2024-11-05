@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 488213405630793398}
   - component: {fileID: 8018822128033639825}
   - component: {fileID: 6869055049876796614}
+  - component: {fileID: -1208484000319546608}
   m_Layer: 0
   m_Name: meta_h_tier1_1
   m_TagString: Untagged
@@ -83,3 +84,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-1208484000319546608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6852559280107357504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815ead8cb25b00e499650e7f4c972547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  houseID: 0
+  level: 1
+  maxLevel: 3
+  rentPrice: 100
+  capacity: 2
+  models: []

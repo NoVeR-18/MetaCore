@@ -4,7 +4,7 @@ using UnityEngine;
 public class ExpansionTile : MonoBehaviour
 {
     private IslandController islandController;
-    public int RequiredLevel = 1; // Уровень, необходимый для разблокировки этой ячейки
+    public int RequiredLevel = 1;
     [SerializeField] public bool IsUnlocked = false;
 
     [SerializeField] private GameObject buyableIndicator;
@@ -15,11 +15,9 @@ public class ExpansionTile : MonoBehaviour
     public ExpansionTile leftNeighbor;
     public ExpansionTile rightNeighbor;
 
-    public bool canBuildHouse = false; // возможность строить домик
-    [SerializeField] private int crystalCost = 50; // стоимость домика
-    [SerializeField] private GameObject buildableIndicator; // Индикатор возможности построить домик
-    [SerializeField] private List<GameObject> housePrefabs; // Список префабов для домиков
-    public GameObject currentHouse; // Текущий построенный домик
+    public bool canBuildHouse = false;
+    [SerializeField] private GameObject buildableIndicator;
+    public GameObject currentHouse;
 
     public List<RoadTile> roadTiles;
     [SerializeField] private Dictionary<RoadType, GameObject> roadPrefabs = new Dictionary<RoadType, GameObject>();
@@ -44,7 +42,6 @@ public class ExpansionTile : MonoBehaviour
             buyableIndicator.SetActive(false);
             buildableIndicator.SetActive(false);
             currentRoad.SetActive(false);
-            //gameObject.SetActive(false);
         }
         else if (currentIslandLevel == RequiredLevel && !IsUnlocked)
         {
@@ -57,7 +54,7 @@ public class ExpansionTile : MonoBehaviour
         {
             currentRoad.SetActive(true);
             buyableIndicator.SetActive(false);
-            buildableIndicator.SetActive(canBuildHouse && currentHouse == null); // Показываем индикатор для домика, если ячейка разблокирована и домик еще не построен
+            buildableIndicator.SetActive(canBuildHouse && !currentHouse.activeSelf);
             IsUnlocked = true;
         }
     }
@@ -114,24 +111,24 @@ public class ExpansionTile : MonoBehaviour
         {
             selectedRoadType = RoadType.Corner;
         }
-        else
+        else if (top || bottom || left || right)
         {
             selectedRoadType = RoadType.End;
         }
+        else
+            selectedRoadType = RoadType.Free;
 
-        // Устанавливаем префаб из словаря в зависимости от выбранного типа дороги
         if (roadPrefabs.TryGetValue(selectedRoadType, out GameObject prefab))
         {
             currentRoad = Instantiate(prefab, transform.position, Quaternion.identity, transform);
 
-            // Поворачиваем префаб в зависимости от конфигурации соседей
             if (selectedRoadType == RoadType.Straight && (left && right))
                 currentRoad.transform.rotation = Quaternion.Euler(0, 0, 0);
             else if (selectedRoadType == RoadType.Straight && (top && bottom)) currentRoad.transform.rotation = Quaternion.Euler(0, 90, 0);
             else if (selectedRoadType == RoadType.Corner)
             {
                 if (bottom && right) currentRoad.transform.rotation = Quaternion.Euler(0, -90, 0);
-                else if (top && right) currentRoad.transform.rotation = Quaternion.Euler(0, 180, 0);//
+                else if (top && right) currentRoad.transform.rotation = Quaternion.Euler(0, 180, 0);
                 else if (bottom && left) currentRoad.transform.rotation = Quaternion.Euler(0, 0, 0);
                 else if (top && left) currentRoad.transform.rotation = Quaternion.Euler(0, 90, 0);
             }
@@ -155,26 +152,17 @@ public class ExpansionTile : MonoBehaviour
 
     public void BuildHouse()
     {
-        if (!canBuildHouse || housePrefabs.Count == 0)
+        if (!canBuildHouse)
         {
             Debug.Log("На этой ячейке нельзя строить домик.");
             return;
         }
 
-        if (currentHouse == null)
+        if (currentHouse != null)
         {
-            if (islandController.playerWallet.WithdrawCrystal(crystalCost)) // Снимаем кристаллы
-            {
-                int randomIndex = Random.Range(0, housePrefabs.Count);
-                GameObject selectedPrefab = housePrefabs[randomIndex];
-                currentHouse = Instantiate(selectedPrefab, transform.position, Quaternion.identity, transform);
-                Debug.Log($"Домик построен на {transform.position}.");
-                buildableIndicator.SetActive(false);
-            }
-            else
-            {
-                Debug.Log("Недостаточно кристаллов для постройки домика.");
-            }
+            currentHouse.SetActive(true);
+            Debug.Log($"Домик построен на {transform.position}.");
+            buildableIndicator.SetActive(false);
         }
     }
 
@@ -187,10 +175,6 @@ public class ExpansionTile : MonoBehaviour
         else if (IsUnlocked && canBuildHouse && buildableIndicator.activeSelf)
         {
             islandController.UnlockBuilding(this);
-        }
-        else
-        {
-            Debug.Log("Ячейка недоступна для покупки или строительства.");
         }
     }
 

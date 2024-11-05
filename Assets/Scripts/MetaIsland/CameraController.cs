@@ -15,6 +15,18 @@ public class CameraController : MonoBehaviour
     private Camera cam;
     private Vector2 lastTouchPosition;
 
+
+
+    public float focusSpeed = 2.0f;
+    public float targetDistance = 5.0f;
+    public float targetFOV = 5f;
+    private bool isFocusing = false;
+    private Transform targetObject;
+    private float initialFOV;
+    private bool _canScroling = true;
+
+    [SerializeField]
+    private Vector3 distanceMultiply = new Vector3(0, 1.1f, -0.5f);
     void Start()
     {
         cam = Camera.main;
@@ -22,8 +34,36 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        HandlePan();
-        HandleZoom();
+        if (isFocusing && targetObject != null)
+        {
+            Vector3 targetPosition = targetObject.position + distanceMultiply * targetDistance;
+            cam.transform.position = Vector3.Lerp(cam.transform.position, targetPosition, Time.deltaTime * focusSpeed);
+
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetFOV, Time.deltaTime * focusSpeed);
+
+            if (Vector3.Distance(cam.transform.position, targetPosition) < 0.1f && Mathf.Abs(cam.orthographicSize - targetFOV) < 0.1f)
+            {
+                isFocusing = false;
+            }
+        }
+        else if (isFocusing)
+        {
+
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetFOV, Time.deltaTime * focusSpeed);
+
+            if (Mathf.Abs(cam.orthographicSize - targetFOV) < 0.1f)
+            {
+                isFocusing = false;
+            }
+        }
+        else
+        {
+            if (_canScroling)
+            {
+                HandlePan();
+                HandleZoom();
+            }
+        }
     }
 
     void HandlePan()
@@ -93,5 +133,24 @@ public class CameraController : MonoBehaviour
             cam.orthographicSize -= difference * zoomSpeed * 0.1f;
             cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
         }
+    }
+
+    public void FocusOnObject(Transform obj)
+    {
+        initialFOV = cam.orthographicSize;
+        targetObject = obj;
+        targetFOV = 5f;
+        isFocusing = true;
+        _canScroling = false;
+    }
+
+    public void ResetCamera()
+    {
+        //cam.transform.position = initialPosition;
+        targetFOV = initialFOV;
+        targetObject = null;
+        _canScroling = true;
+        isFocusing = true;
+        //isFocusing = false;
     }
 }

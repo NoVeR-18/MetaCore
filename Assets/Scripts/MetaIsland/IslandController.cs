@@ -6,11 +6,18 @@ public class IslandController : MonoBehaviour
 {
     public Player.PlayerWallet playerWallet;
     public List<ExpansionTile> expansionTiles;
-    public int islandLevel = 1; // Текущий уровень острова
+    public int islandLevel = 1;
+
 
     [SerializeField] private int crystalCost = 50;
     [SerializeField] private int goldCost = 100;
     [SerializeField] private Button CheatButton;
+
+    [Space]
+    public AudioSource audioSource;
+    public AudioClip unlockTileSound;
+    public AudioClip buyHouseSound;
+
     private void Start()
     {
         InitializeExpansionTiles();
@@ -31,7 +38,6 @@ public class IslandController : MonoBehaviour
         }
     }
 
-    // Обновляем видимость ячеек в зависимости от уровня острова
     public void UpdateTileVisibility()
     {
         foreach (ExpansionTile tile in expansionTiles)
@@ -40,12 +46,12 @@ public class IslandController : MonoBehaviour
         }
     }
 
-    // Метод для разблокировки ячейки
     public void UnlockTile(ExpansionTile tile)
     {
         if (playerWallet.WithdrawMoney(goldCost))
         {
             tile.Unlock();
+            audioSource?.PlayOneShot(unlockTileSound);
             CheckAndIncreaseIslandLevel();
 
             SaveIslandState();
@@ -56,18 +62,16 @@ public class IslandController : MonoBehaviour
         }
     }
 
-    // Проверяем, разблокированы ли все ячейки текущего уровня
     private void CheckAndIncreaseIslandLevel()
     {
         foreach (ExpansionTile tile in expansionTiles)
         {
             if (tile.RequiredLevel == islandLevel && !tile.IsUnlocked)
             {
-                return; // Если есть ячейка текущего уровня, которая не разблокирована, то выходим
+                return;
             }
         }
 
-        // Если все ячейки текущего уровня разблокированы, увеличиваем уровень острова
         islandLevel++;
         Debug.Log($"Уровень острова повышен до {islandLevel}");
         UpdateTileVisibility();
@@ -75,11 +79,12 @@ public class IslandController : MonoBehaviour
 
     public void UnlockBuilding(ExpansionTile tile)
     {
-        if (playerWallet.WithdrawCrystal(crystalCost)) // метод для снятия кристаллов
+        if (playerWallet.WithdrawCrystal(crystalCost))
         {
-            tile.BuildHouse(); // вызываем метод для постройки дома
+            tile.BuildHouse();
 
             SaveIslandState();
+            audioSource?.PlayOneShot(buyHouseSound);
         }
         else
         {
@@ -87,7 +92,7 @@ public class IslandController : MonoBehaviour
         }
     }
     private const string IslandLevelKey = "IslandLevel";
-    private const string TileStateKeyPrefix = "TileState_"; // Префикс для состояния ячеек
+    private const string TileStateKeyPrefix = "TileState_";
 
     public void SaveIslandState()
     {
@@ -98,9 +103,8 @@ public class IslandController : MonoBehaviour
             ExpansionTile tile = expansionTiles[i];
             string key = TileStateKeyPrefix + i;
 
-            // Сохраняем состояние ячейки в формате: IsUnlocked,HasHouse
             int state = tile.IsUnlocked ? 1 : 0;
-            state |= (tile.currentHouse != null ? 2 : 0); // Если дом построен, добавляем 2 к состоянию
+            state |= (tile.currentHouse.activeSelf ? 2 : 0);
             PlayerPrefs.SetInt(key, state);
         }
 
@@ -109,8 +113,8 @@ public class IslandController : MonoBehaviour
 
     public void LoadIslandState()
     {
-        islandLevel = PlayerPrefs.GetInt(IslandLevelKey, 1); // Загружаем уровень острова или 1, если не сохранён
-
+        islandLevel = PlayerPrefs.GetInt(IslandLevelKey, 1);
+        Debug.Log("Island level:" + islandLevel);
         for (int i = 0; i < expansionTiles.Count; i++)
         {
             ExpansionTile tile = expansionTiles[i];
@@ -118,16 +122,16 @@ public class IslandController : MonoBehaviour
 
             int state = PlayerPrefs.GetInt(key, 0);
 
-            tile.IsUnlocked = (state & 1) != 0; // Разблокирована ли ячейка
+            tile.IsUnlocked = (state & 1) != 0;
             if (tile.IsUnlocked)
             {
                 tile.Unlock();
             }
-
-            bool hasHouse = (state & 2) != 0; // Построен ли дом
+            tile.UpdateVisibility(islandLevel);
+            bool hasHouse = (state & 2) != 0;
             if (hasHouse && tile.canBuildHouse)
             {
-                tile.BuildHouse(); // Восстанавливаем дом
+                tile.BuildHouse();
             }
         }
 

@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     public Button GoToIslandButton;
     public Button ResetButton;
 
+
     public static LevelManager Instance;
     [SerializeField] private int currentLevel = 1;
     private const string LevelName = "CurrentLevel";
@@ -50,7 +51,6 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        //currentLevel = PlayerPrefs.GetInt(LevelName, 1);
         Debug.Log("Loaded level:" + currentLevel);
         Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
 
@@ -64,7 +64,6 @@ public class LevelManager : MonoBehaviour
         Loader.LoadTilemap();
         var centerOfMap = Loader.FindPaintedTilesCenter();
         var sizeField = Loader.SizeOfField();
-        //cameraTransform.position = new Vector3(centerOfMap.x, cameraTransform.position.y, cameraTransform.position.z);
         PositionCamera(centerOfMap, sizeField.x, sizeField.y);
         TakeButton.onClick.AddListener(() =>
         {
@@ -123,7 +122,6 @@ public class LevelManager : MonoBehaviour
         tileInteraction.tilesToPaint = Loader.tilemapData.tilesToPaint.Length;
         var centerOfMap = Loader.FindPaintedTilesCenter();
         var sizeField = Loader.SizeOfField();
-        //cameraTransform.position = new Vector3(centerOfMap.x, cameraTransform.position.y, cameraTransform.position.z);
         PositionCamera(centerOfMap, sizeField.x, sizeField.y);
         playerMovement.DisableMove();
     }
@@ -161,28 +159,23 @@ public class LevelManager : MonoBehaviour
         tileInteraction.tilesToPaint = Loader.tilemapData.tilesToPaint.Length;
         var centerOfMap = Loader.FindPaintedTilesCenter();
         var sizeField = Loader.SizeOfField();
-        //cameraTransform.position = new Vector3(centerOfMap.x, cameraTransform.position.y, cameraTransform.position.z);
         PositionCamera(centerOfMap, sizeField.x, sizeField.y);
         playerMovement.DisableMove();
     }
     public float padding = 1.2f;
     public void PositionCamera(Vector3 center, float width, float height)
     {
-        // Проверка на то, что у камеры включена ортографическая проекция
         if (!cameraTransform.orthographic)
         {
             Debug.LogWarning("Камера должна быть ортографической для этого метода.");
             return;
         }
 
-        // Устанавливаем положение камеры на центр поля
         cameraTransform.transform.position = new Vector3(center.x, center.y + 10f, cameraTransform.transform.position.z);
 
-        // Вычисляем необходимый ортографический размер
         float sizeX = width / cameraTransform.aspect / 2;
         float sizeY = height / 2;
 
-        // Увеличиваем размер, чтобы добавить отступ
         cameraTransform.orthographicSize = Mathf.Max(sizeX, sizeY) * padding;
     }
 }
