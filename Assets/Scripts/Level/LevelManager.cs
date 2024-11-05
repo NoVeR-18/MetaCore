@@ -50,7 +50,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        currentLevel = PlayerPrefs.GetInt(LevelName, 1);
+        //currentLevel = PlayerPrefs.GetInt(LevelName, 1);
+        Debug.Log("Loaded level:" + currentLevel);
         Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
 
         if (Loader.tilemapData == null)
@@ -69,7 +70,6 @@ public class LevelManager : MonoBehaviour
         {
             audioSource.PlayOneShot(audioClips[0]);
             VictoryPopUp.gameObject.SetActive(false);
-            PlayerMovement.CanMoving = true;
             GameManager.Instance.Vibrate();
             currentLevel++;
             CreateLevel();
@@ -78,7 +78,7 @@ public class LevelManager : MonoBehaviour
         GoToIslandButton.onClick.AddListener(() =>
         {
             audioSource.PlayOneShot(audioClips[1]);
-            SceneManager.LoadScene("MetaSceneTest");
+            SceneManager.LoadScene(0);
             PlayerMovement.CanMoving = true;
             GameManager.Instance.Vibrate();
         });

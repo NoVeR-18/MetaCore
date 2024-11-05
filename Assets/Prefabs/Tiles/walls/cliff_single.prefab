@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8882053707343895552}
   - component: {fileID: 8014312534509301381}
   - component: {fileID: -7645673112619689528}
-  m_Layer: 0
+  - component: {fileID: 7611896525027976562}
+  m_Layer: 6
   m_Name: cliff_single
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsContainer: {fileID: 0}
+--- !u!65 &7611896525027976562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580099386904765924}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.563896, y: 1.4617823, z: 1.5510585}
+  m_Center: {x: 0.0022167265, y: 0.26889217, z: 0.014245778}

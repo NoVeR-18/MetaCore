@@ -145,9 +145,117 @@ MonoBehaviour:
     prefabType: 0
     position: {x: -4, y: 0.5, z: -1.5}
     rotations: {x: -0, y: -0, z: -0, w: 1}
-  tilesToPaint: []
-  tilesPaliter: []
+  tilesToPaint:
+  - position: {x: -4, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: -4, y: -1, z: 0}
+    tileName: frame1
+  - position: {x: -4, y: 0, z: 0}
+    tileName: frame1
+  - position: {x: -4, y: 3, z: 0}
+    tileName: frame1
+  - position: {x: -4, y: 4, z: 0}
+    tileName: frame1
+  - position: {x: -3, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: -3, y: 0, z: 0}
+    tileName: frame1
+  - position: {x: -3, y: 4, z: 0}
+    tileName: frame1
+  - position: {x: -2, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: -2, y: -1, z: 0}
+    tileName: frame1
+  - position: {x: -2, y: 0, z: 0}
+    tileName: frame1
+  - position: {x: -2, y: 1, z: 0}
+    tileName: frame1
+  - position: {x: -2, y: 2, z: 0}
+    tileName: frame1
+  - position: {x: -2, y: 3, z: 0}
+    tileName: frame1
+  - position: {x: -2, y: 4, z: 0}
+    tileName: frame1
+  - position: {x: -1, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: -1, y: -1, z: 0}
+    tileName: frame1
+  - position: {x: -1, y: 0, z: 0}
+    tileName: frame1
+  - position: {x: -1, y: 1, z: 0}
+    tileName: frame1
+  - position: {x: -1, y: 2, z: 0}
+    tileName: frame1
+  - position: {x: -1, y: 3, z: 0}
+    tileName: frame1
+  - position: {x: -1, y: 4, z: 0}
+    tileName: frame1
+  - position: {x: 0, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: 0, y: 3, z: 0}
+    tileName: frame1
+  - position: {x: 0, y: 4, z: 0}
+    tileName: frame1
+  - position: {x: 1, y: -2, z: 0}
+    tileName: frame1
+  - position: {x: 1, y: -1, z: 0}
+    tileName: frame1
+  - position: {x: 1, y: 0, z: 0}
+    tileName: frame1
+  - position: {x: 1, y: 1, z: 0}
+    tileName: frame1
+  - position: {x: 1, y: 2, z: 0}
+    tileName: frame1
+  - position: {x: 1, y: 3, z: 0}
+    tileName: frame1
+  tilesPaliter:
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
   prefabs:
+  - name: 
+    prefabType: 1
+    position: {x: -1, y: 0.5, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 0
     position: {x: -3, y: 0.5, z: -1.5}

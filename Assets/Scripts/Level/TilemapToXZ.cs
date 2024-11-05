@@ -29,6 +29,12 @@ public class TilemapToXZ : MonoBehaviour
         prefabData.position = gameObject.transform.position;
         prefabData.rotations = gameObject.transform.rotation;
         prefabData.name = gameObject.name;
+        if (objectsContainer == null)
+        {
+            Debug.Log("WallTilemap not found");
+            return;
+        }
+
         objectsContainer.itemsTransform.Add(gameObject.transform);
         TogglePrefabInList(prefabData);
     }
@@ -67,6 +73,7 @@ public class TilemapToXZ : MonoBehaviour
             if (existingPrefab != null)
             {
                 objectsContainer.items.Remove(existingPrefab);
+                objectsContainer.itemsTransform.Remove(transform);
             }
         }
 #endif

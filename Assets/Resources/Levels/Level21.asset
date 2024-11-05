@@ -93,6 +93,10 @@ MonoBehaviour:
     prefabType: 0
     position: {x: -7, y: 0.5, z: 2.5}
     rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  - name: Free Tile
+    prefabType: 0
+    position: {x: -2, y: 0.5, z: 3.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   tilesToPaint:
   - position: {x: -8, y: -1, z: 0}
     tileName: frame1
