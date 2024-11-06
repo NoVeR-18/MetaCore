@@ -95,10 +95,6 @@ MonoBehaviour:
     rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
     prefabType: 0
-    position: {x: -3, y: 0.5, z: -1.5}
-    rotations: {x: -0, y: -0, z: -0, w: 1}
-  - name: Free Tile
-    prefabType: 0
     position: {x: -2, y: 0.5, z: -1.5}
     rotations: {x: -0, y: -0, z: -0, w: 1}
   - name: Free Tile
