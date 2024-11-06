@@ -52,19 +52,9 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         Debug.Log("Loaded level:" + currentLevel);
-        Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
 
-        if (Loader.tilemapData == null)
-        {
-            currentLevel = 1;
-            Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
-        }
-        CurrentLevel.text = $"LEVEL {currentLevel}";
-
-        Loader.LoadTilemap();
-        var centerOfMap = Loader.FindPaintedTilesCenter();
-        var sizeField = Loader.SizeOfField();
-        PositionCamera(centerOfMap, sizeField.x, sizeField.y);
+        currentLevel = PlayerPrefs.GetInt(LevelName, 1);
+        CreateLevel();
         TakeButton.onClick.AddListener(() =>
         {
             audioSource.PlayOneShot(audioClips[0]);
@@ -95,7 +85,8 @@ public class LevelManager : MonoBehaviour
 
     public void LevelComplete()
     {
-        PlayerPrefs.SetInt(LevelName, currentLevel);
+        PlayerPrefs.SetInt(LevelName, currentLevel + 1);
+        PlayerPrefs.Save();
         if (currentLevel % 5 == 0)
         {
             SetVictory();
@@ -111,12 +102,14 @@ public class LevelManager : MonoBehaviour
 
         CurrentLevel.text = currentLevel.ToString();
         Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
-
         if (Loader.tilemapData == null)
         {
             currentLevel = 1;
+            PlayerPrefs.SetInt(LevelName, currentLevel);
+            PlayerPrefs.Save();
             Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
         }
+        Debug.Log("Loaded:" + Loader.tilemapData.name);
         CurrentLevel.text = $"LEVEL {currentLevel}";
         Loader.LoadTilemap();
         tileInteraction.tilesToPaint = Loader.tilemapData.tilesToPaint.Length;
@@ -133,19 +126,18 @@ public class LevelManager : MonoBehaviour
         CurrentCrystal.text = ColectedCrystal.ToString();
         CurrentPeople.text = ColectedPeople.ToString();
         VictoryPopUp.gameObject.SetActive(true);
-
+        ColectedCoins = 0;
+        ColectedCrystal = 0;
+        ColectedPeople = 0;
+        GoToIslandButton.gameObject.SetActive(true);
         PlayerMovement.CanMoving = false;
-
-        PlayerPrefs.SetInt("TotalCoins", ColectedCoins);
-        PlayerPrefs.SetInt("TotalCrystal", ColectedCrystal);
-        PlayerPrefs.SetInt("TotalPeople", ColectedPeople);
-        PlayerPrefs.Save();
     }
 
     private void ResetLevels()
     {
         currentLevel = 1;
         PlayerPrefs.SetInt(LevelName, currentLevel);
+        PlayerPrefs.Save();
         CurrentLevel.text = currentLevel.ToString();
         Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
 

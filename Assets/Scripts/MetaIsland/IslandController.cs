@@ -9,8 +9,8 @@ public class IslandController : MonoBehaviour
     public int islandLevel = 1;
 
 
-    [SerializeField] private int crystalCost = 50;
-    [SerializeField] private int goldCost = 100;
+    public int crystalCost = 10;
+    public int goldCost = 50;
     [SerializeField] private Button CheatButton;
 
     [Space]

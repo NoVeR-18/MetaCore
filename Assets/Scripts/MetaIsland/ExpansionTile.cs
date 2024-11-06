@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ExpansionTile : MonoBehaviour
 {
@@ -7,8 +9,12 @@ public class ExpansionTile : MonoBehaviour
     public int RequiredLevel = 1;
     [SerializeField] public bool IsUnlocked = false;
 
+    [SerializeField] private TextMeshPro expandCostText;
+    [SerializeField] private TextMeshPro buildCostText;
     [SerializeField] private GameObject buyableIndicator;
     [SerializeField] private GameObject currentRoad;
+
+
 
     public ExpansionTile topNeighbor;
     public ExpansionTile bottomNeighbor;
@@ -33,6 +39,10 @@ public class ExpansionTile : MonoBehaviour
     public void SetIslandController(IslandController controller)
     {
         islandController = controller;
+        if (expandCostText != null)
+            expandCostText.text = islandController.goldCost.ToString();
+        if (buildCostText != null)
+            buildCostText.text = islandController.crystalCost.ToString();
     }
 
     public void UpdateVisibility(int currentIslandLevel)
@@ -168,6 +178,10 @@ public class ExpansionTile : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         if (!IsUnlocked && buyableIndicator.activeSelf)
         {
             islandController.UnlockTile(this);
