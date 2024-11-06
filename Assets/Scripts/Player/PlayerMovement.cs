@@ -105,6 +105,7 @@ namespace Player
 
         void CheckSwipeDirection(Vector3 swipeVector)
         {
+            LevelManager.Instance.GoToIslandButton.gameObject.SetActive(false);
             swipeVector.Normalize();
             GameManager.Instance.Vibrate();
             //audioSource.PlayOneShot(audioSource.clip);

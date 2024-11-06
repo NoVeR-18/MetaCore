@@ -31,7 +31,6 @@ public class DraggablePerson : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        // Преобразуем экранную позицию курсора в локальные координаты Canvas
         Vector2 localPoint;
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
             parentCanvas.transform as RectTransform,

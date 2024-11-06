@@ -74,6 +74,10 @@ public class CameraController : MonoBehaviour
 
     void HandlePan()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         Vector3 pos = transform.position;
 
 #if UNITY_EDITOR || UNITY_STANDALONE
@@ -93,10 +97,6 @@ public class CameraController : MonoBehaviour
 
         if (Input.touchCount == 1)
         {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
             Touch touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began)

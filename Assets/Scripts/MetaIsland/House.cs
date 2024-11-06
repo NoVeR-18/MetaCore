@@ -11,8 +11,10 @@ public class House : MonoBehaviour, IDropHandler
     public int capacity = 2;             // Начальная вместимость (максимум людей в доме)
     public List<GameObject> models;      // Модели домика для разных уровней
     public AudioSource audioSource;
-    [SerializeField]
-    private int currentResidents = 0;    // Текущее количество людей в домике
+    public int currentResidents = 0;    // Текущее количество людей в домике
+
+    public ParticleSystem UpgradeBuild;
+    public ParticleSystem UpgradeRent;
 
     private void Start()
     {
@@ -22,13 +24,17 @@ public class House : MonoBehaviour, IDropHandler
 
     public void IncreaseRentPrice(float amount)
     {
+        audioSource.Play();
+        UpgradeRent.Play();
         rentPrice += amount;
         SaveProgress();
     }
 
     public void IncreaseCapacity(int amount)
     {
+        audioSource.Play();
         capacity += amount;
+        UpgradeBuild.Play();
         SaveProgress();
     }
 
@@ -37,7 +43,6 @@ public class House : MonoBehaviour, IDropHandler
         if (level < maxLevel)
         {
             level++;
-            audioSource.Play();
             UpdateHouseModel();
             SaveProgress();
         }

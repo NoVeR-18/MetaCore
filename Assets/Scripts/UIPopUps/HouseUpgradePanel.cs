@@ -14,6 +14,7 @@ public class HouseUpgradePanel : MonoBehaviour
     public TextMeshProUGUI capacityText;          // Текст, отображающий вместимость
     public TextMeshProUGUI levelText;             // Текст, отображающий уровень домика
     public TextMeshProUGUI maxLevelText;          // Текст, отображающий максимальный уровень домика
+    public TextMeshProUGUI currentCapacityText;          // Текст, отображающий максимальный уровень домика
     public Image levelProgressBar;                // Прогресс-бар для отображения уровня
 
     private void Start()
@@ -37,7 +38,7 @@ public class HouseUpgradePanel : MonoBehaviour
         {
             if (playerWallet.WithdrawMoney(goldCost))
             {
-                currentHouse.IncreaseRentPrice(0.1f); // Увеличиваем аренду на 0.1
+                currentHouse.IncreaseRentPrice(0.01f); // Увеличиваем аренду на 0.1
                 UpdatePanel();
             }
             else
@@ -82,6 +83,7 @@ public class HouseUpgradePanel : MonoBehaviour
             capacityText.text = currentHouse.capacity.ToString();       // Отображение вместимости
             levelText.text = $"LVL  {currentHouse.level}";          // Отображение текущего уровня
             maxLevelText.text = $"LVL {currentHouse.maxLevel}";           // Отображение максимального уровня
+            currentCapacityText.text = $"{currentHouse.currentResidents} / {currentHouse.capacity}";
 
             // Обновление прогресс-бара уровня
             levelProgressBar.fillAmount = (float)currentHouse.level / currentHouse.maxLevel;

@@ -102,12 +102,14 @@ public class LevelManager : MonoBehaviour
 
         CurrentLevel.text = currentLevel.ToString();
         Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
-        Debug.Log("Loaded:" + Loader.tilemapData.name);
         if (Loader.tilemapData == null)
         {
             currentLevel = 1;
+            PlayerPrefs.SetInt(LevelName, currentLevel);
+            PlayerPrefs.Save();
             Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
         }
+        Debug.Log("Loaded:" + Loader.tilemapData.name);
         CurrentLevel.text = $"LEVEL {currentLevel}";
         Loader.LoadTilemap();
         tileInteraction.tilesToPaint = Loader.tilemapData.tilesToPaint.Length;
@@ -127,7 +129,7 @@ public class LevelManager : MonoBehaviour
         ColectedCoins = 0;
         ColectedCrystal = 0;
         ColectedPeople = 0;
-
+        GoToIslandButton.gameObject.SetActive(true);
         PlayerMovement.CanMoving = false;
     }
 

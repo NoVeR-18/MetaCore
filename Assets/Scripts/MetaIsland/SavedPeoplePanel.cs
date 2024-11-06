@@ -8,7 +8,7 @@ public class SavedPeoplePanel : MonoBehaviour
     public List<GameObject> slots; // Массив слотов для отображения человечков
     public AudioSource audioSource;
 
-    private const string SavedPeopleKey = "SavedPeopleCount"; // Ключ для сохранения
+    public const string SavedPeopleKey = "SavedPeopleCount"; // Ключ для сохранения
 
     private void Start()
     {
@@ -21,7 +21,7 @@ public class SavedPeoplePanel : MonoBehaviour
         if (currentPeopleCount < slots.Count)
         {
             currentPeopleCount++;
-            SavePeople();
+            SavePeople(currentPeopleCount);
             UpdatePanel();
         }
         else
@@ -36,7 +36,7 @@ public class SavedPeoplePanel : MonoBehaviour
         {
             audioSource.Play();
             currentPeopleCount--;
-            SavePeople();
+            SavePeople(currentPeopleCount);
             UpdatePanel();
         }
         else
@@ -68,9 +68,13 @@ public class SavedPeoplePanel : MonoBehaviour
         }
     }
 
-    private void SavePeople()
+    public static void SavePeople(int PeopleCount)
     {
-        PlayerPrefs.SetInt(SavedPeopleKey, currentPeopleCount);
+        if (PlayerPrefs.GetInt(SavedPeopleKey, 0) + PeopleCount >= 5)
+
+            PlayerPrefs.SetInt(SavedPeopleKey, 5);
+        else
+            PlayerPrefs.SetInt(SavedPeopleKey, PeopleCount);
         PlayerPrefs.Save();
     }
 
