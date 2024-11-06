@@ -17,6 +17,8 @@ namespace Player
         private bool isSwiping = false;
         public float minSwipeDistance = 50f;
 
+        public Transform Raft;
+
         public AudioSource audioSource;
 
         void Start()
@@ -46,7 +48,6 @@ namespace Player
                     rb.velocity = Vector3.zero;
                     transform.position = hit.point - moveDirection * 0.5f;
                     isMoving = false;
-                    RotatePlayerToWall(moveDirection);
                 }
             }
         }
@@ -102,7 +103,7 @@ namespace Player
 #endif
         }
 
-        void CheckSwipeDirection(Vector2 swipeVector)
+        void CheckSwipeDirection(Vector3 swipeVector)
         {
             swipeVector.Normalize();
             GameManager.Instance.Vibrate();
@@ -138,6 +139,7 @@ namespace Player
                 }
             }
             isMoving = true;
+            RotatePlayerToWall(moveDirection);
         }
 
         void DetectKeyboardInput()
@@ -170,11 +172,29 @@ namespace Player
                     facingRight = !facingRight;
                 }
             }
+            RotatePlayerToWall(moveDirection);
         }
 
         void RotatePlayerToWall(Vector3 moveDirection)
         {
-            // Оставим пустым, если нужен поворот, можно раскомментировать и настроить.
+            float angle = 0f;
+            if (moveDirection == Vector3.forward)
+            {
+                angle = 90f;
+            }
+            else if (moveDirection == Vector3.back)
+            {
+                angle = -90f;
+            }
+            else if (moveDirection == Vector3.left)
+            {
+                angle = 0f;
+            }
+            else if (moveDirection == Vector3.right)
+            {
+                angle = 180f;
+            }
+            Raft.transform.rotation = Quaternion.Euler(0, angle, 0);
         }
 
         public void PlayerDeath()

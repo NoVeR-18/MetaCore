@@ -1,18 +1,23 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class House : MonoBehaviour
+public class House : MonoBehaviour, IDropHandler
 {
     public int houseID;                  // Уникальный ID для каждого домика
     public int level = 1;                // Начальный уровень домика
-    public int maxLevel = 3;             // Максимальный уровень домика
-    public float rentPrice = 100f;       // Начальная цена аренды
-    public int capacity = 2;             // Начальная вместимость
-    public GameObject[] models;          // Массив моделей домика для разных уровней
+    public int maxLevel = 25;            // Максимальный уровень домика
+    public float rentPrice = 3;          // Начальная цена аренды
+    public int capacity = 2;             // Начальная вместимость (максимум людей в доме)
+    public List<GameObject> models;      // Модели домика для разных уровней
+    public AudioSource audioSource;
+    [SerializeField]
+    private int currentResidents = 0;    // Текущее количество людей в домике
 
     private void Start()
     {
-        LoadProgress(); // Загрузка прогресса для данного домика
-        UpdateHouseModel(); // Обновление модели домика в зависимости от уровня
+        LoadProgress();
+        UpdateHouseModel();
     }
 
     public void IncreaseRentPrice(float amount)
@@ -32,38 +37,94 @@ public class House : MonoBehaviour
         if (level < maxLevel)
         {
             level++;
+            audioSource.Play();
             UpdateHouseModel();
             SaveProgress();
         }
     }
 
+    // Метод добавления человека в домик
+    public bool AddResident()
+    {
+        if (currentResidents < capacity)
+        {
+            currentResidents++;
+            SaveProgress();
+            return true;
+        }
+        else
+        {
+            Debug.Log("Дом полон, невозможно добавить нового человека.");
+            return false;
+        }
+    }
+
     private void UpdateHouseModel()
     {
-        // Отключаем все модели и включаем только нужную в зависимости от уровня
-        for (int i = 0; i < models.Length; i++)
+        int modelIndex = (level - 1) / 5;
+
+        if (modelIndex >= models.Count)
         {
-            models[i].SetActive(i == level - 1);
+            modelIndex = models.Count - 1;
+        }
+
+        for (int i = 0; i < models.Count; i++)
+        {
+            models[i].SetActive(i == modelIndex);
         }
     }
 
     private void SaveProgress()
     {
-        // Сохраняем уровень, цену аренды и вместимость домика
         PlayerPrefs.SetInt($"House_{houseID}_Level", level);
         PlayerPrefs.SetFloat($"House_{houseID}_RentPrice", rentPrice);
         PlayerPrefs.SetInt($"House_{houseID}_Capacity", capacity);
+        PlayerPrefs.SetInt($"House_{houseID}_CurrentResidents", currentResidents);
         PlayerPrefs.Save();
     }
 
     private void LoadProgress()
     {
-        // Загружаем сохраненные данные для домика, если они есть
         level = PlayerPrefs.GetInt($"House_{houseID}_Level", level);
         rentPrice = PlayerPrefs.GetFloat($"House_{houseID}_RentPrice", rentPrice);
         capacity = PlayerPrefs.GetInt($"House_{houseID}_Capacity", capacity);
+        currentResidents = PlayerPrefs.GetInt($"House_{houseID}_CurrentResidents", 0);
     }
+
+    // Метод обработки события перетаскивания объекта на домик
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("OnDrop triggered.");  // Проверяем, сработало ли событие OnDrop
+
+        DraggablePerson person = eventData.pointerDrag?.GetComponent<DraggablePerson>();
+        if (person == null)
+        {
+            Debug.LogWarning("Dragged object is not a DraggablePerson.");
+            return;
+        }
+
+        if (AddResident())
+        {
+            // Если есть свободное место, добавляем человечка
+            Debug.Log("Resident added to the house.");
+
+            SavedPeoplePanel savedPeoplePanel = FindObjectOfType<SavedPeoplePanel>();
+            savedPeoplePanel.RemovePerson(person.gameObject);  // Убираем с панели
+            Destroy(person.gameObject);  // Уничтожаем объект
+        }
+        else
+        {
+            Debug.Log("House is full, resident cannot be added.");
+        }
+    }
+
+
     private void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         IslandManager.Instance.houseUpgradePanel.SetCurrentHouse(this);
         IslandManager.Instance.houseUpgradePanel.gameObject.SetActive(true);
         IslandManager.Instance.cameraController.FocusOnObject(transform);

@@ -5,23 +5,24 @@ using UnityEngine.UI;
 public class HouseUpgradePanel : MonoBehaviour
 {
     public Player.PlayerWallet playerWallet;
-    [SerializeField] private int goldCost = 150;
-    public House currentHouse;                // Текущий выбранный домик
-    public Button upgradeRentButton;          // Кнопка для повышения аренды
-    public Button upgradeCapacityButton;      // Кнопка для повышения вместимости
-    public Button closeNutton;      // Кнопка для повышения вместимости
-    public TextMeshProUGUI rentPriceText;                // Текст, отображающий цену аренды
-    public TextMeshProUGUI capacityText;                 // Текст, отображающий вместимость
-    public TextMeshProUGUI levelText;                    // Текст, отображающий уровень домика
+    [SerializeField] private int goldCost = 15;
+    public House currentHouse;                    // Текущий выбранный домик
+    public Button upgradeRentButton;              // Кнопка для повышения аренды
+    public Button upgradeCapacityButton;          // Кнопка для повышения вместимости
+    public Button closeButton;                    // Кнопка для закрытия панели
+    public TextMeshProUGUI rentPriceText;         // Текст, отображающий цену аренды
+    public TextMeshProUGUI capacityText;          // Текст, отображающий вместимость
+    public TextMeshProUGUI levelText;             // Текст, отображающий уровень домика
+    public TextMeshProUGUI maxLevelText;          // Текст, отображающий максимальный уровень домика
+    public Image levelProgressBar;                // Прогресс-бар для отображения уровня
 
     private void Start()
     {
         UpdatePanel();
-        closeNutton.onClick.AddListener(() => { CloseTab(); });
+        closeButton.onClick.AddListener(() => { CloseTab(); });
 
         upgradeRentButton.onClick.AddListener(() => { OnUpgradeRentButton(); });
         upgradeCapacityButton.onClick.AddListener(() => { OnUpgradeCapacityButton(); });
-
     }
 
     public void SetCurrentHouse(House house)
@@ -36,12 +37,12 @@ public class HouseUpgradePanel : MonoBehaviour
         {
             if (playerWallet.WithdrawMoney(goldCost))
             {
-                currentHouse.IncreaseRentPrice(50); // Увеличиваем аренду на 50
+                currentHouse.IncreaseRentPrice(0.1f); // Увеличиваем аренду на 0.1
                 UpdatePanel();
             }
             else
             {
-                Debug.Log("Недостаточно золота для разблокировки ячейки.");
+                Debug.Log("Недостаточно золота для повышения аренды.");
             }
         }
     }
@@ -58,7 +59,7 @@ public class HouseUpgradePanel : MonoBehaviour
             }
             else
             {
-                Debug.Log("Недостаточно золота для разблокировки ячейки.");
+                Debug.Log("Недостаточно золота для повышения вместимости.");
             }
         }
     }
@@ -77,17 +78,20 @@ public class HouseUpgradePanel : MonoBehaviour
         // Обновление текстовых полей на панели с информацией о домике
         if (currentHouse != null)
         {
-            rentPriceText.text = "" + currentHouse.rentPrice;
-            capacityText.text = "" + currentHouse.capacity;
-            levelText.text = "" + currentHouse.level;
+            rentPriceText.text = currentHouse.rentPrice.ToString("F1"); // Отображение цены аренды
+            capacityText.text = currentHouse.capacity.ToString();       // Отображение вместимости
+            levelText.text = $"LVL  {currentHouse.level}";          // Отображение текущего уровня
+            maxLevelText.text = $"LVL {currentHouse.maxLevel}";           // Отображение максимального уровня
+
+            // Обновление прогресс-бара уровня
+            levelProgressBar.fillAmount = (float)currentHouse.level / currentHouse.maxLevel;
         }
     }
 
-    private void CloseTab()
+    public void CloseTab()
     {
         IslandManager.Instance.cameraController.ResetCamera();
         currentHouse = null;
         gameObject.SetActive(false);
     }
 }
-

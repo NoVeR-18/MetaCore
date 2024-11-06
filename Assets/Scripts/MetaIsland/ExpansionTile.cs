@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ExpansionTile : MonoBehaviour
 {
@@ -168,6 +169,10 @@ public class ExpansionTile : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         if (!IsUnlocked && buyableIndicator.activeSelf)
         {
             islandController.UnlockTile(this);

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class CameraController : MonoBehaviour
     private Vector3 distanceMultiply = new Vector3(0, 1.1f, -0.5f);
     void Start()
     {
+
+#if UNITY_EDITOR
+        panSpeed = 3f;
+        zoomSpeed = 3f;
+#endif
         cam = Camera.main;
     }
 
@@ -87,6 +93,10 @@ public class CameraController : MonoBehaviour
 
         if (Input.touchCount == 1)
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
             Touch touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began)
