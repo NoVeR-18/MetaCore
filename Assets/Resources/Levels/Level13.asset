@@ -169,5 +169,5 @@ MonoBehaviour:
     rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
     prefabType: 3
-    position: {x: -4, y: 0.3988693, z: 2.5755112}
+    position: {x: -4, y: 0.39642346, z: 2.5663834}
     rotations: {x: 0, y: 0, z: 0, w: 0}
