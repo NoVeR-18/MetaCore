@@ -16,8 +16,14 @@ public class House : MonoBehaviour, IDropHandler
     public ParticleSystem UpgradeBuild;
     public ParticleSystem UpgradeRent;
 
+    public PeopleBar peopleBar;
+
     private void Start()
     {
+        if (peopleBar == null)
+            peopleBar = FindObjectOfType<PeopleBar>();
+
+        peopleBar.InitBar(this);
         LoadProgress();
         UpdateHouseModel();
     }
@@ -34,6 +40,7 @@ public class House : MonoBehaviour, IDropHandler
     {
         audioSource.Play();
         capacity += amount;
+        peopleBar.UpdateProgress();
         UpgradeBuild.Play();
         SaveProgress();
     }
@@ -54,6 +61,7 @@ public class House : MonoBehaviour, IDropHandler
         if (currentResidents < capacity)
         {
             currentResidents++;
+            peopleBar.UpdateProgress();
             SaveProgress();
             return true;
         }
@@ -94,6 +102,7 @@ public class House : MonoBehaviour, IDropHandler
         rentPrice = PlayerPrefs.GetFloat($"House_{houseID}_RentPrice", rentPrice);
         capacity = PlayerPrefs.GetInt($"House_{houseID}_Capacity", capacity);
         currentResidents = PlayerPrefs.GetInt($"House_{houseID}_CurrentResidents", 0);
+        peopleBar.UpdateProgress();
     }
 
     // Метод обработки события перетаскивания объекта на домик
