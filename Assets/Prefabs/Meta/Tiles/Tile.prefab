@@ -62,6 +62,8 @@ MonoBehaviour:
   currentResidents: 0
   UpgradeBuild: {fileID: 7644222076293710494}
   UpgradeRent: {fileID: 1747820119641128412}
+  experienceTable: {fileID: 11400000, guid: 3ed349c1b7f724b4a894384307c27467, type: 2}
+  peopleBar: {fileID: 0}
 --- !u!65 &4935536367530523995
 BoxCollider:
   m_ObjectHideFlags: 0

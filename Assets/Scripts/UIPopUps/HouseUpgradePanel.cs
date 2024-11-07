@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class HouseUpgradePanel : MonoBehaviour
 {
     public Player.PlayerWallet playerWallet;
+    public LevelProgressManager levelProgressManager;
     [SerializeField] private int goldCost = 15;
     public House currentHouse;                    // Текущий выбранный домик
     public Button upgradeRentButton;              // Кнопка для повышения аренды
@@ -15,7 +16,12 @@ public class HouseUpgradePanel : MonoBehaviour
     public TextMeshProUGUI levelText;             // Текст, отображающий уровень домика
     public TextMeshProUGUI maxLevelText;          // Текст, отображающий максимальный уровень домика
     public TextMeshProUGUI currentCapacityText;          // Текст, отображающий максимальный уровень домика
+    public TextMeshProUGUI rentPriceUpdateText;          // Текст, отображающий максимальный уровень домика
+    public TextMeshProUGUI rentPriceAwardText;          // Текст, отображающий максимальный уровень домика
+    public TextMeshProUGUI capacityPriceAwardText;          // Текст, отображающий максимальный уровень домика
+    public TextMeshProUGUI capacityPriceUpdateText;          // Текст, отображающий максимальный уровень домика
     public Image levelProgressBar;                // Прогресс-бар для отображения уровня
+    public ExperienceTable experienceTable;
 
     private void Start()
     {
@@ -24,6 +30,8 @@ public class HouseUpgradePanel : MonoBehaviour
 
         upgradeRentButton.onClick.AddListener(() => { OnUpgradeRentButton(); });
         upgradeCapacityButton.onClick.AddListener(() => { OnUpgradeCapacityButton(); });
+        if (experienceTable == null)
+            experienceTable = Resources.Load<ExperienceTable>("ExperienceTable");
     }
 
     public void SetCurrentHouse(House house)
@@ -36,9 +44,10 @@ public class HouseUpgradePanel : MonoBehaviour
     {
         if (currentHouse != null)
         {
-            if (playerWallet.WithdrawMoney(goldCost))
+            if (playerWallet.WithdrawMoney(experienceTable.incomeCost[currentHouse.rentPriceLevel].x))
             {
-                currentHouse.IncreaseRentPrice(0.01f); // Увеличиваем аренду на 0.1
+                currentHouse.IncreaseRentPrice(); // Увеличиваем аренду на 0.1
+                levelProgressManager.AddExperience(experienceTable.incomeCost[currentHouse.rentPriceLevel].y);
                 UpdatePanel();
             }
             else
@@ -52,11 +61,13 @@ public class HouseUpgradePanel : MonoBehaviour
     {
         if (currentHouse != null)
         {
-            if (playerWallet.WithdrawMoney(goldCost))
+            var currentLevel = experienceTable.capacityCost[currentHouse.capacityLevel];
+            if (playerWallet.WithdrawMoney(currentLevel.CostUpgrade))
             {
-                currentHouse.IncreaseCapacity(1); // Увеличиваем вместимость на 1
+                currentHouse.capacityLevel++;
+                currentHouse.IncreaseCapacity(currentLevel.PlaceCount);
+                levelProgressManager.AddExperience(currentLevel.AwardStarsCount);
                 UpdatePanel();
-                OnUpgradeHouseButton();
             }
             else
             {
@@ -79,12 +90,15 @@ public class HouseUpgradePanel : MonoBehaviour
         // Обновление текстовых полей на панели с информацией о домике
         if (currentHouse != null)
         {
-            rentPriceText.text = currentHouse.rentPrice.ToString("F1"); // Отображение цены аренды
+            rentPriceText.text = (1 + 0.01f * currentHouse.rentPriceLevel).ToString("F1"); // Отображение цены аренды
             capacityText.text = currentHouse.capacity.ToString();       // Отображение вместимости
             levelText.text = $"LVL  {currentHouse.level}";          // Отображение текущего уровня
             maxLevelText.text = $"LVL {currentHouse.maxLevel}";           // Отображение максимального уровня
             currentCapacityText.text = $"{currentHouse.currentResidents} / {currentHouse.capacity}";
-
+            rentPriceUpdateText.text = $"{experienceTable.incomeCost[currentHouse.rentPriceLevel].x}";
+            rentPriceAwardText.text = $"{experienceTable.incomeCost[currentHouse.rentPriceLevel].y}";
+            capacityPriceUpdateText.text = $"{experienceTable.capacityCost[currentHouse.capacityLevel].CostUpgrade}";
+            capacityPriceAwardText.text = $"{experienceTable.capacityCost[currentHouse.capacityLevel].AwardStarsCount}";
             // Обновление прогресс-бара уровня
             levelProgressBar.fillAmount = (float)currentHouse.level / currentHouse.maxLevel;
         }

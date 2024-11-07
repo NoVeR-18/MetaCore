@@ -7,39 +7,39 @@ public class House : MonoBehaviour, IDropHandler
     public int houseID;                  // Уникальный ID для каждого домика
     public int level = 1;                // Начальный уровень домика
     public int maxLevel = 25;            // Максимальный уровень домика
-    public float rentPrice = 3;          // Начальная цена аренды
+    public int rentPriceLevel = 0;          // Начальная цена аренды
     public int capacity = 2;             // Начальная вместимость (максимум людей в доме)
+    public int capacityLevel = 0;             // Начальная вместимость (максимум людей в доме)
     public List<GameObject> models;      // Модели домика для разных уровней
     public AudioSource audioSource;
     public int currentResidents = 0;    // Текущее количество людей в домике
 
     public ParticleSystem UpgradeBuild;
     public ParticleSystem UpgradeRent;
-
     public PeopleBar peopleBar;
 
     private void Start()
     {
         if (peopleBar == null)
             peopleBar = FindObjectOfType<PeopleBar>();
-
         peopleBar.InitBar(this);
         LoadProgress();
         UpdateHouseModel();
     }
 
-    public void IncreaseRentPrice(float amount)
+    public void IncreaseRentPrice()
     {
         audioSource.Play();
         UpgradeRent.Play();
-        rentPrice += amount;
+
+        rentPriceLevel += 1;
         SaveProgress();
     }
 
     public void IncreaseCapacity(int amount)
     {
         audioSource.Play();
-        capacity += amount;
+        capacity = amount;
         peopleBar.UpdateProgress();
         UpgradeBuild.Play();
         SaveProgress();
@@ -90,8 +90,9 @@ public class House : MonoBehaviour, IDropHandler
     private void SaveProgress()
     {
         PlayerPrefs.SetInt($"House_{houseID}_Level", level);
-        PlayerPrefs.SetFloat($"House_{houseID}_RentPrice", rentPrice);
+        PlayerPrefs.SetInt($"House_{houseID}_rentPriceLevel", rentPriceLevel);
         PlayerPrefs.SetInt($"House_{houseID}_Capacity", capacity);
+        PlayerPrefs.SetInt($"House_{houseID}_CapacityLevel", capacityLevel);
         PlayerPrefs.SetInt($"House_{houseID}_CurrentResidents", currentResidents);
         PlayerPrefs.Save();
     }
@@ -99,8 +100,9 @@ public class House : MonoBehaviour, IDropHandler
     private void LoadProgress()
     {
         level = PlayerPrefs.GetInt($"House_{houseID}_Level", level);
-        rentPrice = PlayerPrefs.GetFloat($"House_{houseID}_RentPrice", rentPrice);
+        rentPriceLevel = PlayerPrefs.GetInt($"House_{houseID}_rentPriceLevel", rentPriceLevel);
         capacity = PlayerPrefs.GetInt($"House_{houseID}_Capacity", capacity);
+        capacityLevel = PlayerPrefs.GetInt($"House_{houseID}_CapacityLevel", capacityLevel);
         currentResidents = PlayerPrefs.GetInt($"House_{houseID}_CurrentResidents", 0);
         peopleBar.UpdateProgress();
     }

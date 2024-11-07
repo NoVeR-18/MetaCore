@@ -1,0 +1,257 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61f86cfee8073f42945ab9c61cc5bc2, type: 3}
+  m_Name: ExperienceTable
+  m_EditorClassIdentifier: 
+  experiencePerLevel: f4010000e8030000dc050000d0070000b80b0000a00f00008813000064190000401f00001c250000f82a0000d4300000b03600008c3c00006842000044480000204e0000fc530000d8590000c4090000
+  incomeCost:
+  - {x: 3, y: 5}
+  - {x: 4, y: 5}
+  - {x: 5, y: 5}
+  - {x: 6, y: 5}
+  - {x: 7, y: 5}
+  - {x: 8, y: 5}
+  - {x: 9, y: 5}
+  - {x: 10, y: 5}
+  - {x: 11, y: 5}
+  - {x: 12, y: 5}
+  - {x: 13, y: 5}
+  - {x: 14, y: 5}
+  - {x: 15, y: 5}
+  - {x: 16, y: 5}
+  - {x: 17, y: 5}
+  - {x: 18, y: 5}
+  - {x: 19, y: 5}
+  - {x: 20, y: 5}
+  - {x: 21, y: 5}
+  - {x: 22, y: 5}
+  - {x: 23, y: 10}
+  - {x: 24, y: 10}
+  - {x: 25, y: 10}
+  - {x: 26, y: 10}
+  - {x: 27, y: 10}
+  - {x: 28, y: 10}
+  - {x: 29, y: 10}
+  - {x: 30, y: 10}
+  - {x: 31, y: 10}
+  - {x: 32, y: 10}
+  - {x: 33, y: 10}
+  - {x: 34, y: 10}
+  - {x: 35, y: 10}
+  - {x: 36, y: 10}
+  - {x: 37, y: 10}
+  - {x: 38, y: 10}
+  - {x: 39, y: 10}
+  - {x: 40, y: 15}
+  - {x: 41, y: 10}
+  - {x: 42, y: 10}
+  - {x: 43, y: 15}
+  - {x: 44, y: 15}
+  - {x: 45, y: 15}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  capacityCost:
+  - PlaceCount: 4
+    CostUpgrade: 50
+    minLevelToUpgrade: 20
+    AwardStarsCount: 100
+  - PlaceCount: 6
+    CostUpgrade: 75
+    minLevelToUpgrade: 40
+    AwardStarsCount: 200
+  - PlaceCount: 8
+    CostUpgrade: 100
+    minLevelToUpgrade: 60
+    AwardStarsCount: 400
+  - PlaceCount: 10
+    CostUpgrade: 150
+    minLevelToUpgrade: 80
+    AwardStarsCount: 600
+  - PlaceCount: 15
+    CostUpgrade: 200
+    minLevelToUpgrade: 100
+    AwardStarsCount: 800
+  - PlaceCount: 20
+    CostUpgrade: 300
+    minLevelToUpgrade: 120
+    AwardStarsCount: 1000
+  - PlaceCount: 25
+    CostUpgrade: 400
+    minLevelToUpgrade: 140
+    AwardStarsCount: 1500
+  - PlaceCount: 30
+    CostUpgrade: 500
+    minLevelToUpgrade: 160
+    AwardStarsCount: 2000
+  - PlaceCount: 40
+    CostUpgrade: 700
+    minLevelToUpgrade: 180
+    AwardStarsCount: 2500
+  - PlaceCount: 50
+    CostUpgrade: 1000
+    minLevelToUpgrade: 200
+    AwardStarsCount: 3000

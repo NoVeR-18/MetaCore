@@ -47,7 +47,7 @@ public class ExpansionTile : MonoBehaviour
 
     public void UpdateVisibility(int currentIslandLevel)
     {
-        if (currentIslandLevel < RequiredLevel)
+        if (currentIslandLevel < RequiredLevel || islandController.levelProgressManager.currentLevel < RequiredLevel)
         {
             buyableIndicator.SetActive(false);
             buildableIndicator.SetActive(false);

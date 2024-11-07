@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class IslandController : MonoBehaviour
 {
     public Player.PlayerWallet playerWallet;
+    public LevelProgressManager levelProgressManager;
     public List<ExpansionTile> expansionTiles;
     public int islandLevel = 1;
 
@@ -28,6 +29,7 @@ public class IslandController : MonoBehaviour
             playerWallet.AddMoney(2000);
             playerWallet.AddCrystal(500);
         });
+        levelProgressManager.UpLevel += UpdateTileVisibility;
     }
 
     private void InitializeExpansionTiles()
