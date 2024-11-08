@@ -387,10 +387,10 @@ MonoBehaviour:
     position: {x: -3, y: 0.5, z: -1.5}
     rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
-    prefabType: 3
-    position: {x: -3, y: 0.38718367, z: 3.5318997}
+    prefabType: 5
+    position: {x: -3, y: 0.39642346, z: 3.5663834}
     rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
-    prefabType: 3
-    position: {x: -5, y: 0.39642346, z: 5.5663834}
+    prefabType: 7
+    position: {x: -5, y: 0.38718367, z: 5.5319}
     rotations: {x: 0, y: 0, z: 0, w: 0}
