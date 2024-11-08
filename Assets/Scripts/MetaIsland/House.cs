@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -18,8 +19,11 @@ public class House : MonoBehaviour, IDropHandler
     public ParticleSystem UpgradeRent;
     public PeopleBar peopleBar;
 
+    public Animator animator;
+    public TextMeshPro countCoinAddedText;
+
     public float incomePerInterval = 1; // Прибыль за 10 секунд
-    private float incomeTimer = 10f; // Таймер для накопления прибыли
+    private float incomeTimer = 4f; // Таймер для накопления прибыли
     private void Start()
     {
         if (peopleBar == null)
@@ -36,13 +40,16 @@ public class House : MonoBehaviour, IDropHandler
         incomeTimer -= Time.deltaTime;
         if (incomeTimer <= 0f)
         {
-            GenerateIncome();
-            incomeTimer = 10f; // Сбросить таймер на 10 секунд
+            if (incomePerInterval > 0)
+                GenerateIncome();
+            incomeTimer = 4f; // Сбросить таймер на 10 секунд
         }
     }
     private void GenerateIncome()
     {
         IslandManager.Instance.playerWallet.AddMoney(incomePerInterval);
+        countCoinAddedText.text = ((int)incomePerInterval).ToString();
+        animator.SetTrigger("Show");
         Debug.Log($"Дом {houseID} принёс прибыль: {incomePerInterval}");
     }
     public void IncreaseRentPrice()

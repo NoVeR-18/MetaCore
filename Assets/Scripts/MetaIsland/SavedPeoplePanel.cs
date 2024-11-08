@@ -81,6 +81,5 @@ public class SavedPeoplePanel : MonoBehaviour
     private void LoadPeople()
     {
         currentPeopleCount = PlayerPrefs.GetInt(SavedPeopleKey, 0); // Загружаем, если данных нет, начнём с 0
-        currentPeopleCount = 2;
     }
 }

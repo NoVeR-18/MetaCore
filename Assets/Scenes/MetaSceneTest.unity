@@ -18951,7 +18951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2827912243876624668, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3312119209740657169, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
       propertyPath: playerWallet
@@ -22994,6 +22994,7 @@ MonoBehaviour:
   levelText: {fileID: 280002947}
   experienceText: {fileID: 1821897935}
   experienceTable: {fileID: 11400000, guid: 3ed349c1b7f724b4a894384307c27467, type: 2}
+  animator: {fileID: 0}
   currentLevel: 3
 --- !u!95 &1277420356
 Animator:
@@ -33528,6 +33529,10 @@ PrefabInstance:
       propertyPath: currentHouse
       value: 
       objectReference: {fileID: 726548721}
+    - target: {fileID: 4985497821487642459, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
+      objectReference: {fileID: 0}
     - target: {fileID: 5115711535233518055, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
       propertyPath: currentHouse
       value: 
@@ -33836,9 +33841,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 273659406019571358, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 7126127571740975858, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1758705061}
     - targetCorrespondingSourceObject: {fileID: 4494606227939021457, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -33927,32 +33929,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
---- !u!1 &1758705060 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7126127571740975858, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
-  m_PrefabInstance: {fileID: 1758705059}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1758705061
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758705060}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d490d05c57a5d674d973aaaf9b65119c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1762671435
 GameObject:
   m_ObjectHideFlags: 0

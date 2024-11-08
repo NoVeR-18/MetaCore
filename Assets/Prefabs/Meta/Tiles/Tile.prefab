@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 45, y: -270, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.01, y: 2}
+  m_AnchoredPosition: {x: 0.0100001795, y: 2.393999}
   m_SizeDelta: {x: 0.97, y: 0.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &2631358930132902400
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -235,6 +235,8 @@ MonoBehaviour:
   UpgradeBuild: {fileID: 7644222076293710494}
   UpgradeRent: {fileID: 1747820119641128412}
   peopleBar: {fileID: 0}
+  animator: {fileID: 2777389671157579218}
+  countCoinAddedText: {fileID: 6444530377437845702}
   incomePerInterval: 1
 --- !u!65 &4935536367530523995
 BoxCollider:
@@ -479,7 +481,7 @@ Transform:
   m_GameObject: {fileID: 4879981995656333252}
   serializedVersion: 2
   m_LocalRotation: {x: -0.27059805, y: -0.6532815, z: -0.27059805, w: 0.6532815}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0.00000021016791, y: 0.7099991, z: 2.1081818e-13}
   m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -527,7 +529,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b686a5ca83807e44a83860d3579c2a60, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.29411766}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -563,7 +565,7 @@ Transform:
   m_GameObject: {fileID: 5911684560220281298}
   serializedVersion: 2
   m_LocalRotation: {x: -0.27059805, y: -0.6532815, z: -0.27059805, w: 0.6532815}
-  m_LocalPosition: {x: -0, y: 2, z: 0.527}
+  m_LocalPosition: {x: 0, y: 0.71, z: 0.527}
   m_LocalScale: {x: 0.11999999, y: 0.11999999, z: 0.11999999}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -611,7 +613,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e8a5b9e8279466448a0d57baeb837d23, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -630,6 +632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5074227590629161950}
+  - component: {fileID: 2777389671157579218}
   m_Layer: 0
   m_Name: income_msg
   m_TagString: Untagged
@@ -655,6 +658,27 @@ Transform:
   - {fileID: 5115955785658931649}
   m_Father: {fileID: 7479874944575787802}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2777389671157579218
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9131768030221061487}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d490d05c57a5d674d973aaaf9b65119c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &719075592968061953
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -63,6 +63,12 @@ public class LevelManager : MonoBehaviour
             currentLevel++;
             CreateLevel();
             audioSource.PlayOneShot(audioClips[3]);
+
+            foreach (GameObject people in tileInteraction.ColectedPeople)
+            {
+                Destroy(people);
+            }
+            tileInteraction.ColectedPeople.Clear();
         });
         GoToIslandButton.onClick.AddListener(() =>
         {
