@@ -54,6 +54,7 @@ public class SettingsPopUp : MonoBehaviour
                 VibrationSlider.value = 1;
             }
         });
+        IslandManager.Instance.cameraController._canScroling = false;
     }
     private void OnEnable()
     {
@@ -71,7 +72,7 @@ public class SettingsPopUp : MonoBehaviour
             MusicSlider.value = 1;
         else
             MusicSlider.value = 0;
-
+        IslandManager.Instance.cameraController._canScroling = true;
     }
 
 

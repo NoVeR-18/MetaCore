@@ -15,13 +15,13 @@ public class DraggablePerson : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         {
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
         }
-
         rectTransform = GetComponent<RectTransform>();
         parentCanvas = GetComponentInParent<Canvas>(); // Получаем ссылку на Canvas
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        IslandManager.Instance.cameraController._canScroling = false;
         originalParent = transform.parent;
         canvasGroup.blocksRaycasts = false;
 
@@ -45,6 +45,7 @@ public class DraggablePerson : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
+        IslandManager.Instance.cameraController._canScroling = true;
 
         // Проверяем Raycast для определения объекта House, как в предыдущем примере
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

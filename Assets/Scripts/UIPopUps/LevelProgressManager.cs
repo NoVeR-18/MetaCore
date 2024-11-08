@@ -9,6 +9,7 @@ public class LevelProgressManager : MonoBehaviour
     public TextMeshProUGUI levelText;                    // UI дл€ отображени€ уровн€
     public TextMeshProUGUI experienceText;                    // UI дл€ отображени€ уровн€
     public ExperienceTable experienceTable;   // —сылка на таблицу опыта
+    public Animator animator;
 
     public int currentLevel;
     private int currentExperience;
@@ -27,6 +28,7 @@ public class LevelProgressManager : MonoBehaviour
     {
         currentExperience += amount;
 
+        animator?.SetTrigger("levelUp");
         // ѕроверка на повышение уровн€
         while (currentLevel < experienceTable.experiencePerLevel.Count && currentExperience >= experienceForNextLevel)
         {

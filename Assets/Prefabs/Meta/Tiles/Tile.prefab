@@ -51,9 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   houseID: 0
   level: 1
-  maxLevel: 3
-  rentPrice: 100
+  rentPriceLevel: 0
   capacity: 2
+  capacityLevel: 0
   models:
   - {fileID: 9063029263805527361}
   - {fileID: 6684736267308164332}
@@ -62,8 +62,8 @@ MonoBehaviour:
   currentResidents: 0
   UpgradeBuild: {fileID: 7644222076293710494}
   UpgradeRent: {fileID: 1747820119641128412}
-  experienceTable: {fileID: 11400000, guid: 3ed349c1b7f724b4a894384307c27467, type: 2}
   peopleBar: {fileID: 0}
+  incomePerInterval: 1
 --- !u!65 &4935536367530523995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -238,13 +238,15 @@ MonoBehaviour:
   buildCostText: {fileID: 324298166124758162}
   buyableIndicator: {fileID: 316037581341169589}
   currentRoad: {fileID: 8943134025511314361}
+  GoldCost: 100
+  CrystalCost: 2
   topNeighbor: {fileID: 0}
   bottomNeighbor: {fileID: 0}
   leftNeighbor: {fileID: 0}
   rightNeighbor: {fileID: 0}
   canBuildHouse: 0
   buildableIndicator: {fileID: 7591179760775003676}
-  currentHouse: {fileID: 2707651819456592005}
+  currentHouse: {fileID: 8247521116781721689}
   roadTiles:
   - key: 1
     prefab: {fileID: 9052843523953560183, guid: 3a21c7dfd4f4619439d0972e8c6e4c26, type: 3}

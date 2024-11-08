@@ -140,5 +140,6 @@ public class IslandController : MonoBehaviour
     private void OnApplicationQuit()
     {
         SaveIslandState();
+        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
     }
 }

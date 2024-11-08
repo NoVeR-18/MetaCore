@@ -70,6 +70,7 @@ public class LevelManager : MonoBehaviour
             SceneManager.LoadScene(0);
             PlayerMovement.CanMoving = true;
             GameManager.Instance.Vibrate();
+            YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
         });
         ResetButton.onClick.AddListener(() =>
         {
@@ -81,6 +82,7 @@ public class LevelManager : MonoBehaviour
         ColectedCoins = 0;
         ColectedCrystal = 0;
         ColectedPeople = 0;
+        YsoCorp.GameUtils.YCManager.instance.OnGameStarted(1);
     }
 
     public void LevelComplete()

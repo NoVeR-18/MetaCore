@@ -51,6 +51,21 @@ namespace Player
                 return false;
             }
         }
+        public bool CanWithdrawMoney(float amount)
+        {
+            if (CoinBalance >= amount)
+                return true;
+            else
+                return false;
+        }
+        public bool CanWithdrawCrystal(float amount)
+        {
+            if (CrystalBalance >= amount)
+                return true;
+            else
+                return false;
+        }
+
         public bool WithdrawCrystal(float amount)
         {
             if (CrystalBalance >= amount)
@@ -85,11 +100,11 @@ namespace Player
         {
             if (coinText != null)
             {
-                coinText.text = $"{CoinBalance}";
+                coinText.text = $"{(int)CoinBalance}";
             }
             if (crystalText != null)
             {
-                crystalText.text = $"{CrystalBalance}";
+                crystalText.text = $"{(int)CrystalBalance}";
             }
         }
     }

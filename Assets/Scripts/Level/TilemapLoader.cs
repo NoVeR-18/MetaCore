@@ -67,15 +67,15 @@ public class TilemapLoader : MonoBehaviour
             {
                 var item = Instantiate(prefabToInstantiate, prefabData.position, Quaternion.identity, itemsPrefabContainer);
                 if (prefabData.prefabType != TypeObject.PeopleAfro)
-                    item.transform.rotation = Quaternion.Euler(90, 0, 0);
+                    item.transform.rotation = Quaternion.Euler(0, 0, 0);
                 if (prefabData.prefabType != TypeObject.PeopleAfro2)
-                    item.transform.rotation = Quaternion.Euler(90, 0, 0);
+                    item.transform.rotation = Quaternion.Euler(0, 0, 0);
                 if (prefabData.prefabType != TypeObject.PeopleAsian1)
-                    item.transform.rotation = Quaternion.Euler(90, 0, 0);
+                    item.transform.rotation = Quaternion.Euler(0, 0, 0);
                 if (prefabData.prefabType != TypeObject.PeopleWhite1)
-                    item.transform.rotation = Quaternion.Euler(90, 0, 0);
+                    item.transform.rotation = Quaternion.Euler(0, 0, 0);
                 if (prefabData.prefabType != TypeObject.PeopleWhite2)
-                    item.transform.rotation = Quaternion.Euler(90, 0, 0);
+                    item.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
             else
             {

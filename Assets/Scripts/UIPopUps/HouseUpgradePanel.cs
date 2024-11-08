@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class HouseUpgradePanel : MonoBehaviour
 {
-    public Player.PlayerWallet playerWallet;
     public LevelProgressManager levelProgressManager;
     public House currentHouse;                    // Текущий выбранный домик
     public Button upgradeRentButton;              // Кнопка для повышения аренды
@@ -22,6 +21,7 @@ public class HouseUpgradePanel : MonoBehaviour
     public Image levelProgressBar;                // Прогресс-бар для отображения уровня
     public ExperienceTable experienceTable;
     public Transform CapacityUpgradeBlock;
+    public Transform rentUpgradeBlock;
     public Transform rentUpgradeMax;
     public TextMeshProUGUI CapacityUpgradeText;
     private void Start()
@@ -45,7 +45,7 @@ public class HouseUpgradePanel : MonoBehaviour
     {
         if (currentHouse != null)
         {
-            if (playerWallet.WithdrawMoney(experienceTable.incomeCost[currentHouse.rentPriceLevel].x))
+            if (IslandManager.Instance.playerWallet.WithdrawMoney(experienceTable.incomeCost[currentHouse.rentPriceLevel].x))
             {
                 currentHouse.IncreaseRentPrice(); // Увеличиваем аренду на 0.1
                 levelProgressManager.AddExperience(experienceTable.incomeCost[currentHouse.rentPriceLevel].y);
@@ -64,7 +64,7 @@ public class HouseUpgradePanel : MonoBehaviour
         if (currentHouse != null)
         {
             var currentLevel = experienceTable.capacityCost[currentHouse.capacityLevel];
-            if (playerWallet.WithdrawMoney(currentLevel.CostUpgrade))
+            if (IslandManager.Instance.playerWallet.WithdrawMoney(currentLevel.CostUpgrade))
             {
                 currentHouse.capacityLevel++;
                 currentHouse.IncreaseCapacity(currentLevel.PlaceCount);
@@ -111,17 +111,26 @@ public class HouseUpgradePanel : MonoBehaviour
             }
             else
                 rentUpgradeMax.gameObject.SetActive(false);
-
-
-            if (currentHouse.level + 1 <= experienceTable.capacityCost[currentHouse.capacityLevel].minLevelToUpgrade)
+            if (!IslandManager.Instance.playerWallet.CanWithdrawMoney(experienceTable.incomeCost[currentHouse.rentPriceLevel].x))
+            {
+                rentUpgradeBlock.gameObject.SetActive(true);
+            }
+            else
+            {
+                rentUpgradeBlock.gameObject.SetActive(false);
+            }
+            var currentCost = experienceTable.capacityCost[currentHouse.capacityLevel];
+            if (currentHouse.level + 1 <= currentCost.minLevelToUpgrade || !IslandManager.Instance.playerWallet.CanWithdrawCrystal(currentCost.CostUpgrade))
             {
                 CapacityUpgradeBlock.gameObject.SetActive(true);
                 CapacityUpgradeText.text = $"Level {experienceTable.capacityCost[currentHouse.capacityLevel].minLevelToUpgrade} needed";
+                CapacityUpgradeText.color = Color.red;
             }
             else
             {
                 CapacityUpgradeBlock.gameObject.SetActive(false);
-                CapacityUpgradeText.text = "Lorem ipsum dolor sit amet";
+                CapacityUpgradeText.text = "Increases the amount of income";
+                CapacityUpgradeText.color = new Color(118, 90, 42, 90);
             }
 
 
