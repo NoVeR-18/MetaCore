@@ -6,7 +6,6 @@ public class House : MonoBehaviour, IDropHandler
 {
     public int houseID;                  // Уникальный ID для каждого домика
     public int level = 1;                // Начальный уровень домика
-    public int maxLevel = 25;            // Максимальный уровень домика
     public int rentPriceLevel = 0;          // Начальная цена аренды
     public int capacity = 2;             // Начальная вместимость (максимум людей в доме)
     public int capacityLevel = 0;             // Начальная вместимость (максимум людей в доме)
@@ -41,18 +40,15 @@ public class House : MonoBehaviour, IDropHandler
         audioSource.Play();
         capacity = amount;
         peopleBar.UpdateProgress();
+        UpdateHouseModel();
         UpgradeBuild.Play();
         SaveProgress();
     }
 
     public void UpgradeHouse()
     {
-        if (level < maxLevel)
-        {
-            level++;
-            UpdateHouseModel();
-            SaveProgress();
-        }
+        level++;
+        SaveProgress();
     }
 
     // Метод добавления человека в домик
@@ -74,7 +70,7 @@ public class House : MonoBehaviour, IDropHandler
 
     private void UpdateHouseModel()
     {
-        int modelIndex = (level - 1) / 5;
+        int modelIndex = (capacityLevel - 1) / 2;
 
         if (modelIndex >= models.Count)
         {

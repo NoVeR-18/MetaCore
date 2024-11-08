@@ -6,7 +6,6 @@ public class HouseUpgradePanel : MonoBehaviour
 {
     public Player.PlayerWallet playerWallet;
     public LevelProgressManager levelProgressManager;
-    [SerializeField] private int goldCost = 15;
     public House currentHouse;                    // Текущий выбранный домик
     public Button upgradeRentButton;              // Кнопка для повышения аренды
     public Button upgradeCapacityButton;          // Кнопка для повышения вместимости
@@ -22,7 +21,9 @@ public class HouseUpgradePanel : MonoBehaviour
     public TextMeshProUGUI capacityPriceUpdateText;          // Текст, отображающий максимальный уровень домика
     public Image levelProgressBar;                // Прогресс-бар для отображения уровня
     public ExperienceTable experienceTable;
-
+    public Transform CapacityUpgradeBlock;
+    public Transform rentUpgradeMax;
+    public TextMeshProUGUI CapacityUpgradeText;
     private void Start()
     {
         UpdatePanel();
@@ -48,6 +49,7 @@ public class HouseUpgradePanel : MonoBehaviour
             {
                 currentHouse.IncreaseRentPrice(); // Увеличиваем аренду на 0.1
                 levelProgressManager.AddExperience(experienceTable.incomeCost[currentHouse.rentPriceLevel].y);
+                OnUpgradeHouseButton();
                 UpdatePanel();
             }
             else
@@ -93,14 +95,36 @@ public class HouseUpgradePanel : MonoBehaviour
             rentPriceText.text = (1 + 0.01f * currentHouse.rentPriceLevel).ToString("F1"); // Отображение цены аренды
             capacityText.text = currentHouse.capacity.ToString();       // Отображение вместимости
             levelText.text = $"LVL  {currentHouse.level}";          // Отображение текущего уровня
-            maxLevelText.text = $"LVL {currentHouse.maxLevel}";           // Отображение максимального уровня
+            maxLevelText.text = $"LVL {experienceTable.incomeCost.Count}";           // Отображение максимального уровня
             currentCapacityText.text = $"{currentHouse.currentResidents} / {currentHouse.capacity}";
             rentPriceUpdateText.text = $"{experienceTable.incomeCost[currentHouse.rentPriceLevel].x}";
             rentPriceAwardText.text = $"{experienceTable.incomeCost[currentHouse.rentPriceLevel].y}";
             capacityPriceUpdateText.text = $"{experienceTable.capacityCost[currentHouse.capacityLevel].CostUpgrade}";
             capacityPriceAwardText.text = $"{experienceTable.capacityCost[currentHouse.capacityLevel].AwardStarsCount}";
             // Обновление прогресс-бара уровня
-            levelProgressBar.fillAmount = (float)currentHouse.level / currentHouse.maxLevel;
+            levelProgressBar.fillAmount = (float)currentHouse.level / experienceTable.incomeCost.Count;
+
+            if (currentHouse.level >= experienceTable.incomeCost.Count)
+            {
+                rentUpgradeMax.gameObject.SetActive(true);
+
+            }
+            else
+                rentUpgradeMax.gameObject.SetActive(false);
+
+
+            if (currentHouse.level + 1 <= experienceTable.capacityCost[currentHouse.capacityLevel].minLevelToUpgrade)
+            {
+                CapacityUpgradeBlock.gameObject.SetActive(true);
+                CapacityUpgradeText.text = $"Level {experienceTable.capacityCost[currentHouse.capacityLevel].minLevelToUpgrade} needed";
+            }
+            else
+            {
+                CapacityUpgradeBlock.gameObject.SetActive(false);
+                CapacityUpgradeText.text = "Lorem ipsum dolor sit amet";
+            }
+
+
         }
     }
 

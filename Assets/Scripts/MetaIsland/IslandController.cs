@@ -10,8 +10,6 @@ public class IslandController : MonoBehaviour
     public int islandLevel = 1;
 
 
-    public int crystalCost = 10;
-    public int goldCost = 50;
     [SerializeField] private Button CheatButton;
 
     [Space]
@@ -50,7 +48,7 @@ public class IslandController : MonoBehaviour
 
     public void UnlockTile(ExpansionTile tile)
     {
-        if (playerWallet.WithdrawMoney(goldCost))
+        if (playerWallet.WithdrawMoney(tile.GoldCost))
         {
             tile.Unlock();
             audioSource?.PlayOneShot(unlockTileSound);
@@ -81,7 +79,7 @@ public class IslandController : MonoBehaviour
 
     public void UnlockBuilding(ExpansionTile tile)
     {
-        if (playerWallet.WithdrawCrystal(crystalCost))
+        if (playerWallet.WithdrawCrystal(tile.CrystalCost))
         {
             tile.BuildHouse();
 
@@ -106,7 +104,7 @@ public class IslandController : MonoBehaviour
             string key = TileStateKeyPrefix + i;
 
             int state = tile.IsUnlocked ? 1 : 0;
-            state |= (tile.currentHouse.activeSelf ? 2 : 0);
+            state |= (tile.currentHouse.gameObject.activeSelf ? 2 : 0);
             PlayerPrefs.SetInt(key, state);
         }
 
