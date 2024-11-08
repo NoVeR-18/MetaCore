@@ -7381,6 +7381,18 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4283256141
       objectReference: {fileID: 0}
+    - target: {fileID: 1486093459873045596, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486093459873045596, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486093459873045596, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1800745003200735372, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7467,7 +7479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3106985994461304976, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3142787188141246618, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
       propertyPath: m_Enabled
@@ -7513,6 +7525,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5620876844095852601, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -24
+      objectReference: {fileID: 0}
     - target: {fileID: 5728183449419386006, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -670.00006
@@ -7541,6 +7557,10 @@ PrefabInstance:
       propertyPath: vibrationSet
       value: 
       objectReference: {fileID: 1368507345}
+    - target: {fileID: 6044651295481787786, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -25
+      objectReference: {fileID: 0}
     - target: {fileID: 6151979608744315348, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -7571,7 +7591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7306985226748322279, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7371808963736222709, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
       propertyPath: m_Enabled
@@ -7599,6 +7619,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780399053989136445, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781517984139980013, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7787869450309830892, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
@@ -7712,6 +7736,22 @@ PrefabInstance:
     - target: {fileID: 8150795411474228506, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
       propertyPath: m_Colors.m_DisabledColor.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8174060040412494584, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8174060040412494584, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8174060040412494584, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258517845620081791, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8260268517346526341, guid: e1f556cb9b3e1574c998c3fc3f37971a, type: 3}
       propertyPath: m_EffectColor.a
