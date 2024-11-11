@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerWallet: {fileID: 0}
+  levelProgressManager: {fileID: 0}
   expansionTiles:
   - {fileID: 1371715900328621641}
   - {fileID: 546768213778878939}
@@ -178,8 +179,6 @@ MonoBehaviour:
   - {fileID: 8921698308508278464}
   - {fileID: 7745041663175922118}
   islandLevel: 1
-  crystalCost: 50
-  goldCost: 100
   CheatButton: {fileID: 0}
   audioSource: {fileID: 3053800671808799082}
   unlockTileSound: {fileID: 8300000, guid: cf6c0e7fbef9449c98a0cdb5ea0c4d9f, type: 3}
@@ -1614,6 +1613,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1828688677011668014}
     m_Modifications:
+    - target: {fileID: 1986906058124657893, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.000000018410185
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986906058124657893, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.11300087
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986906058124657893, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.8467148e-14
+      objectReference: {fileID: 0}
     - target: {fileID: 2052933207160089255, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
       propertyPath: currentRoad
       value: 
@@ -1635,9 +1646,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2052933207160089255, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
+      propertyPath: expandCostText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052933207160089255, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
       propertyPath: buyableIndicator
       value: 
       objectReference: {fileID: 8432656208254751105}
+    - target: {fileID: 2601124288592819895, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2601124288592819895, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.113
+      objectReference: {fileID: 0}
+    - target: {fileID: 2601124288592819895, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 2707651819456592005, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1689,6 +1716,22 @@ PrefabInstance:
     - target: {fileID: 2787692402786159923, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5817611216091231480, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.000000018410185
+      objectReference: {fileID: 0}
+    - target: {fileID: 5817611216091231480, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.11300087
+      objectReference: {fileID: 0}
+    - target: {fileID: 5817611216091231480, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.8467148e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444530377437845702, guid: e560afd9056b6ad47824fb4aa8866fb5, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
