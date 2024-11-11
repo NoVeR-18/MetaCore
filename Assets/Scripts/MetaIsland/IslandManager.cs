@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ public class IslandManager : MonoBehaviour
 
     public CameraController cameraController;
 
+    public PlayerWallet playerWallet;
     public Button GoToLevelButton;
 
     public static IslandManager Instance;
@@ -29,5 +31,6 @@ public class IslandManager : MonoBehaviour
             GameManager.Instance.Vibrate();
             SceneManager.LoadScene("CoreScene");
         });
+        YsoCorp.GameUtils.YCManager.instance.OnGameStarted(0);
     }
 }

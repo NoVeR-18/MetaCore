@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
     {
         musics = enabled;
 
-        if (sounds)
+        if (musics)
         {
             audioMixer.SetFloat("MusicGroup", 0f);
         }

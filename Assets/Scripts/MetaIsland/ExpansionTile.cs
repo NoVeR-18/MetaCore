@@ -14,6 +14,8 @@ public class ExpansionTile : MonoBehaviour
     [SerializeField] private GameObject buyableIndicator;
     [SerializeField] private GameObject currentRoad;
 
+    public int GoldCost = 100;
+    public int CrystalCost = 2;
 
 
     public ExpansionTile topNeighbor;
@@ -23,10 +25,11 @@ public class ExpansionTile : MonoBehaviour
 
     public bool canBuildHouse = false;
     [SerializeField] private GameObject buildableIndicator;
-    public GameObject currentHouse;
+    public House currentHouse;
 
     public List<RoadTile> roadTiles;
     [SerializeField] private Dictionary<RoadType, GameObject> roadPrefabs = new Dictionary<RoadType, GameObject>();
+
     private void Awake()
     {
         roadPrefabs = new Dictionary<RoadType, GameObject>();
@@ -39,15 +42,21 @@ public class ExpansionTile : MonoBehaviour
     public void SetIslandController(IslandController controller)
     {
         islandController = controller;
+        if (RequiredLevel == 0)
+            return;
+        GoldCost = islandController.levelProgressManager.experienceTable.TileCost[RequiredLevel - 1];
         if (expandCostText != null)
-            expandCostText.text = islandController.goldCost.ToString();
+            expandCostText.text = GoldCost.ToString();
+        if (currentHouse.houseID == 0)
+            return;
+        CrystalCost = islandController.levelProgressManager.experienceTable.HouseBuildCost[currentHouse.houseID - 1];
         if (buildCostText != null)
-            buildCostText.text = islandController.crystalCost.ToString();
+            buildCostText.text = CrystalCost.ToString();
     }
 
     public void UpdateVisibility(int currentIslandLevel)
     {
-        if (currentIslandLevel < RequiredLevel)
+        if (currentIslandLevel < RequiredLevel || islandController.levelProgressManager.currentLevel < RequiredLevel)
         {
             buyableIndicator.SetActive(false);
             buildableIndicator.SetActive(false);
@@ -64,7 +73,7 @@ public class ExpansionTile : MonoBehaviour
         {
             currentRoad.SetActive(true);
             buyableIndicator.SetActive(false);
-            buildableIndicator.SetActive(canBuildHouse && !currentHouse.activeSelf);
+            buildableIndicator.SetActive(canBuildHouse && !currentHouse.gameObject.activeSelf);
             IsUnlocked = true;
         }
     }
@@ -170,7 +179,7 @@ public class ExpansionTile : MonoBehaviour
 
         if (currentHouse != null)
         {
-            currentHouse.SetActive(true);
+            currentHouse.gameObject.SetActive(true);
             Debug.Log($"Домик построен на {transform.position}.");
             buildableIndicator.SetActive(false);
         }

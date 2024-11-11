@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d12769a248ebbf40ac4d56bd9c208dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeObject: 3
+  typeObject: 7
   audioSource: {fileID: 0}
 --- !u!65 &-7965403525396820952
 BoxCollider:

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour
 {
@@ -16,15 +15,13 @@ public class CameraController : MonoBehaviour
     private Camera cam;
     private Vector2 lastTouchPosition;
 
-
-
     public float focusSpeed = 2.0f;
     public float targetDistance = 5.0f;
     public float targetFOV = 5f;
     private bool isFocusing = false;
     private Transform targetObject;
     private float initialFOV;
-    private bool _canScroling = true;
+    public bool _canScroling = true;
 
     [SerializeField]
     private Vector3 distanceMultiply = new Vector3(0, 1.1f, -0.5f);
@@ -55,7 +52,7 @@ public class CameraController : MonoBehaviour
         else if (isFocusing)
         {
 
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetFOV, Time.deltaTime * focusSpeed);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetFOV, Time.deltaTime * focusSpeed * 2);
 
             if (Mathf.Abs(cam.orthographicSize - targetFOV) < 0.1f)
             {
@@ -74,10 +71,6 @@ public class CameraController : MonoBehaviour
 
     void HandlePan()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
         Vector3 pos = transform.position;
 
 #if UNITY_EDITOR || UNITY_STANDALONE

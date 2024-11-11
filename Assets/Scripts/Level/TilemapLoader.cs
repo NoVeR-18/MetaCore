@@ -66,8 +66,14 @@ public class TilemapLoader : MonoBehaviour
             if (prefabToInstantiate != null)
             {
                 var item = Instantiate(prefabToInstantiate, prefabData.position, Quaternion.identity, itemsPrefabContainer);
-                if (prefabData.prefabType != TypeObject.People)
+                if (prefabData.prefabType == TypeObject.Crystal)
                     item.transform.rotation = Quaternion.Euler(90, 0, 0);
+                if (prefabData.prefabType == TypeObject.Coin)
+                    item.transform.rotation = Quaternion.Euler(90, 0, 0);
+
+                if (prefabData.prefabType == TypeObject.SpawnPossiton)
+                    item.transform.rotation = Quaternion.Euler(90, 0, 0);
+
             }
             else
             {

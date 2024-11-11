@@ -22,7 +22,11 @@ public class InteractableObject : MonoBehaviour
                         ColectCoin(collision.GetComponent<PlayerTileInteraction>().Wallet);
                         break;
                     }
-                case TypeObject.People: { ColectPeople(collision); break; }
+                case TypeObject.PeopleAfro: { ColectPeople(collision); break; }
+                case TypeObject.PeopleAfro2: { ColectPeople(collision); break; }
+                case TypeObject.PeopleAsian1: { ColectPeople(collision); break; }
+                case TypeObject.PeopleWhite1: { ColectPeople(collision); break; }
+                case TypeObject.PeopleWhite2: { ColectPeople(collision); break; }
                 case TypeObject.Crystal: { ColectCrystal(collision.GetComponent<PlayerTileInteraction>().Wallet); break; }
             }
         }
@@ -61,5 +65,10 @@ public enum TypeObject
     SpawnPossiton,
     Coin,
     Crystal,
-    People
+    PeopleAfro,
+    PeopleAfro2,
+    PeopleAsian1,
+    PeopleWhite1,
+    PeopleWhite2
+
 }

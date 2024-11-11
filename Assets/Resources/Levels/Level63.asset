@@ -185,6 +185,10 @@ MonoBehaviour:
     prefabType: 0
     position: {x: -9, y: 0.5, z: -3.5}
     rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: cliff_single
+    prefabType: 0
+    position: {x: -7, y: 0.5, z: 1.5}
+    rotations: {x: -0, y: -0, z: -0, w: 1}
   tilesToPaint:
   - position: {x: -11, y: -3, z: 0}
     tileName: frame1
@@ -235,8 +239,6 @@ MonoBehaviour:
   - position: {x: -8, y: -2, z: 0}
     tileName: frame1
   - position: {x: -8, y: 0, z: 0}
-    tileName: frame1
-  - position: {x: -8, y: 1, z: 0}
     tileName: frame1
   - position: {x: -8, y: 2, z: 0}
     tileName: frame1
@@ -334,7 +336,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
-  - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: df5a300ffc6b4534ea23d98bf441dc75, type: 2}
   - {fileID: 0}
   - {fileID: 0}

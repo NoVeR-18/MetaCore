@@ -46,11 +46,6 @@ namespace Player
             PlayerMovement.CanMoving = false;
             paintedTiles = 0;
             Debug.Log("Уровень пройден!");
-            foreach (GameObject people in ColectedPeople)
-            {
-                Destroy(people);
-            }
-            ColectedPeople.Clear();
             StartCoroutine(timeToNextLevel());
         }
         private IEnumerator timeToNextLevel()
