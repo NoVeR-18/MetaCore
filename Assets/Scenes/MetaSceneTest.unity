@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44527698, g: 0.49457747, b: 0.5728513, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -33233,6 +33233,10 @@ PrefabInstance:
       propertyPath: currentHouse
       value: 
       objectReference: {fileID: 250824222}
+    - target: {fileID: 931389344681733564, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1217982028027525892, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
       propertyPath: goldCost
       value: 50
@@ -33529,6 +33533,10 @@ PrefabInstance:
       propertyPath: currentHouse
       value: 
       objectReference: {fileID: 726548721}
+    - target: {fileID: 4746635916164402721, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3546217058037910150, guid: 237d2927269903049b9c99904099014a, type: 3}
     - target: {fileID: 4985497821487642459, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 16777215
