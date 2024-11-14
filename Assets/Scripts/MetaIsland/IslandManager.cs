@@ -1,4 +1,5 @@
 using Player;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,8 +12,13 @@ public class IslandManager : MonoBehaviour
 
     public PlayerWallet playerWallet;
     public Button GoToLevelButton;
+    public TextMeshProUGUI LevelText;
 
     public static IslandManager Instance;
+
+
+    private const string LevelName = "CurrentLevel";
+    private const string LevelMulltiplayer = "LevelMulltiplayer";
     public void Awake()
     {
         if (Instance == null)
@@ -32,5 +38,6 @@ public class IslandManager : MonoBehaviour
             SceneManager.LoadScene("CoreScene");
         });
         YsoCorp.GameUtils.YCManager.instance.OnGameStarted(0);
+        LevelText.text = $"LEVEL {PlayerPrefs.GetInt(LevelName, 1) + PlayerPrefs.GetInt(LevelName, 1) * PlayerPrefs.GetInt(LevelMulltiplayer, 0)}";
     }
 }

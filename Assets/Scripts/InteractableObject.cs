@@ -51,7 +51,7 @@ public class InteractableObject : MonoBehaviour
     {
         audioSource?.Play();
         LevelManager.Instance.ColectedPeople++;
-        SavedPeoplePanel.SavePeople(1);
+        SavedPeoplePanel.AddPeople();
         gameObject.transform.parent = collision.transform;
         transform.localPosition = Vector3.zero;
         var colectedPeople = GetComponentInParent<PlayerTileInteraction>().ColectedPeople;

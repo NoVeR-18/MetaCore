@@ -33,6 +33,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
     [SerializeField] private int currentLevel = 1;
     private const string LevelName = "CurrentLevel";
+    private const string LevelMulltiplayer = "LevelMulltiplayer";
 
     public AudioSource audioSource;
     public List<AudioClip> audioClips = new List<AudioClip>();
@@ -107,8 +108,6 @@ public class LevelManager : MonoBehaviour
     }
     private void CreateLevel()
     {
-
-        CurrentLevel.text = currentLevel.ToString();
         Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
         if (Loader.tilemapData == null)
         {
@@ -118,10 +117,11 @@ public class LevelManager : MonoBehaviour
             Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
         }
         Debug.Log("Loaded:" + Loader.tilemapData.name);
-        CurrentLevel.text = $"LEVEL {currentLevel}";
+        CurrentLevel.text = $"LEVEL {PlayerPrefs.GetInt(LevelName, 1) + PlayerPrefs.GetInt(LevelName, 1) * PlayerPrefs.GetInt(LevelMulltiplayer, 0)}";
         Loader.LoadTilemap();
         tileInteraction.tilesToPaint = Loader.tilemapData.tilesToPaint.Length;
-        var centerOfMap = Loader.FindPaintedTilesCenter();
+        var centerOfMap = Loader.FindCenterFromObjects();
+        Debug.Log("MapCenter" + centerOfMap);
         var sizeField = Loader.SizeOfField();
         PositionCamera(centerOfMap, sizeField.x, sizeField.y);
         playerMovement.DisableMove();
@@ -146,7 +146,6 @@ public class LevelManager : MonoBehaviour
         currentLevel = 1;
         PlayerPrefs.SetInt(LevelName, currentLevel);
         PlayerPrefs.Save();
-        CurrentLevel.text = currentLevel.ToString();
         Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
 
         if (Loader.tilemapData == null)
@@ -154,10 +153,10 @@ public class LevelManager : MonoBehaviour
             currentLevel = 1;
             Loader.tilemapData = Resources.Load<TilemapData>($"Levels/Level{currentLevel}");
         }
-        CurrentLevel.text = $"LEVEL {currentLevel}";
+        CurrentLevel.text = $"LEVEL {PlayerPrefs.GetInt(LevelName, 1) + PlayerPrefs.GetInt(LevelName, 1) * PlayerPrefs.GetInt(LevelMulltiplayer, 0)}";
         Loader.LoadTilemap();
         tileInteraction.tilesToPaint = Loader.tilemapData.tilesToPaint.Length;
-        var centerOfMap = Loader.FindPaintedTilesCenter();
+        var centerOfMap = Loader.FindCenterFromObjects();
         var sizeField = Loader.SizeOfField();
         PositionCamera(centerOfMap, sizeField.x, sizeField.y);
         playerMovement.DisableMove();

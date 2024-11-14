@@ -92,32 +92,40 @@ public class TilemapLoader : MonoBehaviour
         }
         return null;
     }
-    public Vector3 FindPaintedTilesCenter()
+    public Vector3 FindCenterFromObjects()
     {
-        BoundsInt bounds = tilemapToPaint.cellBounds;
-        List<Vector3> paintedTilePositions = new List<Vector3>();
-
-        foreach (Vector3Int pos in bounds.allPositionsWithin)
+        // Проверяем, есть ли объекты в контейнере
+        if (objectsContainer.transform.childCount == 0)
         {
-            // Проверяем, есть ли тайл на этой позиции
-            if (tilemapToPaint.HasTile(pos))
-            {
-                Vector3 worldPos = tilemapToPaint.CellToWorld(pos) + tilemapToPaint.cellSize / 2;
-                paintedTilePositions.Add(worldPos);
-            }
+            Debug.LogError("В контейнере объектов нет дочерних элементов.");
+            return Vector3.zero;
         }
 
-        if (paintedTilePositions.Count == 0) return Vector3.zero;
+        // Инициализируем минимальные и максимальные координаты
+        Vector3 minPos = Vector3.positiveInfinity;
+        Vector3 maxPos = Vector3.negativeInfinity;
 
-        Vector3 center = Vector3.zero;
-        foreach (var pos in paintedTilePositions)
+        // Проходим по всем объектам в контейнере и ищем крайние координаты
+        foreach (Transform child in objectsContainer.transform)
         {
-            center += pos;
-        }
-        center /= paintedTilePositions.Count;
+            // Получаем мировую позицию каждого объекта
+            Vector3 objPos = child.position;
 
-        return center;
+            // Обновляем минимальные и максимальные координаты
+            minPos = Vector3.Min(minPos, objPos);
+            maxPos = Vector3.Max(maxPos, objPos);
+        }
+
+        // Вычисляем центр между минимальной и максимальной позицией
+        Vector3 center = (minPos + maxPos) / 2f;
+
+        // Возвращаем только X и Z, так как карта в плоскости XZ
+        return new Vector3(center.x, 0f, center.z);
     }
+
+
+
+
 
     public Vector2 SizeOfField()
     {

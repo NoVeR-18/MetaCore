@@ -7,7 +7,7 @@ public class SavedPeoplePanel : MonoBehaviour
     public GameObject personPrefab; // Префаб человечка для отображения в слотах
     public List<GameObject> slots; // Массив слотов для отображения человечков
     public AudioSource audioSource;
-
+    public Transform panelIsFull;
     public const string SavedPeopleKey = "SavedPeopleCount"; // Ключ для сохранения
 
     private void Start()
@@ -36,8 +36,9 @@ public class SavedPeoplePanel : MonoBehaviour
         {
             audioSource.Play();
             currentPeopleCount--;
-            SavePeople(currentPeopleCount);
             UpdatePanel();
+            PlayerPrefs.SetInt(SavedPeopleKey, currentPeopleCount);
+            PlayerPrefs.Save();
         }
         else
         {
@@ -66,6 +67,14 @@ public class SavedPeoplePanel : MonoBehaviour
                 Instantiate(personPrefab, slots[i].transform); // Добавляем человечка в слот
             }
         }
+        if (currentPeopleCount == slots.Count)
+        {
+            panelIsFull.gameObject.SetActive(true);
+        }
+        else
+        {
+            panelIsFull.gameObject.SetActive(false);
+        }
     }
 
     public static void SavePeople(int PeopleCount)
@@ -74,8 +83,15 @@ public class SavedPeoplePanel : MonoBehaviour
 
             PlayerPrefs.SetInt(SavedPeopleKey, 5);
         else
-            PlayerPrefs.SetInt(SavedPeopleKey, PeopleCount);
+            PlayerPrefs.SetInt(SavedPeopleKey, PlayerPrefs.GetInt(SavedPeopleKey, 0) + PeopleCount);
         PlayerPrefs.Save();
+    }
+    public static void AddPeople()
+    {
+        var PeopleCount = PlayerPrefs.GetInt(SavedPeopleKey, 0);
+        PeopleCount++;
+        SavePeople(PeopleCount);
+
     }
 
     private void LoadPeople()

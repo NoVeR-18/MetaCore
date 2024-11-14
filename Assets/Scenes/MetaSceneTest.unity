@@ -5268,6 +5268,7 @@ MonoBehaviour:
   cameraController: {fileID: 739790158}
   playerWallet: {fileID: 340571120}
   GoToLevelButton: {fileID: 1832194463}
+  LevelText: {fileID: 1475602667}
 --- !u!4 &287070524
 Transform:
   m_ObjectHideFlags: 0
@@ -22994,7 +22995,7 @@ MonoBehaviour:
   levelText: {fileID: 280002947}
   experienceText: {fileID: 1821897935}
   experienceTable: {fileID: 11400000, guid: 3ed349c1b7f724b4a894384307c27467, type: 2}
-  animator: {fileID: 0}
+  animator: {fileID: 1277420356}
   currentLevel: 3
 --- !u!95 &1277420356
 Animator:

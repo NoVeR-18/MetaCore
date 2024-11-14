@@ -120,17 +120,22 @@ public class HouseUpgradePanel : MonoBehaviour
                 rentUpgradeBlock.gameObject.SetActive(false);
             }
             var currentCost = experienceTable.capacityCost[currentHouse.capacityLevel];
-            if (currentHouse.level + 1 <= currentCost.minLevelToUpgrade || !IslandManager.Instance.playerWallet.CanWithdrawCrystal(currentCost.CostUpgrade))
+            if (currentHouse.level + 1 <= currentCost.minLevelToUpgrade)
+            {
+                CapacityUpgradeText.text = $"Level {experienceTable.capacityCost[currentHouse.capacityLevel].minLevelToUpgrade} needed";
+                CapacityUpgradeBlock.gameObject.SetActive(true);
+                CapacityUpgradeText.color = Color.red;
+            }
+            else if (!IslandManager.Instance.playerWallet.CanWithdrawMoney(currentCost.CostUpgrade))
             {
                 CapacityUpgradeBlock.gameObject.SetActive(true);
-                CapacityUpgradeText.text = $"Level {experienceTable.capacityCost[currentHouse.capacityLevel].minLevelToUpgrade} needed";
-                CapacityUpgradeText.color = Color.red;
             }
             else
             {
                 CapacityUpgradeBlock.gameObject.SetActive(false);
                 CapacityUpgradeText.text = "Increases the amount of income";
                 CapacityUpgradeText.color = new Color(118, 90, 42, 90);
+
             }
 
 
