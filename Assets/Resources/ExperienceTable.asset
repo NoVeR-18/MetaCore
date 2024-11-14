@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61f86cfee8073f42945ab9c61cc5bc2, type: 3}
   m_Name: ExperienceTable
   m_EditorClassIdentifier: 
-  experiencePerLevel: f4010000e8030000dc050000d0070000b80b0000a00f00008813000064190000401f00001c250000f82a0000d4300000b03600008c3c00006842000044480000204e0000fc530000d8590000c4090000
+  experiencePerLevel: fa000000f4010000e8030000d0070000b80b0000a00f00008813000064190000401f00001c250000f82a0000d4300000b03600008c3c00006842000044480000204e0000fc530000d8590000a8610000
   incomeCost:
   - {x: 3, y: 5}
   - {x: 4, y: 5}
@@ -215,35 +215,35 @@ MonoBehaviour:
   - {x: 201, y: 50}
   - {x: 202, y: 50}
   capacityCost:
-  - PlaceCount: 4
+  - PlaceCount: 6
     CostUpgrade: 50
     minLevelToUpgrade: 20
     AwardStarsCount: 100
-  - PlaceCount: 6
+  - PlaceCount: 8
     CostUpgrade: 75
     minLevelToUpgrade: 40
     AwardStarsCount: 200
-  - PlaceCount: 8
+  - PlaceCount: 10
     CostUpgrade: 100
     minLevelToUpgrade: 60
     AwardStarsCount: 400
-  - PlaceCount: 10
+  - PlaceCount: 15
     CostUpgrade: 150
     minLevelToUpgrade: 80
     AwardStarsCount: 600
-  - PlaceCount: 15
+  - PlaceCount: 20
     CostUpgrade: 200
     minLevelToUpgrade: 100
     AwardStarsCount: 800
-  - PlaceCount: 20
+  - PlaceCount: 25
     CostUpgrade: 300
     minLevelToUpgrade: 120
     AwardStarsCount: 1000
-  - PlaceCount: 25
+  - PlaceCount: 30
     CostUpgrade: 400
     minLevelToUpgrade: 140
     AwardStarsCount: 1500
-  - PlaceCount: 30
+  - PlaceCount: 35
     CostUpgrade: 500
     minLevelToUpgrade: 160
     AwardStarsCount: 2000

@@ -255,7 +255,7 @@ MonoBehaviour:
   houseID: 0
   level: 1
   rentPriceLevel: 0
-  capacity: 2
+  capacity: 4
   capacityLevel: 0
   models:
   - {fileID: 9063029263805527361}
