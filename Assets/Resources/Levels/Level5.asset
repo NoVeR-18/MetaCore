@@ -21,14 +21,6 @@ MonoBehaviour:
     prefabType: 0
     position: {x: -2, y: 0.5, z: -1.5}
     rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  - name: grass_end
-    prefabType: 0
-    position: {x: 0, y: 0.5, z: 0.5}
-    rotations: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  - name: grass_end
-    prefabType: 0
-    position: {x: 0, y: 0.5, z: -0.5}
-    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071067}
   - name: Free Tile
     prefabType: 0
     position: {x: -1, y: 0.5, z: -2.5}
@@ -85,6 +77,14 @@ MonoBehaviour:
     prefabType: 0
     position: {x: -3, y: 0.5, z: -2.5}
     rotations: {x: -0, y: -0, z: -0, w: 1}
+  - name: wreck2
+    prefabType: 0
+    position: {x: 0, y: 0.5, z: -0.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  - name: wreck1
+    prefabType: 0
+    position: {x: 0, y: 0.5, z: 0.5}
+    rotations: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   tilesToPaint:
   - position: {x: -4, y: -2, z: 0}
     tileName: frame1
@@ -138,6 +138,34 @@ MonoBehaviour:
     position: {x: 1, y: 0.5338987, z: 0.5}
     rotations: {x: 0, y: 0, z: 0, w: 0}
   - name: 
+    prefabType: 2
+    position: {x: 0, y: 0.5, z: -1.4661013}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
     prefabType: 6
     position: {x: -1, y: 0.39859754, z: -1.4255029}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 1
+    position: {x: -3, y: 0.5, z: -0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 1
+    position: {x: -2, y: 0.5, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 1
+    position: {x: -1, y: 0.5, z: 0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 1
+    position: {x: -1, y: 0.5, z: -0.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 1
+    position: {x: 1, y: 0.5, z: -1.5}
+    rotations: {x: 0, y: 0, z: 0, w: 0}
+  - name: 
+    prefabType: 1
+    position: {x: 1, y: 0.5, z: -0.5}
     rotations: {x: 0, y: 0, z: 0, w: 0}
