@@ -1,48 +1,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class PersonPrefab
+{
+    public TypeObject type;
+    public GameObject prefab;
+}
+
 public class SavedPeoplePanel : MonoBehaviour
 {
-    private int currentPeopleCount; // Текущее количество спасённых человечков
-    public GameObject personPrefab; // Префаб человечка для отображения в слотах
-    public List<GameObject> slots; // Массив слотов для отображения человечков
+    public List<PersonPrefab> personPrefabs; // Список с префабами человечков разных типов
+    private int currentPeopleCount;
+    public List<GameObject> slots;
     public AudioSource audioSource;
     public Transform panelIsFull;
-    public const string SavedPeopleKey = "SavedPeopleCount"; // Ключ для сохранения
+    public const string SavedPeopleKey = "SavedPeopleCount";
+
+    private const string SavedPeopleTypesKey = "SavedPeopleTypes"; // Новый ключ для типов
+
+    private List<TypeObject> savedPeopleTypes = new List<TypeObject>(); // Объявляем список для хранения типов сохраненных людей
 
     private void Start()
     {
-        LoadPeople(); // Загружаем количество человечков при входе на сцену
+        LoadPeople();
         UpdatePanel();
     }
 
-    public void AddPerson()
+    public GameObject GetPersonPrefab(TypeObject type)
     {
-        if (currentPeopleCount < slots.Count)
-        {
-            currentPeopleCount++;
-            SavePeople(currentPeopleCount);
-            UpdatePanel();
-        }
-        else
-        {
-            Debug.Log("Панель заполнена, невозможно добавить больше человечков.");
-        }
+        // Находим префаб по типу
+        PersonPrefab personPrefab = personPrefabs.Find(p => p.type == type);
+        return personPrefab?.prefab;
     }
 
-    public void RemovePerson(GameObject person)
+    public static void AddPerson(TypeObject personType)
     {
-        if (currentPeopleCount > 0)
+        int peopleCount = PlayerPrefs.GetInt(SavedPeopleKey, 0);
+
+        if (peopleCount < 5) // Лимит на 5 человек
         {
-            audioSource.Play();
-            currentPeopleCount--;
-            UpdatePanel();
-            PlayerPrefs.SetInt(SavedPeopleKey, currentPeopleCount);
+            // Обновляем количество людей
+            PlayerPrefs.SetInt(SavedPeopleKey, peopleCount + 1);
+
+            // Загружаем текущий список типов, добавляем новый тип и сохраняем обратно
+            List<TypeObject> types = LoadPeopleTypes();
+            types.Add(personType);
+            SavePeopleTypes(types);
+
             PlayerPrefs.Save();
         }
         else
         {
-            Debug.Log("На панели нет человечков для удаления.");
+            Debug.Log("Панель заполнена, невозможно добавить больше человечков.");
         }
     }
 
@@ -51,51 +61,94 @@ public class SavedPeoplePanel : MonoBehaviour
         // Очищаем все слоты перед обновлением
         foreach (var slot in slots)
         {
-            // Удаляем все объекты в слоте
             foreach (Transform child in slot.transform)
             {
-                Destroy(child.gameObject); // Удаляем человечков из слота
+                Destroy(child.gameObject);
             }
         }
 
         // Добавляем спасённых человечков в доступные слоты
-        for (int i = 0; i < currentPeopleCount; i++)
+        for (int i = 0; i < savedPeopleTypes.Count && i < slots.Count; i++)
         {
-            if (i < slots.Count) // Проверяем, что индекс не выходит за пределы списка слотов
+            TypeObject personType = savedPeopleTypes[i];
+            GameObject prefab = GetPersonPrefab(personType);
+            if (prefab != null)
             {
-                // Создаём человечка в соответствующем слоте
-                Instantiate(personPrefab, slots[i].transform); // Добавляем человечка в слот
+                var pop = Instantiate(prefab, slots[i].transform).GetComponent<DraggablePerson>();
+                pop.typeObject = personType;
+
+
             }
         }
-        if (currentPeopleCount == slots.Count)
+
+        panelIsFull.gameObject.SetActive(currentPeopleCount == slots.Count);
+    }
+
+    public void RemovePerson(GameObject person)
+    {
+        if (currentPeopleCount > 0)
         {
-            panelIsFull.gameObject.SetActive(true);
+            // Определяем тип человечка, чтобы найти его в списке сохранённых типов
+            TypeObject personType = person.GetComponent<DraggablePerson>().typeObject;
+
+            // Ищем первый элемент с указанным типом и удаляем его из сохранённых типов
+            int indexToRemove = savedPeopleTypes.IndexOf(personType);
+            if (indexToRemove >= 0)
+            {
+                audioSource.Play();
+                currentPeopleCount--;
+
+                // Удаляем найденный тип из списка и сохраняем изменения
+                savedPeopleTypes.RemoveAt(indexToRemove);
+                SavePeopleTypes(savedPeopleTypes);
+
+                PlayerPrefs.SetInt(SavedPeopleKey, currentPeopleCount);
+                PlayerPrefs.Save();
+
+                // Обновляем панель
+                UpdatePanel();
+            }
+            else
+            {
+                Debug.Log("Человечек не найден в сохранённых типах.");
+            }
         }
         else
         {
-            panelIsFull.gameObject.SetActive(false);
+            Debug.Log("На панели нет человечков для удаления.");
         }
     }
 
-    public static void SavePeople(int PeopleCount)
-    {
-        if (PlayerPrefs.GetInt(SavedPeopleKey, 0) + PeopleCount >= 5)
-
-            PlayerPrefs.SetInt(SavedPeopleKey, 5);
-        else
-            PlayerPrefs.SetInt(SavedPeopleKey, PlayerPrefs.GetInt(SavedPeopleKey, 0) + PeopleCount);
-        PlayerPrefs.Save();
-    }
-    public static void AddPeople()
-    {
-        var PeopleCount = PlayerPrefs.GetInt(SavedPeopleKey, 0);
-        PeopleCount++;
-        SavePeople(PeopleCount);
-
-    }
 
     private void LoadPeople()
     {
-        currentPeopleCount = PlayerPrefs.GetInt(SavedPeopleKey, 0); // Загружаем, если данных нет, начнём с 0
+        currentPeopleCount = PlayerPrefs.GetInt(SavedPeopleKey, 0);
+        savedPeopleTypes = LoadPeopleTypes();
+    }
+
+    private static List<TypeObject> LoadPeopleTypes()
+    {
+        string typesString = PlayerPrefs.GetString(SavedPeopleTypesKey, "");
+        List<TypeObject> types = new List<TypeObject>();
+
+        if (!string.IsNullOrEmpty(typesString))
+        {
+            string[] typeStrings = typesString.Split(',');
+            foreach (var typeString in typeStrings)
+            {
+                if (System.Enum.TryParse(typeString, out TypeObject type))
+                {
+                    types.Add(type);
+                }
+            }
+        }
+
+        return types;
+    }
+
+    private static void SavePeopleTypes(List<TypeObject> types)
+    {
+        string typesString = string.Join(",", types);
+        PlayerPrefs.SetString(SavedPeopleTypesKey, typesString);
     }
 }

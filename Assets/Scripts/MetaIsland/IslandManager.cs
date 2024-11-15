@@ -13,6 +13,7 @@ public class IslandManager : MonoBehaviour
     public PlayerWallet playerWallet;
     public Button GoToLevelButton;
     public TextMeshProUGUI LevelText;
+    public OfflineIncome incomePanel;
 
     public static IslandManager Instance;
 

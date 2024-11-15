@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool vibrations;
     public bool sounds;
     public bool musics;
+    public bool hasShownIncomePanel = false;
     public static GameManager Instance
     {
         get; set;
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        hasShownIncomePanel = true;
     }
     private void Start()
     {
@@ -151,5 +153,11 @@ public class GameManager : MonoBehaviour
         }
 
         SetMusic(musics);
+    }
+
+
+    private void OnApplicationQuit()
+    {
+        hasShownIncomePanel = false;
     }
 }

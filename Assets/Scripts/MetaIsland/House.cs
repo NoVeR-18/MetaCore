@@ -22,8 +22,10 @@ public class House : MonoBehaviour, IDropHandler
     public Animator animator;
     public TextMeshPro countCoinAddedText;
 
+    public static Action GetCoins;
+
     public float incomePerInterval = 1; // Прибыль за 10 секунд
-    private float incomeTimer = 4f; // Таймер для накопления прибыли
+    private float incomeTimer = 15; // Таймер для накопления прибыли
     private void Start()
     {
         if (peopleBar == null)
@@ -34,7 +36,7 @@ public class House : MonoBehaviour, IDropHandler
         CalculateOfflineIncome();
         UpdateHouseModel();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         // Таймер для онлайн-прибыли
         incomeTimer -= Time.deltaTime;
@@ -42,7 +44,7 @@ public class House : MonoBehaviour, IDropHandler
         {
             if (incomePerInterval > 0)
                 GenerateIncome();
-            incomeTimer = 4f; // Сбросить таймер на 10 секунд
+            incomeTimer = 15; // Сбросить таймер на 10 секунд
         }
     }
     private void GenerateIncome()
@@ -51,6 +53,7 @@ public class House : MonoBehaviour, IDropHandler
         countCoinAddedText.text = ((int)incomePerInterval).ToString();
         animator.SetTrigger("Show");
         Debug.Log($"Дом {houseID} принёс прибыль: {incomePerInterval}");
+        GetCoins?.Invoke();
     }
     public void IncreaseRentPrice()
     {
@@ -172,12 +175,24 @@ public class House : MonoBehaviour, IDropHandler
             TimeSpan timeAway = DateTime.Now - lastTime;
             double maxOfflineSeconds = 2 * 60 * 60; // Максимум 2 часа
             double secondsAway = Math.Min(timeAway.TotalSeconds, maxOfflineSeconds);
-            float offlineIncome = (float)(secondsAway / 10) * incomePerInterval;
+            float offlineIncome = (float)(secondsAway / 15) * incomePerInterval;
 
-            IslandManager.Instance.playerWallet.AddMoney(offlineIncome);
+            if (offlineIncome > 0)
+            {
+
+                if (GameManager.Instance.hasShownIncomePanel && secondsAway >= 20f)
+                {
+                    IslandManager.Instance.incomePanel.gameObject.SetActive(true);
+                    IslandManager.Instance.incomePanel.totalCollected += (int)offlineIncome;
+                    IslandManager.Instance.incomePanel.UpdateUI();
+                    GameManager.Instance.hasShownIncomePanel = false;
+                }
+                else
+                    IslandManager.Instance.playerWallet.AddMoney(offlineIncome);
 
 
-            Debug.Log($"Дом {houseID} принёс прибыль оффлайн: {offlineIncome}");
+                Debug.Log($"Дом {houseID} принёс прибыль оффлайн: {offlineIncome}");
+            }
         }
     }
     private void OnApplicationQuit()

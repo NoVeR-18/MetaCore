@@ -51,7 +51,7 @@ public class InteractableObject : MonoBehaviour
     {
         audioSource?.Play();
         LevelManager.Instance.ColectedPeople++;
-        SavedPeoplePanel.AddPeople();
+        SavedPeoplePanel.AddPerson(typeObject); // Добавляем тип объекта
         gameObject.transform.parent = collision.transform;
         transform.localPosition = Vector3.zero;
         var colectedPeople = GetComponentInParent<PlayerTileInteraction>().ColectedPeople;

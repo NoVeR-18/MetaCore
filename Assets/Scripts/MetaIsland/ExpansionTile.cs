@@ -25,6 +25,8 @@ public class ExpansionTile : MonoBehaviour
 
     public bool canBuildHouse = false;
     [SerializeField] private GameObject buildableIndicator;
+    [SerializeField] private GameObject blockedIndicator;
+    [SerializeField] private TextMeshPro nededLevelText;
     public House currentHouse;
 
     public List<RoadTile> roadTiles;
@@ -61,10 +63,18 @@ public class ExpansionTile : MonoBehaviour
             buyableIndicator.SetActive(false);
             buildableIndicator.SetActive(false);
             currentRoad.SetActive(false);
+            //blockedIndicator.gameObject.SetActive(false);
+
+            if (islandController.levelProgressManager.currentLevel + 1 == RequiredLevel && currentIslandLevel >= RequiredLevel)
+            {
+                blockedIndicator.gameObject.SetActive(true);
+                nededLevelText.text = RequiredLevel.ToString();
+            }
         }
         else if (currentIslandLevel == RequiredLevel && !IsUnlocked)
         {
             buyableIndicator.SetActive(true);
+            blockedIndicator.gameObject.SetActive(false);
             buildableIndicator.SetActive(false);
             currentRoad.SetActive(false);
             gameObject.SetActive(true);
@@ -72,6 +82,7 @@ public class ExpansionTile : MonoBehaviour
         else
         {
             currentRoad.SetActive(true);
+            blockedIndicator?.gameObject?.SetActive(false);
             buyableIndicator.SetActive(false);
             buildableIndicator.SetActive(canBuildHouse && !currentHouse.gameObject.activeSelf);
             IsUnlocked = true;

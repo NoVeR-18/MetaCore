@@ -6,6 +6,7 @@ public class DraggablePerson : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private CanvasGroup canvasGroup;
     private Transform originalParent;
     private RectTransform rectTransform;
+    public TypeObject typeObject;
     private Canvas parentCanvas;  // Canvas, содержащий этот объект
 
     private void Awake()
@@ -24,7 +25,6 @@ public class DraggablePerson : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         IslandManager.Instance.cameraController._canScroling = false;
         originalParent = transform.parent;
         canvasGroup.blocksRaycasts = false;
-
         // Перемещаем объект на верхний уровень в Canvas
         transform.SetParent(parentCanvas.transform);
     }

@@ -13,17 +13,20 @@ public class HouseUpgradePanel : MonoBehaviour
     public TextMeshProUGUI capacityText;          // “екст, отображающий вместимость
     public TextMeshProUGUI levelText;             // “екст, отображающий уровень домика
     public TextMeshProUGUI maxLevelText;          // “екст, отображающий максимальный уровень домика
-    public TextMeshProUGUI currentCapacityText;          // “екст, отображающий максимальный уровень домика
     public TextMeshProUGUI rentPriceUpdateText;          // “екст, отображающий максимальный уровень домика
     public TextMeshProUGUI rentPriceAwardText;          // “екст, отображающий максимальный уровень домика
-    public TextMeshProUGUI capacityPriceAwardText;          // “екст, отображающий максимальный уровень домика
-    public TextMeshProUGUI capacityPriceUpdateText;          // “екст, отображающий максимальный уровень домика
+    public Transform rentUpgradeBlock;
+    public TextMeshProUGUI rentBlockPriceText;          // “екст, отображающий максимальный уровень домика
+    public Transform rentUpgradeMax;
     public Image levelProgressBar;                // ѕрогресс-бар дл€ отображени€ уровн€
     public ExperienceTable experienceTable;
+    public TextMeshProUGUI currentCapacityText;          // “екст, отображающий максимальный уровень домика
+    public TextMeshProUGUI capacityPriceAwardText;          // “екст, отображающий максимальный уровень домика
+    public TextMeshProUGUI capacityPriceUpdateText;          // “екст, отображающий максимальный уровень домика
     public Transform CapacityUpgradeBlock;
-    public Transform rentUpgradeBlock;
-    public Transform rentUpgradeMax;
+    public TextMeshProUGUI CapacityBlockPriceText;          // “екст, отображающий максимальный уровень домика
     public TextMeshProUGUI CapacityUpgradeText;
+    public Transform CapacityUpgradeMax;
     private void Start()
     {
         UpdatePanel();
@@ -92,18 +95,47 @@ public class HouseUpgradePanel : MonoBehaviour
         // ќбновление текстовых полей на панели с информацией о домике
         if (currentHouse != null)
         {
-            rentPriceText.text = (1 + 0.01f * currentHouse.rentPriceLevel).ToString("F1"); // ќтображение цены аренды
+
             capacityText.text = currentHouse.capacity.ToString();       // ќтображение вместимости
+            rentPriceText.text = (1 + 0.01f * currentHouse.rentPriceLevel).ToString("F1"); // ќтображение цены аренды
             levelText.text = $"LVL  {currentHouse.level}";          // ќтображение текущего уровн€
             maxLevelText.text = $"LVL {experienceTable.incomeCost.Count}";           // ќтображение максимального уровн€
-            currentCapacityText.text = $"{currentHouse.currentResidents} / {currentHouse.capacity}";
             rentPriceUpdateText.text = $"{experienceTable.incomeCost[currentHouse.rentPriceLevel].x}";
             rentPriceAwardText.text = $"{experienceTable.incomeCost[currentHouse.rentPriceLevel].y}";
-            capacityPriceUpdateText.text = $"{experienceTable.capacityCost[currentHouse.capacityLevel].CostUpgrade}";
-            capacityPriceAwardText.text = $"{experienceTable.capacityCost[currentHouse.capacityLevel].AwardStarsCount}";
             // ќбновление прогресс-бара уровн€
             levelProgressBar.fillAmount = (float)currentHouse.level / experienceTable.incomeCost.Count;
 
+            if (currentHouse.capacityLevel == experienceTable.capacityCost.Count)
+            {
+                CapacityUpgradeMax.gameObject.SetActive(true);
+            }
+            else
+            {
+                currentCapacityText.text = $"{currentHouse.currentResidents} / {currentHouse.capacity}";
+                capacityPriceUpdateText.text = $"{experienceTable.capacityCost[currentHouse.capacityLevel].CostUpgrade}";
+                capacityPriceAwardText.text = $"{experienceTable.capacityCost[currentHouse.capacityLevel].AwardStarsCount}";
+                CapacityUpgradeMax.gameObject.SetActive(false);
+                var currentCost = experienceTable.capacityCost[currentHouse.capacityLevel];
+                if (currentHouse.level + 1 <= currentCost.minLevelToUpgrade)
+                {
+                    CapacityUpgradeText.text = $"Level {experienceTable.capacityCost[currentHouse.capacityLevel].minLevelToUpgrade} needed";
+                    CapacityUpgradeBlock.gameObject.SetActive(true);
+                    CapacityBlockPriceText.text = currentCost.CostUpgrade.ToString();
+                    CapacityUpgradeText.color = Color.red;
+                }
+                else if (!IslandManager.Instance.playerWallet.CanWithdrawMoney(currentCost.CostUpgrade))
+                {
+                    CapacityUpgradeBlock.gameObject.SetActive(true);
+                    CapacityBlockPriceText.text = currentCost.CostUpgrade.ToString();
+                }
+                else
+                {
+                    CapacityUpgradeBlock.gameObject.SetActive(false);
+                    CapacityUpgradeText.text = "Increases the amount of income";
+                    CapacityUpgradeText.color = new Color(118, 90, 42, 90);
+
+                }
+            }
             if (currentHouse.level >= experienceTable.incomeCost.Count)
             {
                 rentUpgradeMax.gameObject.SetActive(true);
@@ -114,32 +146,23 @@ public class HouseUpgradePanel : MonoBehaviour
             if (!IslandManager.Instance.playerWallet.CanWithdrawMoney(experienceTable.incomeCost[currentHouse.rentPriceLevel].x))
             {
                 rentUpgradeBlock.gameObject.SetActive(true);
+                rentBlockPriceText.text = experienceTable.incomeCost[currentHouse.rentPriceLevel].x.ToString();
             }
             else
             {
                 rentUpgradeBlock.gameObject.SetActive(false);
             }
-            var currentCost = experienceTable.capacityCost[currentHouse.capacityLevel];
-            if (currentHouse.level + 1 <= currentCost.minLevelToUpgrade)
-            {
-                CapacityUpgradeText.text = $"Level {experienceTable.capacityCost[currentHouse.capacityLevel].minLevelToUpgrade} needed";
-                CapacityUpgradeBlock.gameObject.SetActive(true);
-                CapacityUpgradeText.color = Color.red;
-            }
-            else if (!IslandManager.Instance.playerWallet.CanWithdrawMoney(currentCost.CostUpgrade))
-            {
-                CapacityUpgradeBlock.gameObject.SetActive(true);
-            }
-            else
-            {
-                CapacityUpgradeBlock.gameObject.SetActive(false);
-                CapacityUpgradeText.text = "Increases the amount of income";
-                CapacityUpgradeText.color = new Color(118, 90, 42, 90);
-
-            }
-
 
         }
+    }
+
+    private void OnEnable()
+    {
+        House.GetCoins += UpdatePanel;
+    }
+    private void OnDisable()
+    {
+        House.GetCoins -= UpdatePanel;
     }
 
     public void CloseTab()
