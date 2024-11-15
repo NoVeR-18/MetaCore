@@ -22,6 +22,7 @@ public class DraggablePerson : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        TutorialMeta.Instance.StartDrag();
         IslandManager.Instance.cameraController._canScroling = false;
         originalParent = transform.parent;
         canvasGroup.blocksRaycasts = false;
@@ -56,11 +57,12 @@ public class DraggablePerson : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             {
                 SavedPeoplePanel savedPeoplePanel = FindObjectOfType<SavedPeoplePanel>();
                 savedPeoplePanel.RemovePerson(gameObject);
+                TutorialMeta.Instance.EndDrag();
                 Destroy(gameObject);
                 return;
             }
         }
-
+        TutorialMeta.Instance.UpgradeRent();
         // Если домик не найден, возвращаем в исходное место
         transform.SetParent(originalParent);
         transform.localPosition = Vector3.zero;  // Возвращаем на исходную позицию в родительском объекте

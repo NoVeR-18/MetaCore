@@ -27,6 +27,10 @@ public class HouseUpgradePanel : MonoBehaviour
     public TextMeshProUGUI CapacityBlockPriceText;          // “екст, отображающий максимальный уровень домика
     public TextMeshProUGUI CapacityUpgradeText;
     public Transform CapacityUpgradeMax;
+
+    public Animator CapacityGetStars;
+    public Animator RentGetStars;
+
     private void Start()
     {
         UpdatePanel();
@@ -54,6 +58,8 @@ public class HouseUpgradePanel : MonoBehaviour
                 levelProgressManager.AddExperience(experienceTable.incomeCost[currentHouse.rentPriceLevel].y);
                 OnUpgradeHouseButton();
                 UpdatePanel();
+                RentGetStars.SetTrigger("StarsGet");
+                TutorialMeta.Instance.UpgradeRent();
             }
             else
             {
@@ -73,6 +79,7 @@ public class HouseUpgradePanel : MonoBehaviour
                 currentHouse.IncreaseCapacity(currentLevel.PlaceCount);
                 levelProgressManager.AddExperience(currentLevel.AwardStarsCount);
                 UpdatePanel();
+                CapacityGetStars.SetTrigger("StarsGet");
             }
             else
             {

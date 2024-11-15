@@ -109,6 +109,8 @@ public class ExpansionTile : MonoBehaviour
         if (rightNeighbor != null)
             if (rightNeighbor.IsUnlocked)
                 rightNeighbor.UpdateRoadPrefab();
+        GetComponent<BoxCollider>().enabled = false;
+
     }
 
     public void UpdateRoadPrefab()
@@ -193,12 +195,13 @@ public class ExpansionTile : MonoBehaviour
             currentHouse.gameObject.SetActive(true);
             Debug.Log($"Домик построен на {transform.position}.");
             buildableIndicator.SetActive(false);
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 
     private void OnMouseDown()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.tutorialCompleted)
         {
             return;
         }

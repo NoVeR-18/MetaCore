@@ -5,12 +5,15 @@ public class GameManager : MonoBehaviour
     private const string VibrationPrefKey = "VibrationEnabled";
     private const string SoundsPrefKey = "SoundsEnabled";
     private const string MusicsPrefKey = "MusicEnabled";
+    private const string TutorialPrefKey = "TutorialEnabled";
     public string currentScene;
     public AudioMixer audioMixer;
     public bool vibrations;
     public bool sounds;
     public bool musics;
     public bool hasShownIncomePanel = false;
+    public bool tutorialCompleted = true;
+
     public static GameManager Instance
     {
         get; set;
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
         LoadVibrationSettings();
         LoadSoundSettings();
         LoadMusicSettings();
+        LoadTutorial();
     }
     private void LoadVibrationSettings()
     {
@@ -153,6 +157,26 @@ public class GameManager : MonoBehaviour
         }
 
         SetMusic(musics);
+    }
+    private void LoadTutorial()
+    {
+        if (PlayerPrefs.HasKey(TutorialPrefKey))
+        {
+            tutorialCompleted = PlayerPrefs.GetInt(TutorialPrefKey) == 0;
+        }
+        else
+        {
+            tutorialCompleted = false;
+        }
+        SetTutorial(tutorialCompleted);
+    }
+
+    public void SetTutorial(bool enabled)
+    {
+        tutorialCompleted = enabled;
+
+        PlayerPrefs.SetInt(TutorialPrefKey, tutorialCompleted ? 0 : 1);
+        PlayerPrefs.Save();
     }
 
 

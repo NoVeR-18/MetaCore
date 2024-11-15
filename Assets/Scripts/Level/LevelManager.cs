@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     public Button GoToIslandButton;
     public Button ResetButton;
 
+    public ParticleSystem smallVictory;
 
     public static LevelManager Instance;
     [SerializeField] private int currentLevel = 1;
@@ -96,6 +97,7 @@ public class LevelManager : MonoBehaviour
     {
         PlayerPrefs.SetInt(LevelName, currentLevel + 1);
         PlayerPrefs.Save();
+        smallVictory.Play();
         if (currentLevel % 5 == 0)
         {
             SetVictory();
@@ -134,6 +136,7 @@ public class LevelManager : MonoBehaviour
         CurrentCrystal.text = ColectedCrystal.ToString();
         CurrentPeople.text = ColectedPeople.ToString();
         VictoryPopUp.gameObject.SetActive(true);
+        TutorialCore.Instance.CompleteLevel();
         ColectedCoins = 0;
         ColectedCrystal = 0;
         ColectedPeople = 0;

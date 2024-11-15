@@ -35,6 +35,7 @@ public class House : MonoBehaviour, IDropHandler
         incomePerInterval = currentResidents * (1 + 0.01f * level);
         CalculateOfflineIncome();
         UpdateHouseModel();
+        TutorialMeta.Instance.BuildHouse();
     }
     private void FixedUpdate()
     {
@@ -158,13 +159,14 @@ public class House : MonoBehaviour, IDropHandler
 
     private void OnMouseDown()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.tutorialCompleted)
         {
             return;
         }
         IslandManager.Instance.houseUpgradePanel.SetCurrentHouse(this);
         IslandManager.Instance.houseUpgradePanel.gameObject.SetActive(true);
         IslandManager.Instance.cameraController.FocusOnObject(transform);
+        TutorialMeta.Instance.UpgradeHouse();
     }
     private void CalculateOfflineIncome()
     {
