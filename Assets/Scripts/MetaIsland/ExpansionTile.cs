@@ -109,7 +109,8 @@ public class ExpansionTile : MonoBehaviour
         if (rightNeighbor != null)
             if (rightNeighbor.IsUnlocked)
                 rightNeighbor.UpdateRoadPrefab();
-        GetComponent<BoxCollider>().enabled = false;
+        if (!canBuildHouse)
+            GetComponent<BoxCollider>().enabled = false;
 
     }
 
