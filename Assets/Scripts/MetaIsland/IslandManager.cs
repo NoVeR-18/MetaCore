@@ -39,7 +39,6 @@ public class IslandManager : MonoBehaviour
             SceneManager.LoadScene("CoreScene");
             TutorialMeta.Instance.PlayLevel();
         });
-        YsoCorp.GameUtils.YCManager.instance.OnGameStarted(0);
         LevelText.text = $"LEVEL {PlayerPrefs.GetInt(LevelName, 1) + PlayerPrefs.GetInt(LevelName, 1) * PlayerPrefs.GetInt(LevelMulltiplayer, 0)}";
     }
 }
