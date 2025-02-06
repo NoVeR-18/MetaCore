@@ -25,7 +25,9 @@ public class SkinManager : MonoBehaviour
 
         if (playerSkins[skinIndex].isPurchased)
         {
-            playerSkinController.SetPlayerModel(playerSkins[skinIndex].modelPrefab);
+            playerSkinController = FindAnyObjectByType<PlayerSkinController>();
+            if (playerSkinController != null)
+                playerSkinController.SetPlayerModel(playerSkins[skinIndex].modelPrefab);
             selectedSkinIndex = skinIndex;
             SaveSkins();
         }

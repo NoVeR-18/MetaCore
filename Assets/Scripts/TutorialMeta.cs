@@ -48,7 +48,7 @@ public class TutorialMeta : MonoBehaviour
             else
             {
                 BuildTutorial.gameObject.SetActive(true);
-                BlurToPlay.gameObject.SetActive(true);
+                BlurToDragPeople.gameObject.SetActive(true);
             }
         }
         else

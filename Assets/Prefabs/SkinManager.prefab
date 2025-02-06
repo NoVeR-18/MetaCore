@@ -50,11 +50,6 @@ MonoBehaviour:
     previewIcon: {fileID: 21300000, guid: a37566e74937a6c4b83a0eb99c2f894f, type: 3}
     price: 0
     isPurchased: 1
-  - skinID: wreck
-    modelPrefab: {fileID: 1804779143594489226, guid: 06f861e8ed6cc7043bacb890a1a861e7, type: 3}
-    previewIcon: {fileID: 21300000, guid: d977b3446a4e27f4797dee887e2ddb7c, type: 3}
-    price: 0
-    isPurchased: 0
   - skinID: duck
     modelPrefab: {fileID: 1295867521575830433, guid: 17b981fe3de37114ea43aa6663bb0b98, type: 3}
     previewIcon: {fileID: 21300000, guid: 42926affd3ce92543913ffb093134395, type: 3}
@@ -68,6 +63,61 @@ MonoBehaviour:
   - skinID: inflate
     modelPrefab: {fileID: 8581746832633058916, guid: db203176867e24049927cc40b2a0e8e3, type: 3}
     previewIcon: {fileID: 21300000, guid: 0bda3452147de224a924f960c4afa9c7, type: 3}
+    price: 0
+    isPurchased: 0
+  - skinID: Boat
+    modelPrefab: {fileID: 7074905136570216705, guid: 61738fe58c7482043844a1fb61808010, type: 3}
+    previewIcon: {fileID: 21300000, guid: 917500bc0b927d1488fd20df21467b41, type: 3}
+    price: 0
+    isPurchased: 0
+  - skinID: Aero
+    modelPrefab: {fileID: -5341877359353155807, guid: d3abd467797ef964c8c4a6fe7ebed401, type: 3}
+    previewIcon: {fileID: 21300000, guid: 7e9ea19d362d4f2459326694b40e49a8, type: 3}
+    price: 0
+    isPurchased: 0
+  - skinID: Cuter
+    modelPrefab: {fileID: 643331608793890594, guid: 2edc72c920ddfce49ba5d1dba45c23f4, type: 3}
+    previewIcon: {fileID: 21300000, guid: 510881bef6ed54848baa805ba6dfa4c0, type: 3}
+    price: 0
+    isPurchased: 0
+  - skinID: Drakkar
+    modelPrefab: {fileID: -682971221988413694, guid: 9dde911e63953e141864ba6cc4190fb9, type: 3}
+    previewIcon: {fileID: 21300000, guid: d977b3446a4e27f4797dee887e2ddb7c, type: 3}
+    price: 0
+    isPurchased: 0
+  - skinID: Liner
+    modelPrefab: {fileID: 7228355458380699556, guid: 2a72adde90cff76448cc17cb62e9e770, type: 3}
+    previewIcon: {fileID: 21300000, guid: 799f854e56053ad4299c68baab6df112, type: 3}
+    price: 0
+    isPurchased: 0
+  - skinID: Sponge
+    modelPrefab: {fileID: 3403107120788159907, guid: 401dcc721595b3f4b8e4066e76b9844b, type: 3}
+    previewIcon: {fileID: 21300000, guid: a0a0557f805ac0c44bb845022caf6424, type: 3}
+    price: 0
+    isPurchased: 0
+  - skinID: Swift
+    modelPrefab: {fileID: 3332979310021738832, guid: 3b0dbaa6b9d79224bb5e08dafdda5b37, type: 3}
+    previewIcon: {fileID: 21300000, guid: 3effdfc25b3ead44e9574349c87c6bba, type: 3}
+    price: 0
+    isPurchased: 0
+  - skinID: Manta
+    modelPrefab: {fileID: -6820204595262911625, guid: d3744379c5ab45f49b8d3d6c0ed5b6bf, type: 3}
+    previewIcon: {fileID: 21300000, guid: ef601367cc02b59418dd4d1a33270122, type: 3}
+    price: 0
+    isPurchased: 0
+  - skinID: Turtle
+    modelPrefab: {fileID: -4323845188300726445, guid: c99284d3b51f60d4bbe4549a85d24658, type: 3}
+    previewIcon: {fileID: 21300000, guid: 5959f63e7dc76794f8d69038ec0b7e1a, type: 3}
+    price: 0
+    isPurchased: 0
+  - skinID: Canoe
+    modelPrefab: {fileID: -4663064429858666509, guid: eb88c3a903845614ab711b61a5688ca4, type: 3}
+    previewIcon: {fileID: 21300000, guid: a6470bbc0b400874badae3918d37d789, type: 3}
+    price: 0
+    isPurchased: 0
+  - skinID: Submarine
+    modelPrefab: {fileID: -151110612871223490, guid: 8ed0b53861910464e96a8cffedc82f4c, type: 3}
+    previewIcon: {fileID: 21300000, guid: dab92b29f365c8e459773e19e1d6ed36, type: 3}
     price: 0
     isPurchased: 0
   playerSkinController: {fileID: 0}

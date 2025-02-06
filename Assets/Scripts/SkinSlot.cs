@@ -6,6 +6,7 @@ public class SkinSlot : MonoBehaviour
 {
     public GameObject lockedPanel;
     public GameObject unselectedPanel;
+    public GameObject selectedPanel;
     public Image PreviewUnselectedIcon;
     public Image PreviewSelectedIcon;
     public TextMeshProUGUI coastText;
@@ -21,7 +22,7 @@ public class SkinSlot : MonoBehaviour
 
     public void SetPurchased()
     {
-        //selectButton.gameObject.SetActive(false);
+        selectedPanel.gameObject.SetActive(false);
         lockedPanel.SetActive(false);
         unselectedPanel.SetActive(true);
     }
@@ -30,6 +31,6 @@ public class SkinSlot : MonoBehaviour
     {
         lockedPanel.SetActive(false);
         unselectedPanel.SetActive(true);
-        selectButton.gameObject.SetActive(true);
+        selectedPanel.SetActive(true);
     }
 }

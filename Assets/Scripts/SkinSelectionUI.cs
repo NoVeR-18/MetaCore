@@ -8,12 +8,16 @@ public class SkinSelectionUI : MonoBehaviour
     public Button closeButton;
     public Button openButton;
     public Button takeADSCrystalButton;
-
+    public Animator animator;
+    public Button rightSwapButton;
+    public Button leftSwapButton;
+    private const string openFirstPage = "first";
+    private const string openSecondPage = "second";
     public List<SkinSlot> skinSlots;
 
     private void Awake()
     {
-        //openButton.onClick.AddListener(() => popupPanel.SetActive(true));
+        openButton.onClick.AddListener(() => popupPanel.SetActive(true));
         closeButton.onClick.AddListener(() => popupPanel.SetActive(false));
     }
 
@@ -40,6 +44,8 @@ public class SkinSelectionUI : MonoBehaviour
         });
 
         InitializeSlots();
+        leftSwapButton.onClick.AddListener(() => { animator.SetTrigger(openFirstPage); });
+        rightSwapButton.onClick.AddListener(() => { animator.SetTrigger(openSecondPage); });
     }
 
     private void InitializeSlots()

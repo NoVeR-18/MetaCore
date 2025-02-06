@@ -1435,6 +1435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedPanel: {fileID: 2369648334111923519}
   unselectedPanel: {fileID: 6978361064689322549}
+  selectedPanel: {fileID: 1210520630438678800}
   PreviewUnselectedIcon: {fileID: 5833076748550495746}
   PreviewSelectedIcon: {fileID: 5833076748550495746}
   coastText: {fileID: 4752465277705800369}
