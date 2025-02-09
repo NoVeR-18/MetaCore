@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44527698, g: 0.49457747, b: 0.5728513, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1772,7 +1772,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 92410205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1780,7 +1780,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -12}
+  m_AnchoredPosition: {x: 0, y: -36}
   m_SizeDelta: {x: 850, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &92410207
@@ -1805,8 +1805,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PLAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 03eb706e25845e040917a7551c274665, type: 2}
-  m_sharedMaterial: {fileID: 427559910395697889, guid: 03eb706e25845e040917a7551c274665, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 37764ee537f2a344e8bec90269dbf48b, type: 2}
+  m_sharedMaterial: {fileID: 427559910395697889, guid: 37764ee537f2a344e8bec90269dbf48b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6801,7 +6801,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!1001 &367462395
 PrefabInstance:
@@ -15868,7 +15868,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!1001 &823849912
 PrefabInstance:
@@ -22744,7 +22744,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!1001 &1214292862
 PrefabInstance:
@@ -27305,7 +27305,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!1001 &1363735656
 PrefabInstance:
@@ -29730,7 +29730,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 102}
+  m_AnchoredPosition: {x: 0, y: 87}
   m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1475602667
@@ -29755,15 +29755,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: level 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 03eb706e25845e040917a7551c274665, type: 2}
-  m_sharedMaterial: {fileID: 427559910395697889, guid: 03eb706e25845e040917a7551c274665, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 37764ee537f2a344e8bec90269dbf48b, type: 2}
+  m_sharedMaterial: {fileID: 427559910395697889, guid: 37764ee537f2a344e8bec90269dbf48b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255566
-  m_fontColor: {r: 0.8066052, g: 1, b: 0, a: 1}
+    rgba: 4278321140
+  m_fontColor: {r: 0.958665, g: 1, b: 0.0039215684, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -29780,8 +29780,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 90
-  m_fontSizeBase: 90
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -37954,6 +37954,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -270
       objectReference: {fileID: 0}
+    - target: {fileID: 4384868119153462118, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
+      objectReference: {fileID: 0}
     - target: {fileID: 4417479042138107994, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -39367,6 +39371,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2072048679785847406, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5154977825849257644, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 512362408870691124, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -39379,6 +39386,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7032864471332526812, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
       insertIndex: -1
       addedObject: {fileID: 819799066}
+    - targetCorrespondingSourceObject: {fileID: 4494606227939021457, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 8811199717722140182, guid: e72d0876ee8bf2c4180ea06e7ffad878, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -41909,7 +41919,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!1001 &1894693291
 PrefabInstance:
@@ -49578,8 +49588,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6870340463202973519}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000035391895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -49588,7 +49598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 377, y: 168}
+  m_AnchoredPosition: {x: 377, y: 168.00006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1993878861992927229
@@ -51476,7 +51486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -860.62964, y: 1689.5227}
+  m_AnchoredPosition: {x: -860.6296, y: 1689.5227}
   m_SizeDelta: {x: 3155.711, y: 3379.0437}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &4022128522369289875
@@ -51877,7 +51887,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!224 &4369146004238350759
 RectTransform:
